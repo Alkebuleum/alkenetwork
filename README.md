@@ -1,6 +1,6 @@
 # Alké Network
 
-Landing site for Alké Network — an institutionally governed distributed ledger network.
+Landing site for Alké Network — Africa's institutional network for the digital-asset economy.
 Built with React + Vite, deployed to GitHub Pages at [alke.network](https://alke.network).
 
 ## Development
@@ -23,7 +23,11 @@ Pushes to `main` build and deploy automatically via `.github/workflows/deploy.ym
 
 ## Structure
 
+The homepage covers exactly four things: the problem, the solution, who's behind it, and how to
+apply. Deeper technical detail (network architecture, tokens, validators, every use case) belongs
+on inner pages, not the homepage.
+
 - `src/components/` — header, hero, and page-section components
-- `src/pages/Landing.jsx` — composes the one-page landing site
-- `src/App.jsx` — routes (landing page + placeholder pages for links not yet built out)
-- `design-reference/` — original static HTML mockup this app was built from
+- `src/pages/Landing.jsx` — composes the one-page landing site (Hero → Problem → Solution → Founding Council)
+- `src/App.jsx` — routes (landing page + placeholder pages for inner content not yet built out)
+- `design-reference/` — static HTML mockups this app was built from

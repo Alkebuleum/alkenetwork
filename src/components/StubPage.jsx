@@ -3,13 +3,13 @@ import Mark from "./Mark";
 
 export default function StubPage({ title, description }) {
   return (
-    <section className="steward stub-page">
-      <div className="wrap inner reveal in">
+    <section className="stub">
+      <div className="wrap stub-inner">
         <Mark />
-        <span className="eyebrow">Coming soon</span>
+        <p className="eyebrow">Coming soon</p>
         <h2>{title}</h2>
         <p>{description}</p>
-        <Link className="textlink" to="/">
+        <Link className="btn-ghost" to="/">
           ← Back to Alké Network
         </Link>
       </div>

@@ -6,12 +6,12 @@ import Landing from "./pages/Landing";
 import StubPage from "./components/StubPage";
 
 const STUBS = [
-  { path: "/institutional-brief", title: "Institutional Brief", description: "A detailed brief on Alké Network's governance model, technical architecture and participation pathway for institutions is being finalized." },
-  { path: "/apply", title: "Apply as a Founding Member", description: "The Founding Council application is being prepared. Reach out to the Alkebuleum Foundation in the meantime to start an introductory conversation." },
-  { path: "/founding-council", title: "Founding Council", description: "Full details on Founding Council structure, responsibilities and selection criteria are coming soon." },
-  { path: "/global-infrastructure", title: "The Global Infrastructure Shift", description: "An overview of how institutions worldwide — via Project Agorá, Swift, Partior and Canton Network — are building shared digital rails is coming soon." },
-  { path: "/technology", title: "Technology", description: "Technical documentation on the Alké Network ledger, identity and settlement layers is coming soon." },
-  { path: "/foundation", title: "The Alkebuleum Foundation", description: "More on the Alkebuleum Foundation's mission and stewardship of Alké Network is coming soon." },
+  {
+    path: "/network",
+    title: "How the Network Works",
+    description:
+      "Technical detail on PORA, validators, the ALKE token and network architecture is being finalized as a dedicated inner page.",
+  },
 ];
 
 function ScrollToTop() {
@@ -27,13 +27,15 @@ export default function App() {
     <>
       <ScrollToTop />
       <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        {STUBS.map(({ path, title, description }) => (
-          <Route key={path} path={path} element={<StubPage title={title} description={description} />} />
-        ))}
-        <Route path="*" element={<StubPage title="Page not found" description="The page you're looking for doesn't exist." />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          {STUBS.map(({ path, title, description }) => (
+            <Route key={path} path={path} element={<StubPage title={title} description={description} />} />
+          ))}
+          <Route path="*" element={<StubPage title="Page not found" description="The page you're looking for doesn't exist." />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   );
