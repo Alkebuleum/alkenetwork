@@ -1,21 +1,9 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Mark from "./Mark";
 
 export default function Header() {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const hdr = ref.current;
-    function onScroll() {
-      hdr.classList.toggle("scrolled", scrollY > innerHeight * 0.55);
-    }
-    addEventListener("scroll", onScroll, { passive: true });
-    return () => removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <header id="hdr" ref={ref}>
+    <header>
       <div className="wrap nav">
         <a className="logo" href="#top" aria-label="Alké Network home">
           <Mark />
