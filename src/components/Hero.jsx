@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import HeroNetwork from "./HeroNetwork";
 
 export default function Hero() {
   return (
     <div className="hero" id="top">
-      <img className="hero-globe" src="/hero-globe.svg" alt="" aria-hidden="true" />
+      <HeroNetwork />
 
       <div className="hero-scrim" aria-hidden="true"></div>
 
@@ -35,13 +36,7 @@ export default function Hero() {
           Shared digital rails, <em>governed by trusted institutions.</em>
         </h1>
 
-        <p className="lede stage s3">
-          Alké Network is an institutionally governed distributed ledger where banks and public
-          institutions can test tokenized assets, stablecoins, digital identity and cross-border
-          settlement before live deployment.
-        </p>
-
-        <div className="hero-ctas stage s4">
+        <div className="hero-ctas stage s3">
           <a className="btn btn-primary" href="#council">
             Apply to Join the Founding Council
           </a>
