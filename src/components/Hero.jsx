@@ -32,11 +32,15 @@ export default function Hero() {
 
         <span className="eyebrow stage s1">Institutionally Governed Digital-Asset Network</span>
 
-        <h1 className="stage s2">
-          Shared digital rails, <em>governed by trusted institutions.</em>
-        </h1>
+        <h1 className="stage s2">The institutional trust network for the digital economy.</h1>
 
-        <div className="hero-ctas stage s3">
+        <p className="lede stage s3">
+          Alké Network is a shared, institutionally governed distributed ledger for trusted
+          identity, verifiable credentials, critical records, tokenized assets, stablecoins, and
+          secure cross-border transactions.
+        </p>
+
+        <div className="hero-ctas stage s4">
           <a className="btn btn-primary" href="#council">
             Apply to Join the Founding Council
           </a>

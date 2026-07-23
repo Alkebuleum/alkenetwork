@@ -25,9 +25,9 @@ export default function Header() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Primary">
-          <a href="#network">Network</a>
+          <a href="#problem">The problem</a>
+          <a href="#solution">The network</a>
           <a href="#council">Founding Council</a>
-          <a href="#steward">Stewardship</a>
           <Link to="/institutional-brief">Institutional Brief</Link>
         </nav>
         <a className="btn btn-primary" href="#council">

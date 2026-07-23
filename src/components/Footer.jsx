@@ -18,7 +18,8 @@ export default function Footer() {
           </div>
           <nav className="foot-links" aria-label="Network">
             <span className="h">Network</span>
-            <a href="#network">Network</a>
+            <a href="#problem">The problem</a>
+            <a href="#solution">The network</a>
             <a href="#council">Founding Council</a>
             <a href="#steward">Stewardship</a>
           </nav>

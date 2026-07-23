@@ -1,7 +1,6 @@
 import Hero from "../components/Hero";
-import FoundingPhase from "../components/FoundingPhase";
-import WhyJoinNow from "../components/WhyJoinNow";
-import ProofStrip from "../components/ProofStrip";
+import Problem from "../components/Problem";
+import Solution from "../components/Solution";
 import FoundingCouncil from "../components/FoundingCouncil";
 import Stewardship from "../components/Stewardship";
 import useScrollReveal from "../hooks/useScrollReveal";
@@ -12,9 +11,8 @@ export default function Landing() {
   return (
     <>
       <Hero />
-      <FoundingPhase />
-      <WhyJoinNow />
-      <ProofStrip />
+      <Problem />
+      <Solution />
       <FoundingCouncil />
       <Stewardship />
     </>
