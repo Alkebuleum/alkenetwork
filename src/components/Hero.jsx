@@ -1,58 +1,66 @@
 import { Link } from "react-router-dom";
-import HeroNetwork from "./HeroNetwork";
 
 export default function Hero() {
   return (
     <div className="hero" id="top">
-      <HeroNetwork />
-
-      <div className="hero-scrim" aria-hidden="true"></div>
-
-      <div className="hero-content">
-        <div className="lockup" aria-label="Alké Network">
-          <svg className="lockup-mark" viewBox="0 0 100 100" aria-hidden="true">
-            <path className="stroke link" d="M37 31 L65 42 L38 63 L37 31" pathLength="1" />
-            <path className="stroke spoke" d="M37 31 L19.5 19.5" pathLength="1" />
-            <path className="stroke spoke" d="M37 31 L50 6.5" pathLength="1" />
-            <path className="stroke spoke" d="M65 42 L80.5 19.5" pathLength="1" />
-            <path className="stroke spoke" d="M65 42 L93.5 50" pathLength="1" />
-            <path className="stroke spoke" d="M38 63 L19.5 80.5" pathLength="1" />
-            <path className="stroke spoke" d="M38 63 L50 93.5" pathLength="1" />
-            <circle className="stroke ring" cx="50" cy="50" r="44" pathLength="1" />
-            <circle className="node n1" cx="37" cy="31" r="7" />
-            <circle className="node n2" cx="65" cy="42" r="7" />
-            <circle className="node n3" cx="38" cy="63" r="7" />
-          </svg>
-          <span className="lockup-rule"></span>
-          <span className="lockup-word">
-            <span className="alke">alké</span>
-            <span className="net">NETWORK</span>
-          </span>
+      <div className="wrap hero-grid">
+        <div>
+          <div className="status-line stage s1">
+            <span className="pulse"></span>
+            <span className="tag">Founding Phase — Open</span>
+          </div>
+          <h1 className="stage s2">
+            The digital-asset rail African institutions govern together.
+          </h1>
+          <p className="lede stage s3">
+            Alké Network is an institutionally governed ledger for identity, verifiable
+            credentials, tokenized assets, and cross-border settlement — built and tested with
+            the institutions that will run it, before it carries a single live transaction.
+          </p>
+          <div className="hero-ctas stage s4">
+            <a className="btn btn-primary" href="#council">
+              Apply to the Founding Council
+            </a>
+            <Link className="btn btn-secondary" to="/institutional-brief">
+              Read the Institutional Brief
+            </Link>
+          </div>
+          <p className="micro stage s4">
+            Applications open an introductory conversation — no commitment.
+          </p>
         </div>
-
-        <span className="eyebrow stage s1">Institutionally Governed Digital-Asset Network</span>
-
-        <h1 className="stage s2">The institutional trust network for the digital economy.</h1>
-
-        <p className="lede stage s3">
-          Alké Network is a shared, institutionally governed distributed ledger for trusted
-          identity, verifiable credentials, critical records, tokenized assets, stablecoins, and
-          secure cross-border transactions.
-        </p>
-
-        <div className="hero-ctas stage s4">
-          <a className="btn btn-primary" href="#council">
-            Apply to Join the Founding Council
-          </a>
-          <Link className="btn btn-secondary" to="/institutional-brief">
-            View Institutional Brief
-          </Link>
+        <div className="hero-aside stage s4">
+          <div className="k">Why now</div>
+          <p>
+            Central banks and commercial institutions are already piloting shared ledgers for
+            settlement — Project Agorá, Partior, Canton Network. The Founding Phase is where
+            Alké Network's standards get written, before deployment, by the institutions that
+            will depend on them.
+          </p>
         </div>
       </div>
 
-      <div className="scroll-cue" aria-hidden="true">
-        <span>SCROLL</span>
-        <div className="track"></div>
+      <div className="ledger" id="network">
+        <div className="wrap" style={{ padding: 0 }}>
+          <div className="ledger-row">
+            <div className="ledger-cell">
+              <div className="k">Current stage</div>
+              <div className="v">Founding Council formation</div>
+            </div>
+            <div className="ledger-cell">
+              <div className="k">Participation</div>
+              <div className="v">Africa &amp; the Diaspora</div>
+            </div>
+            <div className="ledger-cell">
+              <div className="k">Institutional focus</div>
+              <div className="v">Identity · Records · Settlement</div>
+            </div>
+            <div className="ledger-cell">
+              <div className="k">Stewardship</div>
+              <div className="v">Alkebuleum Foundation</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

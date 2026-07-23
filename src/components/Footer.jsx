@@ -14,7 +14,9 @@ export default function Footer() {
                 <span className="net">NETWORK</span>
               </span>
             </a>
-            <p className="desc">Institutionally governed distributed ledger infrastructure.</p>
+            <p className="desc">
+              Institutionally governed digital-asset infrastructure for Africa and the Diaspora.
+            </p>
           </div>
           <nav className="foot-links" aria-label="Network">
             <span className="h">Network</span>

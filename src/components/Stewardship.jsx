@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
-import Mark from "./Mark";
 
 export default function Stewardship() {
   return (
-    <section className="steward" id="steward">
-      <div className="wrap inner reveal">
-        <Mark />
-        <h2>Stewarded by the Alkebuleum Foundation</h2>
+    <div className="wrap">
+      <div className="steward-strip reveal" id="steward">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" stroke="currentColor" strokeWidth="4" fill="none" />
+          <circle cx="50" cy="50" r="6" fill="currentColor" />
+        </svg>
         <p>
-          The Alkebuleum Foundation supports the formation of Alké Network as public-interest
-          digital infrastructure for trusted institutions.
+          <b>Stewarded by the Alkebuleum Foundation</b> — public-interest infrastructure for
+          trusted institutions, independently governed by the Founding Council it convenes.
         </p>
         <Link className="textlink" to="/foundation">
           About the Foundation →
         </Link>
       </div>
-    </section>
+    </div>
   );
 }
