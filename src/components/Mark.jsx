@@ -1,7 +1,7 @@
 // Shared network-mark icon: circle + triangle "link" + spokes + nodes.
-export default function Mark({ className }) {
+export default function Mark({ className, ...rest }) {
   return (
-    <svg className={className} viewBox="0 0 100 100" aria-hidden="true">
+    <svg className={className} viewBox="0 0 100 100" aria-hidden="true" {...rest}>
       <g stroke="currentColor" strokeWidth="5.5" strokeLinecap="round" fill="none">
         <circle cx="50" cy="50" r="44" strokeWidth="6" />
         <path d="M37 31 L65 42 M65 42 L38 63 M38 63 L37 31" />

@@ -10,12 +10,12 @@ export default function Hero() {
             <span className="tag">Founding Phase — Open</span>
           </div>
           <h1 className="stage s2">
-            The digital-asset rail African institutions govern together.
+            Shared institutional trust infrastructure for the digital economy.
           </h1>
           <p className="lede stage s3">
-            Alké Network is an institutionally governed ledger for identity, verifiable
-            credentials, tokenized assets, and cross-border settlement — built and tested with
-            the institutions that will run it, before it carries a single live transaction.
+            Alké Network is an institutionally governed distributed ledger for trusted identity,
+            verifiable credentials, critical records, digital assets, and cross-border
+            transactions.
           </p>
           <div className="hero-ctas stage s4">
             <a className="btn btn-primary" href="#council">
@@ -30,13 +30,13 @@ export default function Hero() {
           </p>
         </div>
         <div className="hero-aside stage s4">
-          <div className="k">Why now</div>
+          <div className="k">The on-ramp</div>
           <p>
-            Central banks and commercial institutions are already piloting shared ledgers for
-            settlement — Project Agorá, Partior, Canton Network. The Founding Phase is where
-            Alké Network's standards get written, before deployment, by the institutions that
-            will depend on them.
+            Participating institutions begin through a governed sandbox where they can learn,
+            test practical use cases, and measure value before committing sensitive data,
+            critical systems, or real transactions.
           </p>
+          <p className="tagline">Learn together. Prove the value. Adopt with confidence.</p>
         </div>
       </div>
 

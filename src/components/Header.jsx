@@ -13,8 +13,7 @@ export default function Header() {
           </span>
         </a>
         <nav className="nav-links" aria-label="Primary">
-          <a href="#problem">The problem</a>
-          <a href="#solution">The network</a>
+          <a href="#why-join">Why join</a>
           <a href="#council">Founding Council</a>
           <Link to="/institutional-brief">Institutional Brief</Link>
         </nav>
