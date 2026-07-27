@@ -42,7 +42,7 @@ export default function WhyJoin() {
     <section id="why-join">
       <div className="wrap">
         <div className="reveal">
-          <span className="eyebrow">Why join</span>
+          <span className="eyebrow"><span className="idx">02 —</span> Why join</span>
           <h2>Why join Alké Network?</h2>
         </div>
         <div className="why-items">
@@ -61,6 +61,9 @@ export default function WhyJoin() {
                 {r.diagram && (
                   <div className="narrative-figure">
                     <SolutionDiagram />
+                    <p className="figure-caption">
+                      FIG. A — Institutions join a governed perimeter, not a centralized platform.
+                    </p>
                   </div>
                 )}
                 <div className="why-value">

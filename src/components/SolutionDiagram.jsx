@@ -10,14 +10,19 @@ const NODES = [
 ];
 
 const HUB = { x: 446, y: 518 };
+const JOIN_NODE = { x: 512, y: 448 };
 
 export default function SolutionDiagram() {
   return (
     <svg
-      viewBox="356.9 425.7 182.9 205.5"
+      viewBox="352 421.7 195 213.5"
       role="img"
-      aria-label="Map of Africa with institutions in five countries connected to each other through one shared network hub"
+      aria-label="Concentric governance rings around a shared network hub, with African institutions joining as member nodes"
     >
+      {/* governance perimeter */}
+      <circle cx={HUB.x} cy={HUB.y} r="46" className="boundary" />
+      <circle cx={HUB.x} cy={HUB.y} r="74" className="boundary" style={{ strokeOpacity: 0.18 }} />
+
       <AfricaMap />
       {NODES.map((n) => (
         <line key={n.label} className="link" x1={HUB.x} y1={HUB.y} x2={n.x} y2={n.y} />
@@ -32,6 +37,14 @@ export default function SolutionDiagram() {
           </text>
         </g>
       ))}
+
+      {/* a new institution joining the ratified perimeter */}
+      <line className="link-out" x1={JOIN_NODE.x} y1={JOIN_NODE.y} x2={HUB.x + 45} y2={HUB.y - 15} />
+      <circle className="ext-node" cx={JOIN_NODE.x} cy={JOIN_NODE.y} r="5.5" />
+      <text x={JOIN_NODE.x} y={JOIN_NODE.y - 11} textAnchor="middle" className="label-accent">NEW</text>
+
+      <circle cx={HUB.x} cy={HUB.y - 74} r="8" className="boundary" style={{ strokeDasharray: "none" }} />
+      <text x={HUB.x} y={HUB.y - 71} textAnchor="middle" className="label-accent">A</text>
     </svg>
   );
 }

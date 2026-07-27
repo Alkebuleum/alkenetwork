@@ -1,4 +1,5 @@
 import Hero from "../components/Hero";
+import Explainer from "../components/Explainer";
 import WhyJoin from "../components/WhyJoin";
 import InstitutionalSignal from "../components/InstitutionalSignal";
 import FoundingCouncil from "../components/FoundingCouncil";
@@ -11,6 +12,7 @@ export default function Landing() {
   return (
     <>
       <Hero />
+      <Explainer />
       <WhyJoin />
       <InstitutionalSignal />
       <FoundingCouncil />

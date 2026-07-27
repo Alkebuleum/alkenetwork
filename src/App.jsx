@@ -25,6 +25,8 @@ function ScrollToTop() {
 export default function App() {
   return (
     <>
+      <div className="atmos" aria-hidden="true"></div>
+      <div className="grain" aria-hidden="true"></div>
       <ScrollToTop />
       <Header />
       <Routes>

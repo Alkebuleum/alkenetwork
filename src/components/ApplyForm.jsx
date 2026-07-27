@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ArrowIcon from "./icons/ArrowIcon";
 
 const COUNCIL_EMAIL = "council@alkebuleum.org";
 
@@ -74,6 +75,7 @@ export default function ApplyForm() {
       </div>
       <button type="submit" className="btn btn-primary">
         Send introduction request
+        <ArrowIcon />
       </button>
     </form>
   );

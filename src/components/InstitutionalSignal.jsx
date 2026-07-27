@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ArrowIcon from "./icons/ArrowIcon";
 
 const SIGNALS = [
   {
@@ -138,7 +139,7 @@ export default function InstitutionalSignal() {
     <section id="institutional-signal">
       <div className="wrap">
         <div className="reveal">
-          <span className="eyebrow">Global institutional signal</span>
+          <span className="eyebrow"><span className="idx">03 —</span> Global institutional signal</span>
           <h2>Institutions worldwide are already building shared digital rails.</h2>
           <p className="section-lede">
             Across banking, technology, law, telecommunications, logistics, and capital markets,
@@ -233,6 +234,7 @@ export default function InstitutionalSignal() {
           </p>
           <a className="btn btn-primary" href="#council">
             Explore the Alké Institutional Sandbox
+            <ArrowIcon />
           </a>
         </div>
       </div>
