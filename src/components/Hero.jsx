@@ -26,7 +26,7 @@ export default function Hero() {
             </p>
             <div className="hero-ctas stage s4">
               <a className="btn btn-primary" href="#council">
-                Apply to Join the Founding Network
+                Apply as a Founding Participant
                 <ArrowIcon />
               </a>
               <Link className="btn btn-secondary" to="/institutional-brief">
