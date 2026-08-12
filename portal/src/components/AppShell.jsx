@@ -8,15 +8,17 @@ export default function AppShell() {
 
   return (
     <div className="app-shell">
-      <Sidebar open={mobileOpen} onNavigate={() => setMobileOpen(false)} />
-      <div
-        className={mobileOpen ? "mobile-scrim open" : "mobile-scrim"}
-        onClick={() => setMobileOpen(false)}
-        aria-hidden="true"
-      />
-      <div className="content">
-        <Topbar onMenuClick={() => setMobileOpen((v) => !v)} />
-        <Outlet />
+      <Topbar onMenuClick={() => setMobileOpen((v) => !v)} />
+      <div className="shell-body">
+        <Sidebar open={mobileOpen} onNavigate={() => setMobileOpen(false)} />
+        <div
+          className={mobileOpen ? "scrim open" : "scrim"}
+          onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
+        />
+        <main className="main">
+          <Outlet />
+        </main>
       </div>
     </div>
   );

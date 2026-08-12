@@ -1,35 +1,34 @@
-import { MenuIcon, SearchIcon, BellIcon, ChevronDownIcon } from "./icons";
+import { WaffleIcon, SearchIcon, HelpIcon, BellIcon } from "./icons";
 import { CURRENT_USER } from "../data/mock";
 
 export default function Topbar({ onMenuClick }) {
   return (
-    <header className="topbar">
-      <button className="topbar-menu-btn icon-btn" aria-label="Open navigation" onClick={onMenuClick}>
-        <MenuIcon />
+    <header className="appbar">
+      <button className="waffle" title="Menu" aria-label="Open navigation" onClick={onMenuClick}>
+        <WaffleIcon />
       </button>
-
-      <label className="topbar-search">
+      <div className="brand">
+        <span className="mark">A</span>alké <span className="sub">Network</span>
+      </div>
+      <label className="search">
         <SearchIcon />
-        <input type="search" placeholder="Search institutions, briefs, working groups…" />
-        <kbd>/</kbd>
+        <input type="search" placeholder="Search institutions, briefs, working groups" />
       </label>
-
-      <div className="topbar-spacer" />
-
-      <div className="topbar-actions">
-        <button className="icon-btn" aria-label="Notifications">
+      <div className="right">
+        <button className="iconbtn" title="Help" aria-label="Help">
+          <HelpIcon />
+        </button>
+        <button className="iconbtn" title="Notifications" aria-label="Notifications">
           <BellIcon />
           <span className="dot" aria-hidden="true" />
         </button>
-        <button className="topbar-profile">
-          <div className="avatar avatar--sm">{CURRENT_USER.initials}</div>
-          <span>
-            <span className="topbar-profile-name">{CURRENT_USER.name}</span>
-            <br />
-            <span className="topbar-profile-org">{CURRENT_USER.institution}</span>
-          </span>
-          <ChevronDownIcon style={{ width: 14, height: 14, color: "var(--ink-3)" }} />
-        </button>
+        <div className="me">
+          <div className="who">
+            <div className="n">{CURRENT_USER.name}</div>
+            <div className="o">{CURRENT_USER.institution}</div>
+          </div>
+          <div className="avatar">{CURRENT_USER.initials}</div>
+        </div>
       </div>
     </header>
   );

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alké Network — Home</title>
+<style>
+  :root{
+    --brand:#107C41;            /* institutional green, from ref accent */
+    --brand-hover:#0C5F32;
+    --brand-tint:#EBF5EF;
+    --bg:#FAF9F8;               /* app canvas */
+    --surface:#FFFFFF;
+    --border:#E1DFDD;
+    --border-strong:#D1CFCD;
+    --text:#242424;
+    --text-secondary:#616161;
+    --text-tertiary:#8A8886;
+    --green:#0E700E; --green-bg:#F1FAF1;
+    --purple:#5B2E91; --purple-bg:#F5F0FA;
+    --teal:#036C5F;  --teal-bg:#EBF6F4;
+    --amber:#8A5300; --amber-bg:#FDF6E7;
+    --radius:6px;
+    --shadow-2:0 1px 2px rgba(0,0,0,.06),0 0 2px rgba(0,0,0,.04);
+    --shadow-4:0 2px 4px rgba(0,0,0,.08),0 0 2px rgba(0,0,0,.04);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:"Segoe UI","Segoe UI Web (West European)",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+    background:var(--bg);color:var(--text);font-size:14px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--brand);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ── Top app bar ─────────────────────────── */
+  .appbar{
+    height:48px;background:var(--surface);border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:16px;padding:0 16px;
+    position:sticky;top:0;z-index:20;
+  }
+  .appbar .waffle{width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--text-secondary);cursor:pointer;}
+  .appbar .waffle:hover{background:#F3F2F1;}
+  .brand{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;white-space:nowrap;}
+  .brand .mark{width:24px;height:24px;border-radius:5px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;}
+  .brand .sub{font-weight:400;color:var(--text-tertiary);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-left:2px;}
+  .search{
+    flex:1;max-width:560px;margin:0 auto;height:32px;background:#F3F2F1;border:1px solid transparent;border-radius:4px;
+    display:flex;align-items:center;gap:8px;padding:0 10px;color:var(--text-tertiary);cursor:text;
+  }
+  .search:hover{background:#EDEBE9;}
+  .search svg{flex:none;}
+  .appbar .right{display:flex;align-items:center;gap:4px;margin-left:auto;}
+  .iconbtn{width:32px;height:32px;border-radius:4px;border:none;background:transparent;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;}
+  .iconbtn:hover{background:#F3F2F1;}
+  .iconbtn .dot{position:absolute;top:6px;right:7px;width:7px;height:7px;border-radius:50%;background:#C50F1F;border:1.5px solid #fff;}
+  .me{display:flex;align-items:center;gap:10px;padding:4px 6px 4px 10px;border-radius:4px;cursor:pointer;}
+  .me:hover{background:#F3F2F1;}
+  .me .who{text-align:right;line-height:1.25;}
+  .me .who .n{font-size:13px;font-weight:600;}
+  .me .who .o{font-size:11px;color:var(--text-tertiary);}
+  .avatar{width:32px;height:32px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+
+  /* ── Layout ──────────────────────────────── */
+  .shell{display:flex;min-height:calc(100vh - 48px);}
+
+  /* ── Left nav ────────────────────────────── */
+  .nav{
+    width:228px;flex:none;background:var(--surface);border-right:1px solid var(--border);
+    padding:12px 8px 16px;display:flex;flex-direction:column;
+  }
+  .nav .group{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-tertiary);padding:14px 12px 6px;}
+  .nav a.item{
+    display:flex;align-items:center;gap:12px;height:36px;padding:0 12px;border-radius:4px;
+    color:var(--text);font-size:14px;position:relative;
+  }
+  .nav a.item:hover{background:#F3F2F1;text-decoration:none;}
+  .nav a.item svg{color:var(--text-secondary);flex:none;}
+  .nav a.item.active{background:var(--brand-tint);font-weight:600;color:var(--brand-hover);}
+  .nav a.item.active svg{color:var(--brand);}
+  .nav a.item.active::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--brand);}
+  .nav .badge{margin-left:auto;background:var(--brand);color:#fff;font-size:11px;font-weight:600;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px;}
+  .nav .foot{
+    margin-top:auto;margin-left:4px;margin-right:4px;padding:10px 12px;border-top:1px solid var(--border);
+    font-size:11px;color:var(--text-tertiary);display:flex;align-items:center;gap:6px;
+  }
+  .nav .foot .pip{width:8px;height:8px;border-radius:50%;background:var(--amber);}
+
+  /* ── Main ────────────────────────────────── */
+  .main{flex:1;min-width:0;padding:24px 32px 48px;max-width:1440px;}
+  .crumbs{font-size:12px;color:var(--text-tertiary);margin-bottom:16px;}
+  .crumbs b{color:var(--text-secondary);font-weight:600;}
+
+  /* Hero / next-step banner */
+  .hero{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-2);
+    padding:24px 28px;display:flex;gap:24px;align-items:center;flex-wrap:wrap;
+  }
+  .hero .l{flex:1;min-width:280px;}
+  .hero h1{font-size:24px;font-weight:600;letter-spacing:-.2px;}
+  .hero p{color:var(--text-secondary);margin-top:4px;font-size:14px;}
+  .hero .cta{
+    flex:none;background:var(--brand-tint);border:1px solid #C4E0D0;border-radius:var(--radius);
+    padding:16px 20px;min-width:320px;
+  }
+  .hero .cta .k{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-hover);}
+  .hero .cta .t{font-size:14px;font-weight:600;margin:4px 0 12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:4px;
+    font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;border:1px solid transparent;
+  }
+  .btn.primary{background:var(--brand);color:#fff;}
+  .btn.primary:hover{background:var(--brand-hover);}
+  .btn.ghost{background:var(--surface);border-color:var(--border-strong);color:var(--text);}
+  .btn.ghost:hover{background:#F3F2F1;}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;margin-top:24px;align-items:start;}
+  @media (max-width:1100px){.grid{grid-template-columns:1fr;}}
+
+  .sectionhead{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;}
+  .sectionhead h2{font-size:16px;font-weight:600;}
+  .sectionhead a{font-size:13px;font-weight:600;}
+
+  .card{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-2);
+  }
+
+  /* Intelligence list */
+  .intel .row{
+    padding:18px 20px;display:block;color:inherit;border-bottom:1px solid var(--border);
+  }
+  .intel .row:last-child{border-bottom:none;}
+  .intel .row:hover{background:#FBFAF9;text-decoration:none;}
+  .intel .meta{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .tag{font-size:11px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:3px;}
+  .tag.ai{color:var(--brand-hover);background:var(--brand-tint);}
+  .tag.dlt{color:var(--purple);background:var(--purple-bg);}
+  .tag.sov{color:var(--teal);background:var(--teal-bg);}
+  .intel .sector{margin-left:auto;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-tertiary);}
+  .intel h3{font-size:15px;font-weight:600;margin-bottom:4px;}
+  .intel p{font-size:13px;color:var(--text-secondary);}
+
+  /* Right rail */
+  .rail section + section{margin-top:24px;}
+  .peer{display:flex;gap:12px;padding:14px 16px;border-bottom:1px solid var(--border);}
+  .peer:last-child{border-bottom:none;}
+  .pav{width:32px;height:32px;flex:none;border-radius:50%;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+  .pav.g{background:var(--green-bg);color:var(--green);border:1px solid #CDEACD;}
+  .pav.p{background:var(--purple-bg);color:var(--purple);border:1px solid #E2D5F0;}
+  .pav.t{background:var(--teal-bg);color:var(--teal);border:1px solid #C7E7E1;}
+  .peer .body{min-width:0;font-size:13px;}
+  .peer .body b{font-weight:600;}
+  .peer .sub{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-tertiary);margin-top:4px;}
+
+  .wg{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;}
+  .wg:last-child{border-bottom:none;}
+  .wg .t{font-size:13px;font-weight:600;flex:1;}
+  .wg .d{font-size:11px;color:var(--text-tertiary);white-space:nowrap;}
+  .chip{font-size:11px;font-weight:600;color:var(--green);background:var(--green-bg);border:1px solid #CDEACD;border-radius:3px;padding:2px 8px;}
+</style>
+</head>
+<body>
+
+<!-- Top app bar -->
+<header class="appbar">
+  <div class="waffle" title="Menu">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </div>
+  <div class="brand"><span class="mark">A</span>alké <span class="sub">Network</span></div>
+  <div class="search">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 10.5 14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    Search institutions, briefs, working groups
+  </div>
+  <div class="right">
+    <button class="iconbtn" title="Help">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.3" stroke="currentColor" stroke-width="1.3"/><path d="M6.3 6.2c.2-1 1-1.6 1.9-1.5.9 0 1.7.7 1.7 1.6 0 1.2-1.7 1.4-1.7 2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8.1" cy="11.3" r=".8" fill="currentColor"/></svg>
+    </button>
+    <button class="iconbtn" title="Notifications">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2a4 4 0 0 0-4 4v2.5L2.8 11h10.4L12 8.5V6a4 4 0 0 0-4-4Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6.5 13a1.6 1.6 0 0 0 3 0" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      <span class="dot"></span>
+    </button>
+    <div class="me">
+      <div class="who"><div class="n">Samuel Achebe</div><div class="o">University of Kiraya</div></div>
+      <div class="avatar">SA</div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+
+  <!-- Left navigation -->
+  <nav class="nav">
+    <div class="group">Network</div>
+    <a class="item active" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="m2.5 7 5.5-4.5L13.5 7v6a1 1 0 0 1-1 1H10v-4H6v4H3.5a1 1 0 0 1-1-1V7Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      Home</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.8v2.4M8 11.8v2.4M1.8 8h2.4M11.8 8h2.4M8 5.5A2.5 2.5 0 1 0 8 10.5 2.5 2.5 0 0 0 8 5.5Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Intelligence</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="3.2" r="1.7" stroke="currentColor" stroke-width="1.3"/><circle cx="3.2" cy="12" r="1.7" stroke="currentColor" stroke-width="1.3"/><circle cx="12.8" cy="12" r="1.7" stroke="currentColor" stroke-width="1.3"/><path d="M7 4.6 4 10.4M9 4.6l3 5.8M4.9 12h6.2" stroke="currentColor" stroke-width="1.3"/></svg>
+      Network</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="5.5" cy="5.5" r="2" stroke="currentColor" stroke-width="1.3"/><circle cx="10.5" cy="5.5" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M2 13c.4-2 1.8-3.2 3.5-3.2S8.6 11 9 13M8.7 10.1c.55-.2 1.2-.3 1.8-.3 1.7 0 3.1 1.2 3.5 3.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Working Groups</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 8.2 7.2 10l3.3-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Sandbox</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 12.5h4M6.8 14.2h2.4M8 1.8a4.2 4.2 0 0 0-2.4 7.6c.6.5.9 1 .9 1.6h3c0-.6.3-1.1.9-1.6A4.2 4.2 0 0 0 8 1.8Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Innovation Studio</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3.5 1.8 6.2 8 8.9l6.2-2.7L8 3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M4 7.8v3.2c0 .9 1.8 1.8 4 1.8s4-.9 4-1.8V7.8M14.2 6.5v3.7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Learning</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3.5 2.5h7l2 2v9h-9v-11Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 6.5h5M5.5 9h5M5.5 11.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Policy Library</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.8 13.5 4v4c0 3.2-2.3 5.5-5.5 6.5C4.8 13.5 2.5 11.2 2.5 8V4L8 1.8Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="m5.8 8 1.6 1.6 3-3.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Sovereignty</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2.5 6.8h11M5.5 2v2.6M10.5 2v2.6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Events</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 4.5A1.5 1.5 0 0 1 4 3h8a1.5 1.5 0 0 1 1.5 1.5v5A1.5 1.5 0 0 1 12 11H7l-3 2.8V11H4a1.5 1.5 0 0 1-1.5-1.5v-5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      Messages<span class="badge">3</span></a>
+
+    <div class="group">Institution</div>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13.5h12M3.5 13.5V6h9v7.5M8 2 2.8 6h10.4L8 2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 13.5v-3h4v3" stroke="currentColor" stroke-width="1.3"/></svg>
+      Our Institution</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="2.2" stroke="currentColor" stroke-width="1.3"/><path d="M3.5 13.5c.5-2.5 2.3-4 4.5-4s4 1.5 4.5 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      Team</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8.5" rx="1.5" stroke="currentColor" stroke-width="1.3"/><path d="M2 7h12" stroke="currentColor" stroke-width="1.3"/></svg>
+      Membership</a>
+    <a class="item" href="#">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/><path d="M13 8a5 5 0 0 0-.1-1l1.4-1.1-1.3-2.2-1.7.6a5 5 0 0 0-1.6-.9L9.3 1.6H6.7l-.4 1.8a5 5 0 0 0-1.6.9L3 3.7 1.7 5.9 3.1 7a5 5 0 0 0 0 2l-1.4 1.1L3 12.3l1.7-.6c.5.4 1 .7 1.6.9l.4 1.8h2.6l.4-1.8c.6-.2 1.1-.5 1.6-.9l1.7.6 1.3-2.2L12.9 9c.07-.33.1-.66.1-1Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      Settings</a>
+
+    <div class="foot"><span class="pip"></span>Founding phase · Member since 2026</div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="main">
+    <div class="crumbs">Alké Network &rsaquo; <b>Home</b></div>
+
+    <section class="hero">
+      <div class="l">
+        <h1>Good morning, Samuel</h1>
+        <p>Here's what matters to University of Kiraya this week.</p>
+      </div>
+      <div class="cta">
+        <div class="k">Recommended next step</div>
+        <div class="t">Complete your Sovereignty Center baseline assessment</div>
+        <button class="btn primary">Start assessment
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <div class="grid">
+
+      <!-- What's changing -->
+      <div>
+        <div class="sectionhead">
+          <h2>What's changing</h2>
+          <a href="#">View all intelligence</a>
+        </div>
+        <div class="card intel">
+          <a class="row" href="#">
+            <div class="meta"><span class="tag ai">AI</span><span class="sector">Higher education</span></div>
+            <h3>AI agents are moving into institutional workflows</h3>
+            <p>Universities are beginning to automate repetitive student and administrative workflows while developing governance around institutional data.</p>
+          </a>
+          <a class="row" href="#">
+            <div class="meta"><span class="tag dlt">DLT</span><span class="sector">Financial infrastructure</span></div>
+            <h3>Central-bank consortia are testing shared settlement ledgers</h3>
+            <p>Several central-bank-convened pilots moved from proof-of-concept to limited production this quarter — relevant if your institution touches cross-border payments.</p>
+          </a>
+          <a class="row" href="#">
+            <div class="meta"><span class="tag sov">Sovereignty</span><span class="sector">Cross-sector</span></div>
+            <h3>Open-weight model adoption is accelerating among public institutions</h3>
+            <p>Institutions are weighing local deployment against vendor APIs as open-weight model quality closes the gap.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right rail -->
+      <aside class="rail">
+        <section>
+          <div class="sectionhead">
+            <h2>What peers are doing</h2>
+            <a href="#">View network</a>
+          </div>
+          <div class="card">
+            <div class="peer">
+              <div class="pav g">DT</div>
+              <div class="body"><b>Dande Teaching Hospital</b> started a sandbox on AI triage-note summarization
+                <div class="sub">Healthcare · Kenya</div></div>
+            </div>
+            <div class="peer">
+              <div class="pav p">MS</div>
+              <div class="body"><b>Meridian Savings Bank</b> published sandbox findings on stablecoin settlement
+                <div class="sub">Banking · Philippines</div></div>
+            </div>
+            <div class="peer">
+              <div class="pav t">CR</div>
+              <div class="body"><b>Coastal Registrar's Office</b> joined the Trusted Records &amp; Identity working group
+                <div class="sub">Public records · Jamaica</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="sectionhead">
+            <h2>Working groups</h2>
+            <a href="#">View all</a>
+          </div>
+          <div class="card">
+            <div class="wg"><div class="t">Institutional AI Governance</div><span class="chip">Member</span><div class="d">Meets Aug 19</div></div>
+            <div class="wg"><div class="t">Trusted Records &amp; Identity</div><div class="d">Meets Aug 21</div></div>
+            <div class="wg"><div class="t">Cross-Border Settlement</div><div class="d">Meets Sep 2</div></div>
+          </div>
+        </section>
+      </aside>
+
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

@@ -2,8 +2,11 @@ import { InboxIcon } from "./icons";
 
 export default function StubPage({ eyebrow, title, description }) {
   return (
-    <div className="page">
-      <div className="page-head">
+    <>
+      <div className="crumbs">
+        Alké Network &rsaquo; <b>{title}</b>
+      </div>
+      <div className="page-title-row">
         <div>
           {eyebrow && <div className="page-eyebrow">{eyebrow}</div>}
           <h1>{title}</h1>
@@ -14,6 +17,6 @@ export default function StubPage({ eyebrow, title, description }) {
         <h3>This module isn't built yet</h3>
         <p>{description}</p>
       </div>
-    </div>
+    </>
   );
 }

@@ -11,128 +11,119 @@ import {
 } from "../data/mock";
 import { ArrowRightIcon } from "../components/icons";
 
+const AVATAR_COLORS = ["g", "p", "t", "a"];
+
 function firstName(name) {
   return name.split(" ")[0];
 }
 
 export default function Dashboard() {
   return (
-    <div className="page">
-      <div className="welcome-banner">
-        <div>
-          <h1>Good morning, {firstName(CURRENT_USER.name)}.</h1>
+    <>
+      <div className="crumbs">
+        Alké Network &rsaquo; <b>Home</b>
+      </div>
+
+      <section className="hero">
+        <div className="l">
+          <h1>Good morning, {firstName(CURRENT_USER.name)}</h1>
           <p>Here's what matters to {CURRENT_USER.institution} this week.</p>
         </div>
-        <div style={{ maxWidth: 340 }}>
-          <div className="card-eyebrow" style={{ marginBottom: 6 }}>
-            Recommended next step
-          </div>
-          <p style={{ fontSize: 13, color: "var(--ink-1)", marginBottom: 12 }}>
-            {RECOMMENDED_ACTION.title}
-          </p>
-          <Link className="btn btn-primary btn--sm" to="/sovereignty">
+        <div className="cta">
+          <div className="k">Recommended next step</div>
+          <div className="t">{RECOMMENDED_ACTION.title}</div>
+          <Link className="btn primary" to="/sovereignty">
             {RECOMMENDED_ACTION.cta}
             <ArrowRightIcon />
           </Link>
         </div>
-      </div>
+      </section>
 
-      <div className="grid grid-2">
-        <div className="stack">
-          <div className="section-title">
-            What's changing
-            <Link className="textlink" to="/intelligence">
-              View all intelligence →
-            </Link>
+      <div className="grid">
+        {/* What's changing */}
+        <div>
+          <div className="sectionhead">
+            <h2>What's changing</h2>
+            <Link to="/intelligence">View all intelligence</Link>
           </div>
-          <div className="stack">
+          <div className="card intel">
             {INTELLIGENCE_ITEMS.map((item) => (
-              <div className="card card--interactive" key={item.id}>
-                <div className="card-head">
-                  <span className="badge badge--acc">{item.category}</span>
-                  <span className="card-eyebrow">{item.sector}</span>
+              <Link className="row" to="/intelligence" key={item.id}>
+                <div className="meta">
+                  <span className={`tag ${item.category.toLowerCase() === "ai" ? "ai" : item.category.toLowerCase() === "dlt" ? "dlt" : "sov"}`}>
+                    {item.category}
+                  </span>
+                  <span className="sector">{item.sector}</span>
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.why}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
 
-        <div className="stack">
-          <div className="section-title">
-            What peers are doing
-            <Link className="textlink" to="/network">
-              View network →
-            </Link>
-          </div>
-          <div className="card">
-            {PEER_ACTIVITY.map((p, i) => (
-              <div
-                key={p.id}
-                style={{
-                  display: "flex",
-                  gap: 12,
-                  padding: "12px 0",
-                  borderTop: i === 0 ? "none" : "1px solid var(--line)",
-                }}
-              >
-                <div className="avatar avatar--institution avatar--sm">
-                  {p.institution.charAt(0)}
-                </div>
-                <div style={{ fontSize: 13 }}>
-                  <span style={{ color: "var(--ink-0)", fontWeight: 500 }}>{p.institution}</span>{" "}
-                  <span style={{ color: "var(--ink-2)" }}>{p.action}</span>
-                  <div className="card-eyebrow" style={{ marginTop: 4 }}>
-                    {p.sector} · {p.country}
+        {/* Right rail */}
+        <aside className="rail">
+          <section>
+            <div className="sectionhead">
+              <h2>What peers are doing</h2>
+              <Link to="/network">View network</Link>
+            </div>
+            <div className="card">
+              {PEER_ACTIVITY.map((p, i) => (
+                <div className="peer" key={p.id}>
+                  <div className={`pav ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`}>
+                    {p.institution
+                      .split(" ")
+                      .slice(0, 2)
+                      .map((w) => w.charAt(0))
+                      .join("")}
+                  </div>
+                  <div className="body">
+                    <b>{p.institution}</b> {p.action}
+                    <div className="sub">
+                      {p.sector} · {p.country}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          </section>
 
-          <div className="section-title" style={{ marginTop: 8 }}>
-            Working groups
-            <Link className="textlink" to="/groups">
-              View all →
-            </Link>
-          </div>
-          <div className="card">
-            {WORKING_GROUPS.map((g, i) => (
-              <div
-                key={g.id}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  padding: "10px 0",
-                  borderTop: i === 0 ? "none" : "1px solid var(--line)",
-                  fontSize: 13,
-                }}
-              >
-                <span style={{ color: "var(--ink-0)" }}>{g.name}</span>
-                <span className="card-eyebrow">Meets {g.meetsNext}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          <section>
+            <div className="sectionhead">
+              <h2>Working groups</h2>
+              <Link to="/groups">View all</Link>
+            </div>
+            <div className="card">
+              {WORKING_GROUPS.map((g, i) => (
+                <div className="wg" key={g.id}>
+                  <div className="t">{g.name}</div>
+                  {i === 0 && <span className="chip">Member</span>}
+                  <div className="d">Meets {g.meetsNext}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </aside>
       </div>
 
-      <div className="section-title" style={{ marginTop: 28 }}>
-        What we're working on
-        <Link className="textlink" to="/sandbox">
-          Open sandbox →
-        </Link>
+      <div className="sectionhead" style={{ marginTop: 24 }}>
+        <h2>What we're working on</h2>
+        <Link to="/sandbox">Open sandbox</Link>
       </div>
-      <div className="grid grid-2">
+      <div className="card">
         {SANDBOX_PROJECTS.map((proj) => (
-          <div className="card" key={proj.id}>
-            <div className="card-head">
+          <div className="proj" key={proj.id}>
+            <div className="proj-head">
               <div>
-                <span className="card-eyebrow">{proj.practice}</span>
-                <h3 style={{ marginTop: 4 }}>{proj.name}</h3>
+                <span className="proj-eyebrow">{proj.practice}</span>
+                <h3>{proj.name}</h3>
               </div>
-              <span className="badge badge--warn">{proj.phase}</span>
+              <span className="badge-pill badge-pill--amber">
+                <span className="badge-dot" />
+                {proj.phase}
+              </span>
             </div>
             <div className="phase-track" aria-hidden="true">
               {PHASES.map((ph, i) => (
@@ -144,18 +135,22 @@ export default function Dashboard() {
                 />
               ))}
             </div>
-            <div className="progress" style={{ marginBottom: 14 }}>
+            <div className="progress">
               <i style={{ width: `${proj.progress}%` }} />
             </div>
-            <div className="card-foot" style={{ flexDirection: "column", alignItems: "flex-start", gap: 6 }}>
-              <span style={{ fontSize: 12.5, color: "var(--ink-3)" }}>Team: {proj.team}</span>
-              <span style={{ fontSize: 12.5, color: "var(--ink-2)" }}>
-                Next: {proj.nextMilestone}
+            <div className="proj-foot">
+              <span>
+                <span className="k">Team: </span>
+                {proj.team}
+              </span>
+              <span>
+                <span className="k">Next: </span>
+                {proj.nextMilestone}
               </span>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import Mark from "./Mark";
 import {
   HomeIcon,
   IntelligenceIcon,
@@ -41,45 +40,34 @@ const INSTITUTION_LINKS = [
 
 function NavGroup({ title, links, onNavigate }) {
   return (
-    <div className="sidebar-group">
-      <div className="sidebar-group-label">{title}</div>
+    <>
+      <div className="group">{title}</div>
       {links.map((l) => (
         <NavLink
           key={l.to}
           to={l.to}
           end={l.end}
           onClick={onNavigate}
-          className={({ isActive }) => "sidebar-link" + (isActive ? " active" : "")}
+          className={({ isActive }) => "item" + (isActive ? " active" : "")}
         >
           <l.icon />
-          <span>{l.label}</span>
-          {l.badge ? <span className="badge badge--acc">{l.badge}</span> : null}
+          {l.label}
+          {l.badge ? <span className="badge">{l.badge}</span> : null}
         </NavLink>
       ))}
-    </div>
+    </>
   );
 }
 
 export default function Sidebar({ open, onNavigate }) {
   return (
-    <aside className={open ? "sidebar open" : "sidebar"} aria-label="Portal navigation">
-      <div className="sidebar-brand">
-        <Mark />
-        <span>
-          <span className="word">alké</span>
-          <span className="net">NETWORK</span>
-        </span>
+    <nav className={open ? "nav open" : "nav"} aria-label="Portal navigation">
+      <NavGroup title="Network" links={NETWORK_LINKS} onNavigate={onNavigate} />
+      <NavGroup title="Institution" links={INSTITUTION_LINKS} onNavigate={onNavigate} />
+      <div className="foot">
+        <span className="pip" />
+        Founding phase · Member since 2026
       </div>
-      <nav className="sidebar-nav">
-        <NavGroup title="Network" links={NETWORK_LINKS} onNavigate={onNavigate} />
-        <NavGroup title="Institution" links={INSTITUTION_LINKS} onNavigate={onNavigate} />
-      </nav>
-      <div className="sidebar-foot">
-        <span className="badge">
-          <span className="badge-dot" />
-          Founding Phase
-        </span>
-      </div>
-    </aside>
+    </nav>
   );
 }

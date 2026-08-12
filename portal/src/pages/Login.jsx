@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import Mark from "../components/Mark";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ export default function Login() {
           </p>
         </div>
         <div className="auth-aside-content" style={{ maxWidth: 420 }}>
-          <p style={{ fontSize: 12.5, color: "var(--ink-3)" }}>
+          <p style={{ fontSize: 12.5, color: "rgba(255,255,255,.72)" }}>
             Stewarded by the Alkebuleum Foundation. Membership is institutional — your access is
             tied to your institution's account, not just your inbox.
           </p>
@@ -32,8 +31,7 @@ export default function Login() {
       <div className="auth-form-side">
         <form className="auth-form" onSubmit={handleSubmit}>
           <a href="https://alke.network" className="brand">
-            <Mark />
-            <span className="word">alké</span>
+            <span className="mark">A</span>alké <span className="sub">Network</span>
           </a>
           <h1>Sign in to your workspace</h1>
           <p className="lede">Access your institution's Alké Network account.</p>
@@ -47,14 +45,14 @@ export default function Login() {
               <label htmlFor="password">Password</label>
               <input id="password" type="password" required placeholder="••••••••" autoComplete="current-password" />
             </div>
-            <button type="submit" className="btn btn-primary btn--full">
+            <button type="submit" className="btn primary btn--full btn--lg">
               Sign in
             </button>
           </div>
 
           <div className="divider">or</div>
 
-          <button type="button" className="btn btn-secondary btn--full" onClick={handleSubmit}>
+          <button type="button" className="btn ghost btn--full btn--lg" onClick={handleSubmit}>
             Continue with institutional SSO
           </button>
 
