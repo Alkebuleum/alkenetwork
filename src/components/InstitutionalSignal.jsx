@@ -57,12 +57,12 @@ const SIGNALS = [
   },
   {
     name: "Standard Bank Group",
-    sector: "Banking — Africa",
+    sector: "Banking",
     category: "Cross-border efficiency",
     quote:
       "Blockchain technology can track and leapfrog legacy issues…which ultimately enables cost savings for all stakeholders.",
     proof:
-      "African institutions are already evaluating DLT to reduce cross-border complexity, improve transparency, and lower operational costs.",
+      "Institutions are already evaluating DLT to reduce cross-border complexity, improve transparency, and lower operational costs — a pattern repeating across every region.",
     sourceUrl:
       "https://www.prnewswire.com/news-releases/standard-bank-group-establishes-africas-first-hedera-network-node-to-enable-much-needed-digitisation-of-cross-border-trade-processes-301234395.html",
   },
@@ -139,13 +139,13 @@ export default function InstitutionalSignal() {
     <section id="institutional-signal">
       <div className="wrap">
         <div className="reveal">
-          <span className="eyebrow"><span className="idx">03 —</span> Global institutional signal</span>
-          <h2>Institutions worldwide are already building shared digital rails.</h2>
+          <span className="eyebrow"><span className="idx">08 —</span> Global institutional signal</span>
+          <h2>Institutions worldwide are already building the next digital rails.</h2>
           <p className="section-lede">
             Across banking, technology, law, telecommunications, logistics, and capital markets,
-            institutions are participating for practical reasons: to shape governance, gain
-            first-hand knowledge, reduce operational friction, protect privacy, improve capital
-            efficiency, and develop new services.
+            institutions are already adopting AI, shared ledgers, and governed infrastructure for
+            practical reasons: to shape governance, gain first-hand knowledge, reduce operational
+            friction, protect privacy, improve capital efficiency, and develop new services.
           </p>
         </div>
 
@@ -216,23 +216,23 @@ export default function InstitutionalSignal() {
         </div>
 
         <p className="signal-disclaimer">
-          Organizations shown are independent global examples of institutional DLT participation.
-          They are not members, partners, or endorsers of Alké Network unless expressly identified
-          as such.
+          Organizations shown are independent examples of institutional frontier-technology
+          participation. They are not members, partners, or endorsers of Alké Network unless
+          expressly identified as such.
         </p>
 
         <div className="signal-close reveal">
           <h3>Different sectors. The same institutional logic.</h3>
           <p>
-            Institutions are not participating because blockchain is fashionable. They are
+            Institutions are not participating because the technology is fashionable. They are
             participating to learn early, shape the standards, improve real workflows, connect
             with new counterparties, and prepare before the infrastructure becomes unavoidable.
           </p>
           <p className="signal-callout">
-            Alké gives African institutions the same opportunity — through infrastructure they help
-            govern.
+            Alké gives institutions everywhere the same opportunity — through infrastructure they
+            help govern.
           </p>
-          <a className="btn btn-primary" href="#council">
+          <a className="btn btn-primary" href="#sandbox">
             Explore the Alké Institutional Sandbox
             <ArrowIcon />
           </a>

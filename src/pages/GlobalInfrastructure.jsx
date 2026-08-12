@@ -8,7 +8,7 @@ export default function GlobalInfrastructure() {
       <InnerHero
         eyebrow="Global infrastructure shift"
         title="Institutions everywhere are already building shared digital rails"
-        lede="Central banks, market infrastructures, and consortia of banks are already testing shared, governed ledgers for settlement, identity, and cross-border transactions. Alké Network exists so African institutions help build that layer, rather than adopt one built entirely elsewhere."
+        lede="Central banks, market infrastructures, and consortia of banks are already testing shared, governed ledgers for settlement, identity, and cross-border transactions. Alké Network exists so member institutions can evaluate and participate in that shift, rather than adopt what others have already decided for them."
       />
 
       <section>
@@ -64,14 +64,15 @@ export default function GlobalInfrastructure() {
           <div className="section-body">
             <p>
               Each of these initiatives is governed by the institutions that use it, not by a
-              single vendor. That is the design choice Alké Network makes as well: participating
-              institutions accredit validators, set standards, and shape the sandbox before any
-              use case reaches production.
+              single vendor. That is the same principle Alké Network runs on: participating
+              institutions set standards and shape the sandbox before any use case reaches
+              production.
             </p>
             <p>
-              Most of this activity has so far been convened from outside Africa. Alké Network is
-              a place for African and diaspora institutions to build the equivalent layer with a
-              direct seat at the table — connected to, not isolated from, the wider shift.
+              Alké Network exists so member institutions — wherever they are — get a direct seat
+              at that table, rather than adopting standards decided entirely without them. That
+              matters everywhere, and it is a founding concern for institutions in Africa and
+              other historically underrepresented markets in particular.
             </p>
           </div>
         </div>
@@ -80,7 +81,7 @@ export default function GlobalInfrastructure() {
       <section>
         <div className="wrap" style={{ textAlign: "center" }}>
           <h2 style={{ maxWidth: "22ch", margin: "0 auto 18px" }}>
-            The next digital rails should not be built without Africa at the table.
+            The next digital rails should not be built without your institution at the table.
           </h2>
           <div style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap", marginTop: 32 }}>
             <Link className="btn btn-primary" to="/apply">

@@ -13,29 +13,36 @@ export default function Hero() {
               <span className="pulse">
                 <i></i>
               </span>
-              Founding Phase <em>— Open</em>
+              Founding Network <em>— Open</em>
             </div>
             <h1 className="stage s2">
-              Shared institutional <i>trust</i> infrastructure{" "}
-              <span className="fade">for the digital economy.</span>
+              The institutional network for <i>frontier-technology</i>{" "}
+              <span className="fade">adoption.</span>
             </h1>
             <p className="lede stage s3">
-              Alké Network is an <b>institutionally governed distributed ledger</b> for trusted
-              identity, verifiable credentials, critical records, digital assets, and cross-border
-              transactions.
+              Alké Network brings institutions together to understand, test, and safely adopt
+              emerging technologies — beginning with <b>AI and distributed ledgers</b>. Learn from
+              peers. Develop practical use cases. Experiment through governed sandboxes. Build the
+              capability to adopt on your institution's own terms.
             </p>
             <div className="hero-ctas stage s4">
               <a className="btn btn-primary" href="#council">
-                Apply as a Founding Participant
+                Join the Founding Network
                 <ArrowIcon />
               </a>
-              <Link className="btn btn-secondary" to="/institutional-brief">
+              <a className="btn btn-secondary" href="#watch">
                 <DocIcon />
-                Read the Institutional Brief
-              </Link>
+                Watch the Explainer
+              </a>
             </div>
             <p className="micro stage s4">
-              Applications begin an introductory conversation — no immediate commitment.
+              Founding participation begins with an introductory conversation and carries no
+              initial financial commitment. <Link to="/institutional-brief">Read the Institutional Brief →</Link>
+            </p>
+            <p className="micro stage s4">
+              <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer">
+                Member Login →
+              </a>
             </p>
           </div>
 
@@ -51,11 +58,11 @@ export default function Hero() {
           </div>
           <div className="ledger-cell">
             <div className="k">Participation</div>
-            <div className="v">Africa &amp; the Diaspora</div>
+            <div className="v">Global — qualified institutions</div>
           </div>
           <div className="ledger-cell">
-            <div className="k">Institutional focus</div>
-            <div className="v">Identity · Records · Settlement</div>
+            <div className="k">Practice areas</div>
+            <div className="v">Artificial Intelligence · Distributed Ledgers</div>
           </div>
           <div className="ledger-cell">
             <div className="k">Stewardship</div>

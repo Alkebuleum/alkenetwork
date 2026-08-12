@@ -37,8 +37,8 @@ export default function Apply() {
             </div>
             <div className="card">
               <div className="k">Type</div>
-              <h3>Civic &amp; diaspora bodies</h3>
-              <p>Institutions serving Africa and the diaspora directly.</p>
+              <h3>NGOs &amp; development bodies</h3>
+              <p>Foundations, donors, and implementing partners evaluating AI and DLT.</p>
             </div>
           </div>
         </div>

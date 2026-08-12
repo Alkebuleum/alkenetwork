@@ -9,7 +9,7 @@ export default function Explainer() {
     <section id="watch">
       <div className="wrap">
         <div className="reveal">
-          <span className="eyebrow"><span className="idx">01 —</span> Watch</span>
+          <span className="eyebrow"><span className="idx">02 —</span> Watch</span>
           <h2>See how Alké Network works</h2>
           <p className="section-lede">
             A short explainer on the governance model, the sandbox, and how institutions

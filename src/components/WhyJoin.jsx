@@ -3,37 +3,34 @@ import SolutionDiagram from "./SolutionDiagram";
 const REASONS = [
   {
     num: "01",
-    label: "Strategic sovereignty",
-    hook: "The next digital rails should not be built without Africa at the table.",
+    label: "Understand what is changing",
+    hook: "Prepare your institution before the future becomes a procurement decision.",
     body: [
-      "Distributed-ledger infrastructure is increasingly being used for trusted identity, credentials, institutional records, tokenized assets, payments, and digital settlement. Yet most major networks and standards have been developed with limited participation from African institutions.",
-      "Alké gives participating institutions a direct role in shaping governance, technical standards, infrastructure requirements, and priority use cases—while remaining connected to the wider global digital economy.",
+      "AI is reshaping institutional workflows, knowledge systems, decision support, and automation. Distributed ledgers are being applied to shared verification, trusted records, credentials, digital assets, and settlement.",
+      "Most institutions know these shifts matter but still face the same questions: what is relevant to us, where is the actual business value, what risks must we manage, and what should stay under our control. Alké gives institutions structured intelligence, peer learning, expert briefings, and working groups to answer those questions together.",
     ],
-    value:
-      "Influence over emerging standards, greater institutional control, infrastructure resilience, and long-term strategic capacity.",
+    value: "Foresight · Knowledge · Better decisions",
     diagram: true,
   },
   {
     num: "02",
-    label: "Business value",
-    hook: "Solve costly multiparty problems with shared infrastructure.",
+    label: "Turn technology into institutional value",
+    hook: "Identify real institutional problems, not speculative technology.",
     body: [
-      "Institutions often spend significant time and resources repeatedly verifying information, reconciling separate records, maintaining fragmented integrations, and processing transactions across disconnected systems.",
-      "Alké allows institutions to test whether a shared trust layer can reduce these costs while enabling new services around verifiable credentials, document proofing, trusted data exchange, tokenized assets, stablecoins, and programmable transactions.",
+      "Institutions often spend significant time and resources on repetitive manual work, fragmented integrations, and disconnected verification processes — the kind of friction AI and shared infrastructure are now mature enough to address.",
+      "Alké members work with Alké and peer institutions to imagine new products, improve workflows, prototype solutions, test emerging technology, and measure business value before committing to it.",
     ],
-    value:
-      "Lower operating friction, faster verification, improved cross-border reach, access to new services and markets, and more productive use of institutional resources.",
+    value: "Innovation · Efficiency · New services · Market readiness",
   },
   {
     num: "03",
-    label: "Safe adoption",
-    hook: "Experiment before committing critical systems or real transactions.",
+    label: "Adopt safely and build toward sovereignty",
+    hook: "Experiment before committing critical systems, data, or capital.",
     body: [
-      "The Alké Institutional Sandbox gives technical, legal, compliance, operational, and leadership teams a controlled environment in which to evaluate distributed-ledger use cases together.",
-      "Institutions can begin with synthetic data, simulated assets, and non-financial proofs. They can compare results against existing processes, assess governance and compliance requirements, and move approved use cases toward production only after internal review.",
+      "The Alké Institutional Sandbox gives technical, legal, compliance, operational, and leadership teams a controlled environment in which to evaluate AI and distributed-ledger use cases together, before any of them touch production systems.",
+      "Where appropriate, members develop governance, technical capacity, and internal knowledge around institution-controlled data, open-weight AI, local deployment, shared infrastructure, and interoperability — building the capability to adopt on their own terms.",
     ],
-    value:
-      "Lower adoption risk, stronger internal capability, informed implementation planning, and measurable evidence for executive decision-making.",
+    value: "Lower risk · Greater control · Long-term sovereignty",
   },
 ];
 
@@ -42,7 +39,7 @@ export default function WhyJoin() {
     <section id="why-join">
       <div className="wrap">
         <div className="reveal">
-          <span className="eyebrow"><span className="idx">02 —</span> Why join</span>
+          <span className="eyebrow"><span className="idx">03 —</span> Why Alké</span>
           <h2>Why join Alké Network?</h2>
         </div>
         <div className="why-items">
@@ -62,7 +59,8 @@ export default function WhyJoin() {
                   <div className="narrative-figure">
                     <SolutionDiagram />
                     <p className="figure-caption">
-                      FIG. A — Institutions join a governed perimeter, not a centralized platform.
+                      FIG. A — Institutions of any type or region join a governed perimeter, not a
+                      centralized platform.
                     </p>
                   </div>
                 )}

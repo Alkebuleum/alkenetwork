@@ -4,17 +4,18 @@ import ArrowIcon from "./icons/ArrowIcon";
 const COUNCIL_EMAIL = "council@alkebuleum.org";
 
 const INSTITUTION_TYPES = [
-  "Central bank / regulator",
-  "Commercial bank",
-  "Payments / fintech",
-  "Government agency",
+  "University / research institution",
+  "Bank / financial institution",
+  "Government / regulator",
+  "NGO / development organization",
+  "Technology company",
   "Other",
 ];
 
 const INTERESTS = [
+  "AI adoption & governance",
   "Identity & credentials",
-  "Tokenized assets & stablecoins",
-  "Cross-border settlement",
+  "Digital assets & settlement",
   "Not sure yet",
 ];
 
@@ -25,7 +26,7 @@ export default function ApplyForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const subject = `Founding Council inquiry — ${institution}`;
+    const subject = `Founding Network inquiry — ${institution}`;
     const body = [
       `Institution: ${institution}`,
       `Institution type: ${institutionType}`,

@@ -9,8 +9,9 @@ export default function Stewardship() {
           <circle cx="50" cy="50" r="6" fill="currentColor" />
         </svg>
         <p>
-          <b>Stewarded by the Alkebuleum Foundation</b> — public-interest infrastructure for
-          trusted institutions, independently governed by the Founding Council it convenes.
+          <b>Stewarded by the Alkebuleum Foundation</b> — a public-interest steward for
+          institutional frontier-technology adoption, born from a commitment to African and
+          diaspora institutional participation and open globally today.
         </p>
         <Link className="textlink" to="/foundation">
           About the Foundation →

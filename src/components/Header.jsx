@@ -31,12 +31,17 @@ export default function Header() {
           </span>
         </Link>
         <nav className="nav-links" aria-label="Primary">
-          <Link to="/#why-join">Why join</Link>
+          <Link to="/#why-join">Why Alké</Link>
+          <Link to="/#practice-areas">Practice Areas</Link>
+          <Link to="/#sandbox">The Sandbox</Link>
           <Link to="/#council">Founding Network</Link>
           <Link to="/institutional-brief">Institutional Brief</Link>
+          <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer">
+            Member Login
+          </a>
         </nav>
         <Link className="btn btn-primary" to="/#council">
-          Apply to Join
+          Join the Network
           <ArrowIcon />
         </Link>
         <button
@@ -54,7 +59,13 @@ export default function Header() {
       <div id="mobile-nav" className={open ? "mobile-nav open" : "mobile-nav"}>
         <nav aria-label="Primary mobile">
           <Link to="/#why-join" onClick={() => setOpen(false)}>
-            Why join
+            Why Alké
+          </Link>
+          <Link to="/#practice-areas" onClick={() => setOpen(false)}>
+            Practice Areas
+          </Link>
+          <Link to="/#sandbox" onClick={() => setOpen(false)}>
+            The Sandbox
           </Link>
           <Link to="/#council" onClick={() => setOpen(false)}>
             Founding Network
@@ -62,9 +73,12 @@ export default function Header() {
           <Link to="/institutional-brief" onClick={() => setOpen(false)}>
             Institutional Brief
           </Link>
+          <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+            Member Login
+          </a>
         </nav>
         <Link className="btn btn-primary" to="/#council" onClick={() => setOpen(false)}>
-          Apply to Join
+          Join the Network
           <ArrowIcon />
         </Link>
       </div>

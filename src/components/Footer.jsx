@@ -15,26 +15,31 @@ export default function Footer() {
               </span>
             </Link>
             <p className="desc">
-              Institutionally governed digital-asset infrastructure for Africa and the Diaspora.
+              The institutional network for frontier-technology adoption — beginning with AI and
+              distributed ledgers. Globally open, institutionally governed.
             </p>
           </div>
           <nav className="foot-links" aria-label="Network">
             <span className="h">Network</span>
-            <Link to="/#why-join">Why join</Link>
+            <Link to="/#why-join">Why Alké</Link>
+            <Link to="/#practice-areas">Practice Areas</Link>
+            <Link to="/#sandbox">The Sandbox</Link>
             <Link to="/#council">Founding Network</Link>
-            <Link to="/#steward">Stewardship</Link>
           </nav>
           <nav className="foot-links" aria-label="Governance">
             <span className="h">Governance</span>
             <Link to="/founding-council">Founding Council</Link>
             <Link to="/foundation">The Alkebuleum Foundation</Link>
-            <Link to="/global-infrastructure">Global infrastructure shift</Link>
+            <Link to="/global-infrastructure">Global Infrastructure Shift</Link>
           </nav>
           <nav className="foot-links" aria-label="Resources">
             <span className="h">Resources</span>
-            <Link to="/technology">Technology</Link>
+            <Link to="/technology">Practice Areas in Depth</Link>
             <Link to="/institutional-brief">Institutional Brief</Link>
             <Link to="/apply">Apply</Link>
+            <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer">
+              Member Login
+            </a>
           </nav>
         </div>
         <div className="foot-bottom">

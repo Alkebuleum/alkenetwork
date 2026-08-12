@@ -7,8 +7,8 @@ export default function Foundation() {
     <div className="inner-page">
       <InnerHero
         eyebrow="The Alkebuleum Foundation"
-        title="Governance of Africa's sovereign trust layer"
-        lede="The Alkebuleum Foundation is the institutional steward of the network Alké Network runs on — responsible for governance, technical integrity, and institutional coordination across Africa and the diaspora."
+        title="Stewarding institutional frontier-technology adoption"
+        lede="The Alkebuleum Foundation is the institutional steward of Alké Network — responsible for governance, standards, and institutional coordination as the network's practice areas and membership model mature."
       />
 
       <section>
@@ -17,16 +17,15 @@ export default function Foundation() {
           <h2>It stewards the network. It does not control it.</h2>
           <div className="section-body">
             <p>
-              The Foundation's remit is governance, technical integrity, and institutional
-              coordination — not commercial control. It accredits validators, publishes
-              governance policy, and maintains the standards that define who can participate in
-              consensus and how the infrastructure is developed and maintained for public-interest
-              use.
+              The Foundation's remit is governance, standards, and institutional coordination —
+              not commercial control. It publishes governance policy and maintains the standards
+              that define how institutions participate, and how the network's practice areas are
+              developed and maintained for public-interest use.
             </p>
             <p>Alké Network is not built for speculation. It is built to be trusted.</p>
           </div>
           <blockquote className="pull-quote">
-            <p>A ledger of trust, built by Africa — for the institutions that serve her.</p>
+            <p>A network of trust, born from Africa — open to institutions everywhere.</p>
             <cite>Alkebuleum Foundation</cite>
           </blockquote>
         </div>
@@ -56,8 +55,8 @@ export default function Foundation() {
               <div>
                 <h3>Institutional and technical direction</h3>
                 <p>
-                  African and diaspora policy, technical, and institutional leaders advise the
-                  Foundation on protocol direction and priorities as the network matures.
+                  Policy, technical, and institutional leaders from across the network advise the
+                  Foundation on practice-area direction and priorities as it matures.
                 </p>
               </div>
             </div>
@@ -67,7 +66,7 @@ export default function Foundation() {
                 <h3>Operational stewardship</h3>
                 <p>
                   Accountable to the Board for day-to-day operations, and responsible for
-                  publishing an annual report and the validator accreditation registry.
+                  publishing an annual report and the membership standards registry.
                 </p>
               </div>
             </div>

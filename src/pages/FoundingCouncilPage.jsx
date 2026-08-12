@@ -9,7 +9,7 @@ export default function FoundingCouncilPage() {
       <InnerHero
         eyebrow="Founding Council"
         title="Where founding participation leads"
-        lede="The Founding Council is the governance body a subset of Founding Participants will go on to form as Alké Network matures. This is what it is, who it's built for, and how today's participation leads there — it is not a separate application track."
+        lede="The Founding Council is the member-advisory body a subset of Founding Participants will go on to form as Alké Network matures. This is what it is, who it's built for, and how today's participation leads there — it is not a separate application track."
       />
 
       <section>
@@ -27,8 +27,8 @@ export default function FoundingCouncilPage() {
               <div>
                 <h3>Founding Participant</h3>
                 <p>
-                  Open today. Institutions get early access to the governed sandbox, help inform
-                  participation standards, and put real use cases into practice.
+                  Open today. Institutions join briefings and working groups, get early access to
+                  the sandbox, and help inform participation standards.
                 </p>
               </div>
             </div>
@@ -37,9 +37,9 @@ export default function FoundingCouncilPage() {
               <div>
                 <h3>Founding Council</h3>
                 <p>
-                  Forms as the network matures. A subset of Founding Participants take on
-                  governance responsibility — setting standards, accrediting validators, and
-                  guiding the network's direction.
+                  Forms as the network matures. A subset of Founding Participants advise on
+                  membership standards, sector-circle priorities, and the permanent membership
+                  model — alongside the Alkebuleum Foundation's own Advisory Council.
                 </p>
               </div>
             </div>
@@ -50,17 +50,17 @@ export default function FoundingCouncilPage() {
       <section>
         <div className="wrap">
           <span className="eyebrow"><span className="idx">02 —</span> What the Council is</span>
-          <h2>Governance built by the institutions it serves</h2>
+          <h2>Advisory input built by the institutions it serves</h2>
           <div className="section-body">
             <p>
               The Founding Council is modeled on the same multi-stakeholder principles used by
-              public-interest technical bodies and industry governing councils worldwide:
-              named, accountable institutions holding real governance influence — not anonymous
-              voting weight.
+              public-interest technical bodies and industry advisory councils worldwide:
+              named, accountable institutions holding real advisory influence over how Alké
+              develops — not a governing body for any underlying technology.
             </p>
             <p>
               Council composition is expected to draw on a wide range of institution types, since
-              no single sector can responsibly govern shared trust infrastructure alone.
+              no single sector can responsibly shape a shared adoption network alone.
             </p>
           </div>
           <div className="card-grid">
@@ -81,8 +81,8 @@ export default function FoundingCouncilPage() {
             </div>
             <div className="card">
               <div className="k">Sector</div>
-              <h3>Civic &amp; diaspora institutions</h3>
-              <p>Representation for the communities the network serves.</p>
+              <h3>NGOs &amp; development bodies</h3>
+              <p>Accountability, reporting, and development-sector priorities.</p>
             </div>
           </div>
         </div>
@@ -96,15 +96,15 @@ export default function FoundingCouncilPage() {
             <div className="spec-row">
               <span className="k">Gains</span>
               <span className="v">
-                A voice in governance, public visibility as a founding institution, and early
-                access to standards before they're fixed.
+                A voice in shaping membership services, public visibility as a founding
+                institution, and early access to standards before they're fixed.
               </span>
             </div>
             <div className="spec-row">
               <span className="k">Not required</span>
               <span className="v">
-                Council standing does not carry blanket liability, a requirement to promote any
-                token, or an exclusive commitment away from other initiatives.
+                Council standing does not carry blanket liability, a requirement to adopt any
+                specific technology, or an exclusive commitment away from other initiatives.
               </span>
             </div>
           </div>
