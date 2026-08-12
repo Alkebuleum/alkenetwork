@@ -78,9 +78,98 @@ Done this session:
 5. Nothing in this redesign has been committed to git yet.
 
 If you're picking this up cold: read §1 (decisions) and this status block. The public site
-(`alke.network`) is now content-consistent end to end. The next real body of work is Part 4 of
-`alke-redesign.md` — the `app.alke.network` member portal — which was explicitly out of scope this
-session (see decision 3 in §1) and hasn't been started at all.
+(`alke.network`) is content-consistent end to end.
+
+---
+
+## 6. PORTAL (`app.alke.network`) — design pass started 2026-08-12
+
+Decision 3 in §1 deferred the portal. The user has now asked to start on it, with explicit
+direction: **institutional/enterprise feel — "think Microsoft institutional applications" — dark
+theme.**
+
+### Architecture decision
+
+Built as a **separate app at `/portal`**, sibling to the root marketing site, not a route namespace
+inside the existing app. Same tooling as the root (`Vite` + `React 19` + `react-router-dom`,
+copy-pasted `package.json`/`vite.config.js`). Reasoning: `app.alke.network` is a different subdomain
+with a different deploy target than `alke.network`, and the two apps have deliberately different UI
+languages (see below) — bundling them would mean fighting one CSS system against the other. Root
+`package.json`/`vite.config.js`/`src/` are untouched; the portal is fully self-contained under
+`portal/`.
+
+**Not yet wired to CI.** `.github/workflows/deploy.yml` at the repo root only builds/deploys the
+root app to the `alke.network` CNAME. The portal has no deploy workflow, no `CNAME` file, and isn't
+live anywhere yet — it only runs locally (`cd portal && npm run dev`, currently on port 5174 in this
+session). Setting up the actual `app.alke.network` deploy target (new GitHub Pages project, a
+different host, whatever the real infra is) is unstarted and wasn't this session's call to make
+unilaterally.
+
+### Design direction (deliberately different from the marketing site)
+
+The marketing site (`ALKE-DESIGN-NOTES.md`) is an editorial/archival "drafting-table" language:
+serif headlines, generous whitespace, technical-drawing illustrations. That's wrong for a tool
+people use daily. The portal instead reads as a **dense enterprise console** — closer to Microsoft
+365 admin center / Azure Portal than to the marketing site's own hero:
+
+- **Same color tokens, different type system.** Reused the exact `--bg-0..3` / `--ink-0..4` / `--acc`
+  / `--line` values for brand continuity, but dropped the Newsreader serif entirely — headings are
+  Inter (sans), same as body. A dense data tool doesn't get a display serif.
+- **Shell, not a page.** `--sidebar-w:264px` fixed left rail (`--bg-0`, darkest surface) + a
+  `60px` sticky topbar (search, notification bell, profile) over a lighter content canvas
+  (`--bg-1`), the classic admin-console "chrome vs. canvas" split.
+- **Smaller, denser scale throughout.** 14px base body vs. the marketing site's 16px; 38–40px
+  buttons vs. 52px; cards use 20px padding vs. 28px.
+- **New component vocabulary not needed on the marketing site:** sidebar nav links with active-state
+  left accent bar, status badges/pills (`.badge`, `.badge--acc/warn/bad`), a phase-track + progress
+  bar pair for sandbox projects, data cards, and an auth split-screen (dark grid-pattern aside +
+  centered form) for `/login` that deliberately echoes enterprise-SSO login pages.
+- Icons are a small hand-built line-icon set (`portal/src/components/icons.jsx`) at 24px, single
+  stroke weight — kept in the same "restrained technical drawing" spirit as the marketing site's
+  illustrations rather than importing an icon library.
+
+### What's built (design-pass scope, not full Part 4 build-out)
+
+- Full app shell: `Sidebar.jsx` (all nav items from spec's "Portal global navigation" — Network group
+  + Institution group), `Topbar.jsx`, `AppShell.jsx` (handles the mobile drawer state)
+- `/login` — fully designed per spec's auth-screens list, split-screen with mocked submit (routes to
+  `/` on submit, no real auth — see below)
+- `/forgot-password`, `/verify`, `/invite`, `/onboarding` — minimal placeholder screens reusing the
+  auth-form layout (`AuthStub.jsx`), just enough that Login's links don't dead-end. **Not designed
+  to spec depth** — `/onboarding` in particular needs the real multi-step institution+profile+
+  interests flow from spec Part 4 "Member onboarding," not just a placeholder.
+- `/` (Dashboard/Home) — fully designed per spec's four dashboard questions (what's changing / what
+  are peers doing / what are we working on / what should we do next), with realistic mock data in
+  `portal/src/data/mock.js`
+- Every other sidebar destination (`/intelligence`, `/network`, `/groups`, `/sandbox`, `/studio`,
+  `/learn`, `/library`, `/sovereignty`, `/events`, `/messages`, `/notifications`, `/organization`,
+  `/organization/team`, `/membership`, `/profile`, `/settings`) routes to a shared `StubPage.jsx`
+  empty-state component (per spec's "empty states should educate" rule) so the nav is fully
+  clickable and coherent, but **none of those modules have real designed content yet** — that's the
+  bulk of the remaining Part 4 work.
+- Visually verified at 1440px (login, dashboard, two stub pages) and 390px (dashboard + mobile
+  drawer open/closed) via Playwright, zero console errors.
+
+### Explicit non-goals this pass (per the frontend-only boundary, spec Part 5)
+
+- No real authentication — `/login`'s submit just navigates to `/`. A real integration needs a typed
+  `services/auth` interface per spec Part 5, not implemented yet.
+- All data is mock/fictional (`portal/src/data/mock.js`) — no service layer (`services/` folder from
+  spec Part 5) exists yet to abstract a future backend.
+- No role-based UI states (Institutional Admin / Executive / Program Lead / etc. from spec) — the
+  current user is hardcoded as one role.
+
+### Next steps, roughly in spec Part 6 order
+
+1. Design the actual module screens in priority order — Intelligence feed, Network directory +
+   institution profile, then Sandbox (project list + detail) since it's called out as "one of the
+   portal's central features."
+2. Build out the real onboarding flow (institution setup → personal profile → interests).
+3. Sovereignty Center — spec flags this as "one of Alké's most distinctive areas," worth designing
+   with real care (maturity assessment, Level 1–5 progression) rather than as a stub.
+4. Decide and set up the actual `app.alke.network` deploy target.
+5. Introduce the `services/` abstraction layer once any of the above needs to look like it's talking
+   to a backend, per spec Part 5's API-abstraction requirement.
 
 ---
 
