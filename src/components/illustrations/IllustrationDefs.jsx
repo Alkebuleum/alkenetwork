@@ -4,10 +4,10 @@ export default function IllustrationDefs({ uid }) {
   return (
     <defs>
       <pattern id={`${uid}-g-fine`} width="36" height="36" patternUnits="userSpaceOnUse">
-        <path d="M36 0H0V36" stroke="#6FC5A0" strokeOpacity=".13" strokeWidth="1" />
+        <path d="M36 0H0V36" stroke="#14563A" strokeOpacity=".07" strokeWidth="1" />
       </pattern>
       <pattern id={`${uid}-g-major`} width="180" height="180" patternUnits="userSpaceOnUse">
-        <path d="M180 0H0V180" stroke="#6FC5A0" strokeOpacity=".2" strokeWidth="1" />
+        <path d="M180 0H0V180" stroke="#14563A" strokeOpacity=".12" strokeWidth="1" />
       </pattern>
 
       <radialGradient id={`${uid}-fade`} cx="46%" cy="48%" r="58%">
@@ -29,13 +29,13 @@ export default function IllustrationDefs({ uid }) {
       </mask>
 
       <linearGradient id={`${uid}-stone`} x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stopColor="#9BDCBF" stopOpacity=".95" />
-        <stop offset="70%" stopColor="#6FC5A0" stopOpacity=".55" />
-        <stop offset="100%" stopColor="#6FC5A0" stopOpacity=".18" />
+        <stop offset="0%" stopColor="#14563A" stopOpacity=".9" />
+        <stop offset="70%" stopColor="#14563A" stopOpacity=".55" />
+        <stop offset="100%" stopColor="#14563A" stopOpacity=".25" />
       </linearGradient>
       <linearGradient id={`${uid}-plane`} x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stopColor="#9BDCBF" stopOpacity=".22" />
-        <stop offset="100%" stopColor="#6FC5A0" stopOpacity=".03" />
+        <stop offset="0%" stopColor="#14563A" stopOpacity=".1" />
+        <stop offset="100%" stopColor="#14563A" stopOpacity=".02" />
       </linearGradient>
 
       <filter id={`${uid}-glow`} x="-60%" y="-60%" width="220%" height="220%">

@@ -82,6 +82,60 @@ If you're picking this up cold: read §1 (decisions) and this status block. The 
 
 ---
 
+## 5b. MARKETING SITE — retheme to light "institutional paper" palette (2026-08-12)
+
+The dark mint theme (§1 decision 1) is **superseded**. The user supplied a second reference file,
+`alke-hero-institutional.html` (repo root), and asked to retheme the whole marketing site to it —
+explicitly to bring it into brand alignment with the portal's now-light Fluent green (§6). Treat this
+file as authoritative the same way `alke-hero.html` and `alke-portal-fluent.html` are for their
+respective surfaces.
+
+**This was a full token + component-language retheme, not just a color swap** — the reference's own
+comments describe deliberate interaction/shape changes alongside the palette, and those were ported
+too:
+
+- **Palette:** warm paper surfaces (`--bg-1:#FBFAF7` page, `--bg-0:#FFFFFF` cards), ink with a green
+  cast (`--ink-0:#1A211D`), deep institutional green accent (`--acc:#14563A` — notably *darker* than
+  the paper, used as ink rather than as a glow). `color-scheme` flipped `dark`→`light` in `:root`.
+- **Flatter components:** buttons lost their gradient/shadow/hover-lift (now flat solid fill, 3px
+  radius, background-only hover state); the status eyebrow pill became a flat bordered rectangle
+  (2px radius) instead of a 100px pill; cards/panels (`.narrative-figure`, `.council-panel`,
+  `.apply-panel`, `.signal-card`) lost their gradient wash in favor of flat `--bg-0` fill.
+  Radius went from 10-14px to 3-6px sitewide.
+- **`.atmos` and `.grain`** (the dark theme's ambient radial glow + film-grain overlay, rendered once
+  in `App.jsx`) were deleted outright — removed from both `App.jsx` and `index.css`. They were
+  dark-cinematic techniques with no equivalent in the reference's flat-paper language.
+- **`HeroIllustration.jsx` and `illustrations/IllustrationDefs.jsx` hardcode hex colors directly**
+  (SVG gradient stops don't take CSS custom properties as cleanly as regular CSS), so the mint hex
+  (`#6FC5A0`/`#9BDCBF`) had to be found-and-replaced by hand rather than cascading from the token
+  change — now `#14563A` throughout, with per-shape opacity values ported from the reference's own
+  retuned SVG (it uses different opacity constants than the dark original, not just a recolor).
+- **Motion — first tried removing it, then explicitly told not to.** The reference's own SVG comment
+  says "CONNECTIVE TISSUE — static survey lines" and its motion section says "single gentle settle,
+  nothing loops" (no pulse ping, no dash-flow, no traveling nodes). The first pass followed that
+  literally: dropped `.pulse::after`'s ping ring, `.flow`'s looping dash-offset, `.blink`'s looping
+  opacity, and the hero's `animateMotion` traveling-signal-pulse circles. **The user then explicitly
+  asked to restore the hero's animation to what it was before** — so all of the above were put back
+  (recolored to the new green), and only the *palette/flatness* parts of the reference were kept.
+  Net effect: this site now deliberately diverges from the reference on motion — take that as the
+  standing instruction, don't re-flatten it to match the mockup literally if revisiting this file.
+- **Real bug found and fixed:** `.card-grid` (used by the Practice Areas cards on `/technology` and
+  elsewhere) rendered its inter-card gap as a solid `var(--line)`-colored background sitting behind
+  the grid, so any row that didn't fill exactly (12 AI-practice items in an auto-fit grid, for
+  example) showed a visible gray patch in the empty cell. This blended in on the old near-black
+  background but reads as a smudge on white. Fixed by moving the border from the grid container onto
+  each `.card` individually (`gap:1px` + `border:1px solid var(--line)` per card, no container
+  background) — empty cells now just show the page's own background, in every `.card-grid` usage
+  sitewide, not only the one that surfaced it.
+
+Visually verified: hero + full page-by-page screenshots of all 7 routes (zero console errors), mobile
+nav open/closed at 390px. Not yet re-audited: the `ALKE-DESIGN-NOTES.md` §9 accessibility checklist
+(contrast, focus rings) against the new light palette — do that before calling this done-done, since
+`ALKE-DESIGN-NOTES.md` itself is now stale (written for the dark theme) and shouldn't be trusted
+literally until updated to match.
+
+---
+
 ## 6. PORTAL (`app.alke.network`) — design pass started 2026-08-12
 
 Decision 3 in §1 deferred the portal. The user has now asked to start on it, with explicit
@@ -105,28 +159,59 @@ session). Setting up the actual `app.alke.network` deploy target (new GitHub Pag
 different host, whatever the real infra is) is unstarted and wasn't this session's call to make
 unilaterally.
 
-### Design direction (deliberately different from the marketing site)
+### Design direction — SUPERSEDED 2026-08-12, see "Fluent re-skin" below
 
-The marketing site (`ALKE-DESIGN-NOTES.md`) is an editorial/archival "drafting-table" language:
-serif headlines, generous whitespace, technical-drawing illustrations. That's wrong for a tool
-people use daily. The portal instead reads as a **dense enterprise console** — closer to Microsoft
-365 admin center / Azure Portal than to the marketing site's own hero:
+~~The marketing site (`ALKE-DESIGN-NOTES.md`) is an editorial/archival "drafting-table" language...
+The portal instead reads as a dense enterprise console... dark theme, mint accent, same tokens as
+the marketing site.~~ This was the first pass, built on a verbal "think Microsoft, maybe dark theme"
+brief. The user then supplied a concrete reference file (`alke-portal-fluent.html`, repo root) and
+asked to build to it exactly — a **light-mode** Fluent/Microsoft-365-style design, not dark. That
+reference is now the source of truth for the portal, the same way `alke-hero.html` is for the
+marketing site. Don't reintroduce the dark tokens described below without a similarly explicit
+instruction — the verbal brief undersold how literally "Microsoft" was meant.
 
-- **Same color tokens, different type system.** Reused the exact `--bg-0..3` / `--ink-0..4` / `--acc`
-  / `--line` values for brand continuity, but dropped the Newsreader serif entirely — headings are
-  Inter (sans), same as body. A dense data tool doesn't get a display serif.
-- **Shell, not a page.** `--sidebar-w:264px` fixed left rail (`--bg-0`, darkest surface) + a
-  `60px` sticky topbar (search, notification bell, profile) over a lighter content canvas
-  (`--bg-1`), the classic admin-console "chrome vs. canvas" split.
-- **Smaller, denser scale throughout.** 14px base body vs. the marketing site's 16px; 38–40px
-  buttons vs. 52px; cards use 20px padding vs. 28px.
-- **New component vocabulary not needed on the marketing site:** sidebar nav links with active-state
-  left accent bar, status badges/pills (`.badge`, `.badge--acc/warn/bad`), a phase-track + progress
-  bar pair for sandbox projects, data cards, and an auth split-screen (dark grid-pattern aside +
-  centered form) for `/login` that deliberately echoes enterprise-SSO login pages.
-- Icons are a small hand-built line-icon set (`portal/src/components/icons.jsx`) at 24px, single
-  stroke weight — kept in the same "restrained technical drawing" spirit as the marketing site's
-  illustrations rather than importing an icon library.
+### Fluent re-skin (current state, built 2026-08-12)
+
+`alke-portal-fluent.html` at the repo root is a full static HTML/CSS mockup of the Home screen —
+treat it as authoritative for tokens, spacing, and component shapes, not just a mood board. What was
+extracted from it into `portal/src/index.css`:
+
+- **Palette:** `--brand:#107C41` (institutional green) on a light canvas — `--bg:#FAF9F8` app
+  background, `--surface:#FFFFFF` cards/sidebar/appbar, `--border:#E1DFDD`. Category colors for
+  intelligence tags and peer-activity avatars: green (AI/brand), purple (DLT), teal (Sovereignty),
+  amber (warnings/policy).
+- **Type:** system Segoe UI stack (`"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,...`) — no
+  self-hosted/Google Fonts at all, which also means `portal/index.html` no longer loads any font
+  `<link>`. 14px base, 600-weight headings, no serif anywhere.
+- **Chrome:** 48px `.appbar` (waffle menu, brand mark, centered search, help + notification icon
+  buttons, profile) sitting above a 228px `.nav` sidebar + `.main` content area — smaller and denser
+  than the original dark-theme shell (which used a 60px topbar / 264px sidebar).
+- **Components rebuilt to match:** `.hero` welcome banner with a `.cta` side panel, `.intel` row list
+  with colored `.tag` pills, `.rail` peer-activity list with colored circular initials (`.pav`),
+  working-group rows with a `.chip`, `.btn.primary`/`.btn.ghost` (4px radius, 32px height — much
+  smaller than the dark theme's 38-40px), and a `.card` with a 1px border + subtle 2-level shadow
+  instead of the dark theme's gradient-wash cards.
+- **Icons:** `portal/src/components/icons.jsx` was rewritten with the exact 16×16 stroke paths
+  transcribed from the reference file (not just "similar" icons) for visual fidelity.
+- **Login/auth screens:** the reference only covers Home, so `/login` and the `AuthStub` pages were
+  extended in the same language — a solid-green `.auth-aside` (grid pattern, masked radial fade) +
+  white form panel, matching the reference's brand color and card language even though those exact
+  screens weren't in the mockup.
+- `Mark.jsx` (the old geometric network-logo SVG) was deleted — the reference uses a simple
+  green-square "A" letter mark (`.brand .mark`) throughout, including in the topbar, login, and auth
+  stub screens. This is a real brand simplification versus the marketing site's logo; flagging in
+  case that was accidental in the reference rather than intentional.
+- Extended beyond the reference: a "What we're working on" sandbox-projects section below the
+  reference's grid, using new `.proj`/`.phase-track`/`.progress` classes in the same Fluent language,
+  since the spec's dashboard requirements include sandbox status and the reference mockup didn't
+  cover it.
+
+**Bug found and fixed during this pass:** `.hero .cta` had a hardcoded `min-width:320px` that
+overflowed its own card at ~390px mobile width (text got hard-clipped, not wrapped). Fixed with a
+`max-width:640px` override (`min-width:0; width:100%`) — verified before/after with Playwright.
+
+Visually verified against the reference at 1440px (near pixel-for-pixel on Home) and at 390px mobile
+(closed + drawer-open states), zero console errors throughout.
 
 ### What's built (design-pass scope, not full Part 4 build-out)
 
@@ -218,12 +303,16 @@ ask.
 
 ## 1. Decisions made with the user (2026-08-12)
 
-1. **Design system: keep the current one.** `ALKE-DESIGN-NOTES.md` (dark, mint-on-near-black,
-   drafting-table/technical-drawing motif, serif+sans+mono type system) is the source of truth for
-   visuals — not the literal hex palette in `alke-redesign.md` Part 1 (Near-Black `#0D1110` /
-   Institutional Teal `#519384` / Warm Ivory `#F0F0E9` / Soft Neutral Gray `#B4B6B2`). Treat
-   `alke-redesign.md`'s design section as directional ("institutional, calm, technical, restrained
-   accent") already satisfied by the existing system, not as literal tokens to swap in.
+1. **[SUPERSEDED 2026-08-12 — see §5b] Design system: keep the current one.** `ALKE-DESIGN-NOTES.md`
+   (dark, mint-on-near-black, drafting-table/technical-drawing motif, serif+sans+mono type system)
+   is the source of truth for visuals — not the literal hex palette in `alke-redesign.md` Part 1
+   (Near-Black `#0D1110` / Institutional Teal `#519384` / Warm Ivory `#F0F0E9` / Soft Neutral Gray
+   `#B4B6B2`). Treat `alke-redesign.md`'s design section as directional ("institutional, calm,
+   technical, restrained accent") already satisfied by the existing system, not as literal tokens to
+   swap in. **This held until the portal moved to a light Fluent theme and the user asked to bring
+   the marketing site into alignment — see §5b for the current (light, warm-paper, deep-green)
+   system.** `ALKE-DESIGN-NOTES.md` itself has not been updated and is now stale; don't trust its
+   hex values literally.
 2. **Geography: go global.** The doc's own late-added addendum ("Strategic Geographic Positioning
    Update," bottom of `alke-redesign.md`) supersedes the earlier Africa/diaspora-restricted framing.
    Membership copy should read as globally open; Africa's role becomes *origin story*, not
