@@ -1,51 +1,72 @@
-import { Link } from "react-router-dom";
-import Mark from "./Mark";
+import { Ext, RingMark, Todo } from "./Brand";
+import { LINKS, SOCIALS } from "../data/links";
+
+const SITE_LINKS = [
+  [LINKS.nuru, "nuru.si", "community hub"],
+  [LINKS.explorer, "alkescan.com", "explorer"],
+  [LINKS.jollofswap, "jollofswap.com", "exchange"],
+  [LINKS.ecosystem, "alkebuleum.org", "ecosystem"],
+];
 
 export default function Footer() {
   return (
     <footer>
       <div className="wrap">
-        <div className="foot">
-          <div>
-            <Link className="logo" to="/">
-              <Mark className="footer-mark" />
-              <span>
-                <span className="word">alké</span>
-                <span className="net">NETWORK</span>
-              </span>
-            </Link>
-            <p className="desc">
-              The institutional network for frontier-technology adoption — beginning with AI and
-              distributed ledgers. Globally open, institutionally governed.
-            </p>
-          </div>
-          <nav className="foot-links" aria-label="Network">
-            <span className="h">Network</span>
-            <Link to="/#why-join">Why Alké</Link>
-            <Link to="/#practice-areas">Practice Areas</Link>
-            <Link to="/#sandbox">The Sandbox</Link>
-            <Link to="/#council">Founding Network</Link>
-          </nav>
-          <nav className="foot-links" aria-label="Governance">
-            <span className="h">Governance</span>
-            <Link to="/founding-council">Founding Council</Link>
-            <Link to="/foundation">The Alkebuleum Foundation</Link>
-            <Link to="/global-infrastructure">Global Infrastructure Shift</Link>
-          </nav>
-          <nav className="foot-links" aria-label="Resources">
-            <span className="h">Resources</span>
-            <Link to="/technology">Practice Areas in Depth</Link>
-            <Link to="/institutional-brief">Institutional Brief</Link>
-            <Link to="/apply">Apply</Link>
-            <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer">
-              Member Login
+        <div className="foot-grid">
+          <div className="foot-brand">
+            <a className="lockup" href="#top" aria-label="Back to the top">
+              <RingMark width={40} height={46} />
+              <b>ALKÉ NETWORK</b>
             </a>
-          </nav>
+            <p className="slogan">The People's Network.</p>
+            <p>Mine. Play. Invite. Grow.</p>
+          </div>
+          <div>
+            <h4>Links</h4>
+            <ul className="foot-list">
+              {SITE_LINKS.map(([href, label, note]) => (
+                <li key={href}>
+                  <Ext href={href}>{label}</Ext>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h4>Follow</h4>
+            <ul className="foot-list">
+              {SOCIALS.map((s) =>
+                s.href ? (
+                  <li key={s.name}>
+                    <Ext href={s.href}>{s.name}</Ext>
+                    <span>{s.handle}</span>
+                  </li>
+                ) : (
+                  <li key={s.name}>
+                    {s.name} <Todo what={s.todo} />
+                  </li>
+                ),
+              )}
+            </ul>
+          </div>
+        </div>
+        <div className="legal">
+          <p>
+            <strong>Not financial advice — for education only.</strong>
+          </p>
+          <p>
+            $ALKE is a native utility token used for transaction fees, smart contract execution, validator staking, governance and network access. It is not a security,
+            investment contract or equity instrument, and holding it is not ownership of any company or project. There was no ICO or presale, and no return is guaranteed.
+          </p>
+          <p>
+            Mining is participation in the network. The conversion of warmed cold ALKE to hot ALKE at the first global listing is a mechanism, not a promise of value, and no
+            listing date has been set. Warming comes only from verified invites. ALKÉ Hex and ALKÉ Rush XP is play-only and never redeemable for ALKE. Nothing on this site is
+            a recommendation.
+          </p>
         </div>
         <div className="foot-bottom">
-          <span>ALKÉ NETWORK — FOUNDING PHASE — MMXXVI</span>
-          <span>Stewarded by the Alkebuleum Foundation</span>
-          <span className="url">alke.network</span>
+          <span>© 2026 ALKÉ Network</span>
+          <span>alke.network</span>
         </div>
       </div>
     </footer>

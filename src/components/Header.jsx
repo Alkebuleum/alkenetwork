@@ -1,86 +1,65 @@
-import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Mark from "./Mark";
-import ArrowIcon from "./icons/ArrowIcon";
+import { useEffect, useRef, useState } from "react";
+import { Ext, Mark } from "./Brand";
+import { LINKS } from "../data/links";
+
+const NAV = [
+  ["#mining", "Mining"],
+  ["#how", "How it works"],
+  ["#roadmap", "Roadmap"],
+  ["#get-alke", "Get ALKE"],
+  ["#builders", "Builders"],
+  ["#community", "Community"],
+  ["#faq", "FAQ"],
+];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const btn = useRef(null);
 
-  function goHome(e) {
-    setOpen(false);
-    if (location.pathname === "/" && !location.hash) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (location.pathname === "/") {
-      e.preventDefault();
-      navigate("/");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        btn.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   return (
-    <header>
-      <div className="nav">
-        <Link className="logo" to="/" aria-label="Alké Network home" onClick={goHome}>
+    <header className="top">
+      <div className="wrap nav">
+        <a className="lockup" href="#top" aria-label="ALKÉ Network home">
           <Mark />
-          <span>
-            <span className="word">alké</span>
-            <span className="net">NETWORK</span>
-          </span>
-        </Link>
-        <nav className="nav-links" aria-label="Primary">
-          <Link to="/#why-join">Why Alké</Link>
-          <Link to="/#practice-areas">Practice Areas</Link>
-          <Link to="/#sandbox">The Sandbox</Link>
-          <Link to="/#council">Founding Network</Link>
-          <Link to="/institutional-brief">Institutional Brief</Link>
-          <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer">
-            Member Login
-          </a>
+          <b>ALKÉ NETWORK</b>
+        </a>
+        <nav className={open ? "menu open" : "menu"} id="menu" aria-label="Sections">
+          {NAV.map(([href, label]) => (
+            <a key={href} href={href} onClick={() => setOpen(false)}>
+              {label}
+            </a>
+          ))}
         </nav>
-        <Link className="btn btn-primary" to="/#council">
-          Join the Network
-          <ArrowIcon />
-        </Link>
-        <button
-          className={open ? "nav-toggle open" : "nav-toggle"}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <div id="mobile-nav" className={open ? "mobile-nav open" : "mobile-nav"}>
-        <nav aria-label="Primary mobile">
-          <Link to="/#why-join" onClick={() => setOpen(false)}>
-            Why Alké
-          </Link>
-          <Link to="/#practice-areas" onClick={() => setOpen(false)}>
-            Practice Areas
-          </Link>
-          <Link to="/#sandbox" onClick={() => setOpen(false)}>
-            The Sandbox
-          </Link>
-          <Link to="/#council" onClick={() => setOpen(false)}>
-            Founding Network
-          </Link>
-          <Link to="/institutional-brief" onClick={() => setOpen(false)}>
-            Institutional Brief
-          </Link>
-          <a href="https://app.alke.network" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
-            Member Login
-          </a>
-        </nav>
-        <Link className="btn btn-primary" to="/#council" onClick={() => setOpen(false)}>
-          Join the Network
-          <ArrowIcon />
-        </Link>
+        <div className="nav-cta">
+          <Ext className="btn primary small" href={LINKS.nuru}>
+            Get Nuru
+          </Ext>
+          <button
+            ref={btn}
+            className="burger"
+            type="button"
+            aria-expanded={open}
+            aria-controls="menu"
+            aria-label={open ? "Close the menu" : "Open the menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
   );
