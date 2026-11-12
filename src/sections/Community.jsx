@@ -1,4 +1,4 @@
-import { Ext, Todo } from "../components/Brand";
+import { Ext } from "../components/Brand";
 import { LINKS, SOCIALS } from "../data/links";
 
 export default function Community() {
@@ -32,17 +32,10 @@ export default function Community() {
         <ul className="socials">
           {SOCIALS.map((s) => (
             <li key={s.name}>
-              {s.href ? (
-                <Ext href={s.href}>
-                  <b>{s.name}</b>
-                  <span>{s.handle}</span>
-                </Ext>
-              ) : (
-                <div>
-                  <b>{s.name}</b>
-                  <Todo what={s.todo} />
-                </div>
-              )}
+              <Ext href={s.href}>
+                <b>{s.name}</b>
+                <span>{s.handle}</span>
+              </Ext>
             </li>
           ))}
         </ul>

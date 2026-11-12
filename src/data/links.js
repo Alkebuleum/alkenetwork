@@ -6,6 +6,10 @@ export const LINKS = {
   explorer: "https://alkescan.com",
   jollofswap: "https://jollofswap.com",
   ecosystem: "https://alkebuleum.org",
+  rpc: "https://rpc.alkebuleum.com",
+  docs: "https://docs.alkebuleum.org",
+  github: "https://github.com/alkebuleum",
+  faucet: "https://faucet.alkebuleum.com",
 };
 
 export const SOCIALS = [
@@ -14,8 +18,6 @@ export const SOCIALS = [
   { name: "Instagram", handle: "@alkenetwork", href: "https://www.instagram.com/alkenetwork" },
   { name: "Threads", handle: "@alkenetwork", href: "https://www.threads.net/@alkenetwork" },
   { name: "TikTok", handle: "@alke4287", href: "https://www.tiktok.com/@alke4287" },
-  // LinkedIn URL not confirmed yet; rendered as a placeholder until href is set.
-  { name: "LinkedIn", handle: null, href: null, todo: "LinkedIn page URL (Alké Network)" },
 ];
 
 export const X_URL = SOCIALS[0].href;

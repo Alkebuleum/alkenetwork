@@ -1,5 +1,5 @@
 import PhoneCanvas from "../components/PhoneCanvas";
-import { Chip, Ext, Hex, Todo } from "../components/Brand";
+import { Chip, Ext, Hex } from "../components/Brand";
 import { X_URL } from "../data/links";
 
 const EXAMPLES = [
@@ -92,9 +92,7 @@ function Warming() {
         ))}
         <li className="verify">
           <Hex size={14} stroke={12} />
-          <span>
-            How invites are verified: <Todo what="How invites are verified" />
-          </span>
+          <span>The full invite verification steps are published in the app at launch.</span>
         </li>
       </ul>
     </div>

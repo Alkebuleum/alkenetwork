@@ -1,4 +1,4 @@
-import { Ext, RingMark, Todo } from "./Brand";
+import { Ext, RingMark } from "./Brand";
 import { LINKS, SOCIALS } from "../data/links";
 
 const SITE_LINKS = [
@@ -6,6 +6,7 @@ const SITE_LINKS = [
   [LINKS.explorer, "alkescan.com", "explorer"],
   [LINKS.jollofswap, "jollofswap.com", "exchange"],
   [LINKS.ecosystem, "alkebuleum.org", "ecosystem"],
+  [LINKS.docs, "docs.alkebuleum.org", "developer docs"],
 ];
 
 export default function Footer() {
@@ -35,18 +36,12 @@ export default function Footer() {
           <div>
             <h4>Follow</h4>
             <ul className="foot-list">
-              {SOCIALS.map((s) =>
-                s.href ? (
-                  <li key={s.name}>
-                    <Ext href={s.href}>{s.name}</Ext>
-                    <span>{s.handle}</span>
-                  </li>
-                ) : (
-                  <li key={s.name}>
-                    {s.name} <Todo what={s.todo} />
-                  </li>
-                ),
-              )}
+              {SOCIALS.map((s) => (
+                <li key={s.name}>
+                  <Ext href={s.href}>{s.name}</Ext>
+                  <span>{s.handle}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

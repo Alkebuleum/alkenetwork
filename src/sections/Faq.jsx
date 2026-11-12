@@ -18,7 +18,7 @@ const FAQS = [
     a: [
       "Invite real people. Each verified invite warms 10 of your cold ALKE per day, so warming time = your cold ALKE ÷ (verified invites × 10 per day). 100 cold ALKE with 1 verified invite warms in 10 days, and with 5 invites in 2 days. 1,000 cold ALKE with 1 invite takes 100 days, and with 10 invites 10 days.",
       <>
-        Unverified invites warm nothing, and your own mining does not warm your coins. How invites are verified is still to be confirmed. <a href="#warming">See how warming works</a>.
+        Unverified invites warm nothing, and your own mining does not warm your coins. The full verification steps are published in the app at launch. <a href="#warming">See how warming works</a>.
       </>,
     ],
   },

@@ -1,4 +1,4 @@
-import { Ext, Hex, Todo } from "../components/Brand";
+import { Ext, Hex } from "../components/Brand";
 import { LINKS } from "../data/links";
 
 const FACTS = [
@@ -57,7 +57,7 @@ export default function Builders() {
             <pre>
               <span className="k">const</span> network = {"{"}
               {"\n  "}chainId: <span className="n">237422</span>,{"\n  "}blockTime: <span className="s">"5.0s"</span>,{"\n  "}gas: <span className="s">"1,000 wei"</span>,
-              {"\n  "}explorer: <span className="s">"https://alkescan.com"</span>,{"\n  "}rpcUrl: <Todo what="RPC endpoint" />,{"\n  "}docs: <Todo what="Docs URL" />,{"\n"}
+              {"\n  "}explorer: <span className="s">"https://alkescan.com"</span>,{"\n  "}rpcUrl: <span className="s">"https://rpc.alkebuleum.com"</span>,{"\n  "}docs: <span className="s">"https://docs.alkebuleum.org"</span>,{"\n"}
               {"};"}
             </pre>
           </div>
@@ -70,20 +70,35 @@ export default function Builders() {
             </div>
             <div className="res-row">
               <b>Docs</b>
-              <Todo what="Docs URL" />
+              <Ext className="textlink" href={LINKS.docs}>
+                docs.alkebuleum.org
+              </Ext>
             </div>
             <div className="res-row">
               <b>RPC endpoint</b>
-              <Todo what="RPC endpoint" />
+              <Ext className="textlink" href={LINKS.rpc}>
+                rpc.alkebuleum.com
+              </Ext>
             </div>
             <div className="res-row">
               <b>Developer tooling</b>
-              <Todo what="Developer tooling links" />
+              <span>
+                <Ext className="textlink" href={LINKS.github}>
+                  GitHub
+                </Ext>
+                {" · "}
+                <Ext className="textlink" href={LINKS.faucet}>
+                  Faucet
+                </Ext>
+              </span>
             </div>
           </div>
           <div className="btns">
-            <Ext className="btn primary" href={LINKS.explorer}>
-              Start on the explorer
+            <Ext className="btn primary" href={LINKS.docs}>
+              Read the docs
+            </Ext>
+            <Ext className="btn" href={LINKS.explorer}>
+              Open the explorer
             </Ext>
           </div>
         </div>

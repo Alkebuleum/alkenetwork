@@ -84,15 +84,6 @@ export function Ext({ href, className, children, ...rest }) {
   );
 }
 
-/* A value still waiting on confirmation before launch. */
-export function Todo({ what, label = "[TODO: Ernesto to confirm]" }) {
-  return (
-    <span className="todo" data-todo={what}>
-      {label}
-    </span>
-  );
-}
-
 export function Chip({ gold, children }) {
   return (
     <span className={gold ? "chip goldchip" : "chip"}>
