@@ -62,7 +62,7 @@ export default function Mining() {
                 <Hex size={20} stroke={10} color="#A58BFF" />
                 Cold ALKE
               </h3>
-              <p>What members mine in the app. It stays Locked, and only verified invites warm it. No release date yet.</p>
+              <p>What members mine in the app. It stays Locked until contributions warm it: active invites and daily game XP. No release date yet.</p>
               <span className="tag">Mined · Locked</span>
             </div>
             <div className="ch hot">

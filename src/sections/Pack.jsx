@@ -1,17 +1,19 @@
 import { Hex, Mascot } from "../components/Brand";
 
+// [active invites, daily game XP maxed?, % a day, fully warm in]
 const EXAMPLES = [
-  ["100", "1", "10 days"],
-  ["100", "5", "2 days"],
-  ["1,000", "1", "100 days"],
-  ["1,000", "10", "10 days"],
+  ["1", "No", "1%", "100 days"],
+  ["3", "Yes", "3.3%", "31 days"],
+  ["5", "No", "5%", "20 days"],
+  ["10", "Yes", "10.3%", "10 days"],
 ];
 
 const RULES = [
-  "Unverified invites warm nothing.",
-  "Your own mining does not warm your coins.",
-  "Only warmed ALKE converts to hot ALKE at listing. Unwarmed cold ALKE stays cold.",
-  "The full invite verification steps are published in the app at launch.",
+  "An invite becomes active once the person you invited completes 3 sessions.",
+  "Your own mining sessions don't warm your coins.",
+  "Game XP warms up to 0.3% a day. The XP itself is never redeemable for ALKE.",
+  "Only warm ALKE can be claimed. Cold ALKE stays cold until it's warmed.",
+  "Lessons and discussions will add more ways to warm soon.",
 ];
 
 export default function Pack() {
@@ -24,38 +26,40 @@ export default function Pack() {
             Your pack <span className="glow">warms your ALKE.</span>
           </h2>
           <p className="lede">
-            The African wild dog is one of the continent's most successful hunters, because it never hunts alone. ALKE works the same way: cold ALKE is warmed only by real,
-            verified people you invite. Each verified invite warms 10 of your cold ALKE per day.
+            The African wild dog is one of the continent's most successful hunters, because it never hunts alone. ALKE works the same way: your contributions warm your cold
+            ALKE, and your pack counts most. Each active invite warms 1% of your cold ALKE a day, and daily game XP adds up to 0.3% more.
           </p>
           <Mascot className="pack-dog" />
         </div>
         <div className="panel">
           <div className="formula">
             <small>The formula</small>
-            <p>Warming time = your cold ALKE ÷ (verified invites × 10 per day)</p>
+            <p>Warmed each day = active invites × 1% + game XP (0.1% per 30 XP, up to 0.3%)</p>
           </div>
           <div className="tbl-box">
             <table className="warm-ex">
               <caption>Examples</caption>
               <thead>
                 <tr>
-                  <th scope="col">Cold ALKE</th>
-                  <th scope="col">Verified invites</th>
-                  <th scope="col">Warms in</th>
+                  <th scope="col">Active invites</th>
+                  <th scope="col">Games maxed</th>
+                  <th scope="col">A day</th>
+                  <th scope="col">Fully warm in</th>
                 </tr>
               </thead>
               <tbody>
-                {EXAMPLES.map(([cold, invites, days]) => (
-                  <tr key={cold + invites}>
-                    <td>{cold}</td>
+                {EXAMPLES.map(([invites, games, rate, days]) => (
+                  <tr key={invites + games}>
                     <td>{invites}</td>
+                    <td>{games}</td>
+                    <td>{rate}</td>
                     <td>{days}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="warm-sum">Few coins and few invites warm quickly. Lots of coins need more invites to warm quickly; otherwise they warm slowly.</p>
+          <p className="warm-sum">Warming is a share of your balance, so it works the same for any amount: more active invites means your cold ALKE is fully warm sooner.</p>
           <ul className="rules">
             {RULES.map((r) => (
               <li key={r}>

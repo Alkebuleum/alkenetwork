@@ -580,7 +580,7 @@ const SCREEN_DRAW = {
     uT(c, "Warmed", 48, 430, 12, { w: 500 });
     c.beginPath(); c.arc(120, 426, 4, 0, Math.PI * 2); c.strokeStyle = UIC.lilac; c.lineWidth = 1.5; c.stroke();
     uT(c, "Still cold", 130, 430, 12, { w: 500 });
-    uWrap(c, "Each verified invite warms 10 of your cold ALKE a day. Only warmed ALKE converts.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
+    uWrap(c, "Each active invite warms 1% of your cold ALKE a day. Only warmed ALKE converts.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
     uCard(c, 16, 500, 358, 118, 22, { line: "rgba(245,184,77,.22)" });
     const mini = [[0, 0, 1], [-1.5, -0.866, 0], [0, -1.732, 1], [1.5, -0.866, 0], [-1.5, 0.866, 0], [1.5, 0.866, 1], [0, 1.732, 0]];
     mini.forEach(([mx, my, g]) => {
@@ -591,7 +591,7 @@ const SCREEN_DRAW = {
     uT(c, "ALKÉ HEX · DAILY BOARD LIVE", 114, 530, 9.5, { mono: true, tr: 0.12, color: UIC.gold });
     uT(c, "Rebuild the mark", 114, 554, 17, { w: 600 });
     uT(c, "Find the gold pieces, dodge the traps.", 114, 576, 12, { color: UIC.sub });
-    uChip(c, 114, 586, "Game XP · play only", { size: 10.5, h: 22, pad: 9, color: UIC.lilac, line: "rgba(165,139,255,.35)", fill: "rgba(94,58,255,.12)" });
+    uChip(c, 114, 586, "Game XP · warms up to 0.3%", { size: 10.5, h: 22, pad: 9, color: UIC.lilac, line: "rgba(165,139,255,.35)", fill: "rgba(94,58,255,.12)" });
     uCard(c, 16, 632, 358, 104, 22, { line: "rgba(92,225,230,.3)", fill: linGrad(c, 16, 632, 374, 736, ["rgba(60,199,214,.12)", "rgba(60,199,214,.03)"]) });
     uLattice7(c, 66, 684, 10.5);
     uT(c, "ALKÉ RUSH · NEW GAME", 114, 662, 9.5, { mono: true, tr: 0.12, color: UIC.cyanHi });
@@ -681,7 +681,7 @@ const SCREEN_DRAW = {
     uT(c, "Flag a trap", 140, 688, 15, { w: 600 });
     c.beginPath(); c.arc(340, 682, 24, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.05)"; c.fill(); c.stroke();
     uIcon(c, "refresh", 340, 683, 17, UIC.text, 1.8);
-    uWrap(c, "Game XP is for play only: no monetary value, not transferable, never redeemable for ALKE.", 195, 736, 11, 330, 16, { color: UIC.faint, align: "center" });
+    uWrap(c, "Game XP has no monetary value and is never redeemable for ALKE. Daily XP warms cold ALKE, capped.", 195, 736, 11, 330, 16, { color: UIC.faint, align: "center" });
     uHomeBar(c, H);
   },
   games(c, H) {
@@ -713,14 +713,14 @@ const SCREEN_DRAW = {
     uChip(c, 132, 518, "5 scored runs a day", { size: 10.5, h: 22, pad: 9, color: UIC.text });
     uCard(c, 16, 568, 358, 132, 22);
     uT(c, "THREE COUNTERS, NEVER MIXED", 34, 594, 10, { mono: true, tr: 0.14, color: UIC.sub });
-    [["Game XP", "Play only", UIC.gold], ["Contribution", "Participation", UIC.lilac], ["ALKE", "Cold · locked", UIC.text]].forEach(([t, d, col], i) => {
+    [["Game XP", "Warms, capped", UIC.gold], ["Contribution", "Participation", UIC.lilac], ["ALKE", "Cold · locked", UIC.text]].forEach(([t, d, col], i) => {
       const x = 34 + i * 112;
       uT(c, t, x, 624, 14, { w: 600, color: col });
       uT(c, d, x, 644, 11.5, { color: UIC.sub });
     });
     c.strokeStyle = "rgba(255,255,255,.08)"; c.lineWidth = 1; c.beginPath(); c.moveTo(34, 660); c.lineTo(356, 660); c.stroke();
     uIcon(c, "flame", 42, 680, 13, UIC.gold);
-    uT(c, "Games never warm ALKE. Only verified invites do.", 58, 684, 11.5, { color: UIC.sub });
+    uT(c, "Invites warm most. Games add up to 0.3% a day.", 58, 684, 11.5, { color: UIC.sub });
     uTabs(c, H, "games");
     uHomeBar(c, H);
   },
@@ -762,7 +762,7 @@ const SCREEN_DRAW = {
     rr(c, 202, 614, 174, 56, 28); c.fillStyle = "rgba(92,225,230,.08)"; c.fill(); c.strokeStyle = UIC.cyan; c.lineWidth = 1.6; c.stroke();
     uT(c, "RISK AGAIN", 289, 648, 15, { w: 700, color: UIC.cyanHi, align: "center" });
     uT(c, "Next spin is faster · 5 of 19 are hazards · shield ready", 195, 696, 11.5, { color: UIC.sub, align: "center" });
-    uWrap(c, "Game XP is for play only: no monetary value, never redeemable for ALKE.", 195, 728, 11, 330, 16, { color: UIC.faint, align: "center" });
+    uWrap(c, "Game XP has no monetary value and is never redeemable for ALKE.", 195, 728, 11, 330, 16, { color: UIC.faint, align: "center" });
     uHomeBar(c, H);
   },
   invite(c, H) {
@@ -776,13 +776,13 @@ const SCREEN_DRAW = {
     uBtn(c, 254, 184, 102, 38, "Share", { size: 14 });
     c.strokeStyle = "rgba(255,255,255,.1)"; c.lineWidth = 1; c.beginPath(); c.moveTo(34, 236); c.lineTo(356, 236); c.stroke();
     uIcon(c, "flame", 42, 262, 14, UIC.gold);
-    uT(c, "Verified invites warm your cold ALKE.", 58, 267, 12.5, { w: 500, color: UIC.sub });
+    uT(c, "Active invites warm your cold ALKE.", 58, 267, 12.5, { w: 500, color: UIC.sub });
     uCard(c, 16, 306, 358, 176, 22, { line: "rgba(245,184,77,.28)", fill: linGrad(c, 16, 306, 374, 482, ["rgba(245,184,77,.10)", "rgba(245,184,77,.03)"]) });
     uT(c, "HOW WARMING WORKS", 34, 336, 10.5, { mono: true, tr: 0.16, color: UIC.gold });
-    uT(c, "10 a day per verified invite", 34, 364, 17, { w: 600 });
+    uT(c, "1% a day per active invite", 34, 364, 17, { w: 600 });
     rr(c, 34, 380, 322, 40, 12); c.fillStyle = "rgba(10,6,20,.55)"; c.fill(); c.strokeStyle = "rgba(245,184,77,.3)"; c.lineWidth = 1; c.stroke();
-    uT(c, "cold ALKE ÷ (verified invites × 10/day)", 195, 405, 12, { mono: true, w: 500, align: "center" });
-    uWrap(c, "Unverified invites and your own mining warm nothing. Only warmed ALKE converts to hot ALKE.", 34, 442, 12, 322, 17, { color: UIC.sub });
+    uT(c, "invites × 1% + games (max 0.3%)", 195, 405, 12, { mono: true, w: 500, align: "center" });
+    uWrap(c, "Your own mining warms nothing. Each active invite warms 1% a day. Only warmed ALKE converts.", 34, 442, 12, 322, 17, { color: UIC.sub });
     uCard(c, 16, 496, 358, 96, 22, { line: "rgba(245,184,77,.2)" });
     c.save(); c.shadowColor = "rgba(245,184,77,.6)"; c.shadowBlur = 14; drawMark(c, 62, 544, 22, { lw: 0.1, dashed: true }); c.restore();
     uT(c, "FOUNDING ALKER", 106, 530, 10.5, { mono: true, tr: 0.16, color: UIC.gold });

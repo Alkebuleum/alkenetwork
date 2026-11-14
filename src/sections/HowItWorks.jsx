@@ -36,7 +36,7 @@ export default function HowItWorks() {
           <li className="step panel">
             <span className="step-n">03</span>
             <h3>Warmed, then converted</h3>
-            <p>Mined ALKE stays Locked. Each verified invite warms 10 of it a day, and only warmed ALKE converts to hot ALKE at listing.</p>
+            <p>Mined ALKE stays Locked. Each active invite warms 1% of it a day and daily game XP adds up to 0.3%. Only warmed ALKE converts.</p>
             <Chip gold>No listing date yet</Chip>
           </li>
         </ol>

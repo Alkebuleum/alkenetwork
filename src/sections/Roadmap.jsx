@@ -10,7 +10,7 @@ const STAGES = [
   {
     when: "NEXT",
     title: "iPhone and Android apps",
-    text: "The ALKE app arrives on the App Store and Google Play: daily sessions, ALKÉ Hex and ALKÉ Rush, and invites that warm cold ALKE.",
+    text: "The ALKE app arrives on the App Store and Google Play: daily sessions, ALKÉ Hex and ALKÉ Rush, and invites and games that warm cold ALKE.",
   },
   { when: "THEN", title: "Post-quantum Mainnet", text: "The network moves to the post-quantum L1, the goal this roadmap builds toward." },
   { when: "THEN", title: "First global listing", text: "Warmed ALKE converts to hot ALKE on the post-quantum L1. A milestone, not a date." },

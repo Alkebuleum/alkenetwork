@@ -16,9 +16,9 @@ const FAQS = [
   {
     q: "How do I warm my cold ALKE?",
     a: [
-      "Invite real people. Each verified invite warms 10 of your cold ALKE per day, so warming time = your cold ALKE ÷ (verified invites × 10 per day). 100 cold ALKE with 1 verified invite warms in 10 days, and with 5 invites in 2 days. 1,000 cold ALKE with 1 invite takes 100 days, and with 10 invites 10 days.",
+      "Contribute. Each active invite warms 1% of your cold ALKE a day; an invite becomes active once the person you invited completes 3 sessions. Daily game XP in ALKÉ Hex and ALKÉ Rush adds 0.1% per 30 XP, up to 0.3% a day. Lessons and discussions are coming.",
       <>
-        Unverified invites warm nothing, and your own mining does not warm your coins. The full verification steps are published in the app at launch. <a href="#warming">See how warming works</a>.
+        With 3 active invites and games maxed you warm 3.3% a day, so your cold ALKE is fully warm in about a month. Your own mining sessions don't warm your coins. <a href="#warming">See how warming works</a>.
       </>,
     ],
   },

@@ -75,7 +75,7 @@ export default function Footer() {
           </p>
           <p>
             Mining is participation in the network. The conversion of warmed cold ALKE to hot ALKE at the first global listing is a mechanism, not a promise of value, and no
-            listing date has been set. Warming comes only from verified invites. ALKÉ Hex and ALKÉ Rush XP is play-only and never redeemable for ALKE. Nothing on this site is
+            listing date has been set. Warming comes from contributions: active invites and daily game XP, up to a cap. ALKÉ Hex and ALKÉ Rush XP is never redeemable for ALKE. Nothing on this site is
             a recommendation.
           </p>
         </div>
