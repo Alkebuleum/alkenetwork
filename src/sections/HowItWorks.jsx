@@ -15,7 +15,7 @@ export default function HowItWorks() {
           <li className="step panel">
             <span className="step-n">01</span>
             <h3>Get Nuru</h3>
-            <p>Nuru is live on iPhone and Android. It's where the community lives and where you'll reach the ALKÉ Network app.</p>
+            <p>Nuru is live on iPhone and Android. It's where the community lives, and the ALKE App is listed under Apps.</p>
             <div className="btns">
               <Ext className="btn small" href={LINKS.nuruIos}>
                 iPhone
@@ -27,9 +27,11 @@ export default function HowItWorks() {
           </li>
           <li className="step panel">
             <span className="step-n">02</span>
-            <h3>Open the ALKÉ Network app</h3>
-            <p>One tap starts a 24-hour session. A countdown shows when your next session opens, so it's one session a day.</p>
-            <Chip>Coming soon</Chip>
+            <h3>Open the ALKE app</h3>
+            <p>In Nuru, tap Apps and open the ALKE App, or go to app.alke.network. One tap starts a 24-hour session, so it's one session a day.</p>
+            <a className="btn small" href="#get-app">
+              How to get in
+            </a>
           </li>
           <li className="step panel">
             <span className="step-n">03</span>

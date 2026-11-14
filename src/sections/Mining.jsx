@@ -82,7 +82,7 @@ export default function Mining() {
             <Ext className="btn" href={X_URL}>
               Follow for launch updates
             </Ext>
-            <Chip>App coming soon</Chip>
+            <Chip>iPhone &amp; Android apps coming soon</Chip>
           </div>
           <p className="nfa">Not financial advice — for education only.</p>
         </div>

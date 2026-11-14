@@ -25,7 +25,7 @@ export default function Community() {
           </div>
           <div className="nuru-card">
             <h3>Nuru. Your AI. Your Network.</h3>
-            <p>Live now on the App Store and Google Play. Communities, JollofSwap and, soon, the ALKÉ Network app all open from Nuru.</p>
+            <p>Live now on the App Store and Google Play. Communities, JollofSwap and the ALKE App all open from Nuru.</p>
             <div className="btns">
               <Ext className="btn small" href={LINKS.nuruIos}>
                 iPhone

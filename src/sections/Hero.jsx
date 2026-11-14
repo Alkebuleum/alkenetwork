@@ -5,7 +5,7 @@ const STATS = [
   ["300M", "ALKE to mine", "gold"],
   ["30%", "Of genesis supply"],
   ["5.0s", "Block time, live today"],
-  ["Pre-launch", "Current stage", "cyan"],
+  ["Mining open", "Current stage", "cyan"],
 ];
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="hero-floor" aria-hidden="true" />
         <div className="wrap hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">// Play · Mine · Earn</p>
+            <p className="eyebrow">// Play · Mine · Grow</p>
             <h1 className="display" id="heroTitle">
               Run with
               <br />
@@ -25,20 +25,20 @@ export default function Hero() {
               <span className="glow">Mine ALKE.</span>
             </h1>
             <p className="lede">
-              Tap the core, build your pack and earn ALKE every day. A free mining game from Alkebulan, the oldest name for Africa, built for phones everywhere.
+              Tap the core, build your pack and mine ALKE every day. A free mining game from Alkebulan, the oldest name for Africa, built for phones everywhere.
             </p>
             <div className="btns">
-              <Ext className="btn primary" href={LINKS.app}>
+              <a className="btn primary" href="#get-app">
                 Start mining
-              </Ext>
-              <Ext className="btn" href={LINKS.docs}>
+              </a>
+              <Ext className="btn" href={LINKS.whitepaper}>
                 Read the whitepaper
               </Ext>
             </div>
             <div className="hero-ticks">
               <span>● Free to play</span>
               <span>● Mobile first</span>
-              <span>● Daily rewards</span>
+              <span>● One session a day</span>
             </div>
           </div>
 

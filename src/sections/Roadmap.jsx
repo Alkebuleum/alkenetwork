@@ -3,14 +3,14 @@ import { Chip } from "../components/Brand";
 const STAGES = [
   {
     when: "NOW",
-    title: "Pre-launch",
-    text: "The network is live, with the explorer, JollofSwap and Nuru. 300,000,000 ALKE is allocated for community mining, and the Coming Soon campaign is running.",
+    title: "Mining is open",
+    text: "The network is live, with the explorer, JollofSwap and Nuru. 300,000,000 ALKE is allocated for community mining, and the ALKE app is open in Nuru and on the web.",
     now: true,
   },
   {
     when: "NEXT",
-    title: "ALKÉ Network app launch",
-    text: "The mining app opens, reached from Nuru: daily sessions, ALKÉ Hex and ALKÉ Rush, and invites that warm cold ALKE.",
+    title: "iPhone and Android apps",
+    text: "The ALKE app arrives on the App Store and Google Play: daily sessions, ALKÉ Hex and ALKÉ Rush, and invites that warm cold ALKE.",
   },
   { when: "THEN", title: "Post-quantum Mainnet", text: "The network moves to the post-quantum L1, the goal this roadmap builds toward." },
   { when: "THEN", title: "First global listing", text: "Warmed ALKE converts to hot ALKE on the post-quantum L1. A milestone, not a date." },

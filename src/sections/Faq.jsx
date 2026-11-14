@@ -22,7 +22,13 @@ const FAQS = [
       </>,
     ],
   },
-  { q: "When does the app launch?", a: ["The ALKÉ Network app is coming soon. There is no launch date yet. Follow @alkenetwork for launch updates."] },
+  {
+    q: "How do I get the ALKE app?",
+    a: [
+      "The ALKE app is open now in two ways. Recommended: get the Nuru app, tap Apps and open the ALKE App listed there. Or open app.alke.network in any browser.",
+      "Native iPhone and Android apps are coming soon. Follow @alkenetwork for updates.",
+    ],
+  },
   { q: "When does ALKE list?", a: ["There is no listing date. The first global listing is a milestone on the roadmap, not a date, and nothing here promises one."] },
   {
     q: "Is ALKE an investment?",
@@ -31,7 +37,7 @@ const FAQS = [
       "Nothing on this site is financial advice.",
     ],
   },
-  { q: "How do I start?", a: ["Get Nuru on iPhone or Android, join the community there, and follow @alkenetwork for launch updates."] },
+  { q: "How do I start?", a: ["Get Nuru on iPhone or Android, tap Apps and open the ALKE App. Join the community in Nuru too, and follow @alkenetwork for updates."] },
 ];
 
 function Plus() {

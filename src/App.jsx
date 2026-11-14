@@ -11,6 +11,7 @@ import Builders from "./sections/Builders";
 import Community from "./sections/Community";
 import Faq from "./sections/Faq";
 import Pack from "./sections/Pack";
+import GetApp from "./sections/GetApp";
 import { FinalCta } from "./components/Footer";
 
 /* Honour #section links on first load (the sections mount after the browser tries). */
@@ -33,6 +34,7 @@ function Home() {
       <Header />
       <main id="main">
         <Hero />
+        <GetApp />
         <Mining />
         <HowItWorks />
         <Pack />

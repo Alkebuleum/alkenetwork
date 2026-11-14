@@ -3,6 +3,7 @@ import { LINKS, SOCIALS } from "../data/links";
 
 const SITE_LINKS = [
   [LINKS.app, "app.alke.network", "the ALKE app"],
+  [LINKS.whitepaper, "Whitepaper", "on alkebuleum.org"],
   [LINKS.nuru, "nuru.si", "community hub"],
   [LINKS.explorer, "alkescan.com", "explorer"],
   [LINKS.jollofswap, "jollofswap.com", "exchange"],
@@ -18,9 +19,9 @@ export function FinalCta() {
           The hunt starts <span className="glow">today.</span>
         </h2>
         <div className="btns">
-          <Ext className="btn primary" href={LINKS.app}>
+          <a className="btn primary" href="#get-app">
             Start mining
-          </Ext>
+          </a>
         </div>
       </div>
     </section>

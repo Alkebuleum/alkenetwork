@@ -1,14 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { AppTile, Ext } from "./Brand";
-import { LINKS } from "../data/links";
+import { AppTile } from "./Brand";
 
 const NAV = [
+  ["#get-app", "Get the app"],
   ["#mining", "Mining"],
   ["#how", "How it works"],
   ["#warming", "The pack"],
   ["#roadmap", "Roadmap"],
   ["#get-alke", "Get ALKE"],
-  ["#builders", "Builders"],
   ["#faq", "FAQ"],
 ];
 
@@ -43,9 +42,9 @@ export default function Header() {
           ))}
         </nav>
         <div className="nav-cta">
-          <Ext className="btn cyanfill small" href={LINKS.app}>
-            Launch app
-          </Ext>
+          <a className="btn cyanfill small" href="#get-app">
+            Get the app
+          </a>
           <button
             ref={btn}
             className="burger"
