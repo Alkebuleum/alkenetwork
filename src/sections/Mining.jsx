@@ -1,6 +1,6 @@
 import PhoneCanvas from "../components/PhoneCanvas";
 import { Chip, Ext, Hex } from "../components/Brand";
-import { X_URL } from "../data/links";
+import { LINKS, X_URL } from "../data/links";
 
 function Allocation() {
   return (
@@ -29,6 +29,13 @@ function Allocation() {
         </li>
       </ul>
       <p className="alloc-note">The Initial Community Usage bucket, 15% (150,000,000 ALKE), is set aside for faucets, grants, education and adoption.</p>
+      <p className="alloc-note">
+        Full breakdown in the{" "}
+        <Ext className="textlink" href={LINKS.tokenomics}>
+          tokenomics paper (PDF)
+        </Ext>
+        .
+      </p>
     </figure>
   );
 }

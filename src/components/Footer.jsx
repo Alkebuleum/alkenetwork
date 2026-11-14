@@ -4,6 +4,7 @@ import { LINKS, SOCIALS } from "../data/links";
 const SITE_LINKS = [
   [LINKS.app, "app.alke.network", "the ALKE app"],
   [LINKS.whitepaper, "Whitepaper", "on alkebuleum.org"],
+  [LINKS.tokenomics, "Tokenomics paper", "PDF"],
   [LINKS.nuru, "nuru.si", "community hub"],
   [LINKS.explorer, "alkescan.com", "explorer"],
   [LINKS.jollofswap, "jollofswap.com", "exchange"],
