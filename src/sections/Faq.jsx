@@ -36,7 +36,7 @@ const FAQS = [
 
 function Plus() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3DF5FF" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
       <path d="M12 5v14M5 12h14" />
     </svg>
   );
@@ -47,9 +47,9 @@ export default function Faq() {
     <section className="band alt" id="faq" aria-labelledby="faqTitle">
       <div className="wrap">
         <div className="band-head">
-          <p className="eyebrow">FAQ</p>
+          <p className="eyebrow">// FAQ</p>
           <h2 className="display" id="faqTitle">
-            Questions, <span className="goldtext">answered.</span>
+            Questions, <span className="glow">answered.</span>
           </h2>
         </div>
         <div className="faq">

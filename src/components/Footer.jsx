@@ -1,13 +1,31 @@
-import { Ext, RingMark } from "./Brand";
+import { AppTile, Ext } from "./Brand";
 import { LINKS, SOCIALS } from "../data/links";
 
 const SITE_LINKS = [
+  [LINKS.app, "app.alke.network", "the ALKE app"],
   [LINKS.nuru, "nuru.si", "community hub"],
   [LINKS.explorer, "alkescan.com", "explorer"],
   [LINKS.jollofswap, "jollofswap.com", "exchange"],
   [LINKS.ecosystem, "alkebuleum.org", "ecosystem"],
   [LINKS.docs, "docs.alkebuleum.org", "developer docs"],
 ];
+
+export function FinalCta() {
+  return (
+    <section className="final" aria-labelledby="finalTitle">
+      <div className="wrap final-row">
+        <h2 className="display" id="finalTitle">
+          The hunt starts <span className="glow">today.</span>
+        </h2>
+        <div className="btns">
+          <Ext className="btn primary" href={LINKS.app}>
+            Start mining
+          </Ext>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Footer() {
   return (
@@ -16,7 +34,7 @@ export default function Footer() {
         <div className="foot-grid">
           <div className="foot-brand">
             <a className="lockup" href="#top" aria-label="Back to the top">
-              <RingMark width={40} height={46} />
+              <AppTile size={44} />
               <b>ALKÉ NETWORK</b>
             </a>
             <p className="slogan">The People's Network.</p>

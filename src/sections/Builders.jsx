@@ -17,12 +17,12 @@ const GETS = [
 
 export default function Builders() {
   return (
-    <section className="band tone-ink" id="builders" aria-labelledby="buildTitle">
+    <section className="band alt" id="builders" aria-labelledby="buildTitle">
       <div className="wrap split" style={{ alignItems: "start" }}>
         <div>
-          <p className="eyebrow">Builders</p>
+          <p className="eyebrow">// Builders</p>
           <h2 className="display" id="buildTitle">
-            The network is live. <span className="goldtext">Build on it.</span>
+            The network is live. <span className="glow">Build on it.</span>
           </h2>
           <p className="lede">The chain is running today, with an explorer, an exchange and a wallet through Nuru.</p>
           <div className="facts">
@@ -37,7 +37,7 @@ export default function Builders() {
           <ul className="gets">
             {GETS.map(([title, text]) => (
               <li key={title}>
-                <Hex size={22} stroke={10} />
+                <Hex size={22} stroke={10} color="#3DF5FF" />
                 <b>{title}</b>
                 <span>{text}</span>
               </li>

@@ -1,51 +1,55 @@
-/* ALKÉ brand marks and small shared UI bits. */
+/* ALKÉ brand marks, the mascot and small shared UI bits. */
 
-const GOLD = "#F5B84D";
-const CREAM = "#F7F2E8";
+const GOLD = "#FFC94A";
 
-/* The ALKÉ mark: a gold hexagon around a spine flanked by chevrons. */
-export function Mark({ width = 30, height = 34 }) {
+/* The ALKE mark (app icon): solid white hexagon with the spine and chevrons cut in violet. */
+export function Mark({ size = 24, hex = "#fff", cut = "#4A27D6" }) {
   return (
-    <svg width={width} height={height} viewBox="0 0 100 112" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M50 6 L93.3 31 L93.3 81 L50 106 L6.7 81 L6.7 31 Z" stroke={GOLD} strokeWidth="7.5" />
-      <g stroke={CREAM} strokeWidth="6">
-        <line x1="50" y1="27" x2="50" y2="85" />
-        <path d="M29 44 L42 56 L29 68" />
-        <path d="M19 44 L32 56 L19 68" />
-        <path d="M71 44 L58 56 L71 68" />
-        <path d="M81 44 L68 56 L81 68" />
-      </g>
+    <svg width={size} height={Math.round(size * 1.12)} viewBox="0 0 100 112" aria-hidden="true">
+      <path d="M50 4 L94 29 L94 83 L50 108 L6 83 L6 29 Z" fill={hex} stroke={hex} strokeWidth="6" strokeLinejoin="round" />
+      <path d="M50 27 L50 85 M24 44 L38 56 L24 68 M76 44 L62 56 L76 68" fill="none" stroke={cut} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-/* The mark with its dashed outer ring (footer, Alkers band). */
-export function RingMark({ className, width, height, ringWidth = 4, hexWidth = 7, inkWidth = 6, dash = "9 8" }) {
+/* The app icon tile: violet square with the mark. */
+export function AppTile({ size = 38 }) {
   return (
-    <svg className={className} width={width} height={height} viewBox="-70 -76 140 152" fill="none" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M0 -65 L56.3 -32.5 L56.3 32.5 L0 65 L-56.3 32.5 L-56.3 -32.5 Z" stroke={GOLD} strokeWidth={ringWidth} strokeDasharray={dash} opacity=".8" />
-      <path d="M0 -50 L43.3 -25 L43.3 25 L0 50 L-43.3 25 L-43.3 -25 Z" stroke={GOLD} strokeWidth={hexWidth} />
-      <g stroke={CREAM} strokeWidth={inkWidth}>
-        <line x1="0" y1="-30" x2="0" y2="30" />
-        <path d="M-21 -12 L-8 0 L-21 12" />
-        <path d="M-31 -12 L-18 0 L-31 12" />
-        <path d="M21 -12 L8 0 L21 12" />
-        <path d="M31 -12 L18 0 L31 12" />
-      </g>
+    <span className="tile" style={{ width: size, height: size }}>
+      <Mark size={Math.round(size * 0.62)} />
+    </span>
+  );
+}
+
+/* The mark as an outline, struck on a gold coin. */
+export function CoinMark({ size = 110, color = "#3A1DB8" }) {
+  return (
+    <svg width={size} height={Math.round(size * 1.12)} viewBox="0 0 100 112" aria-hidden="true">
+      <path d="M50 4 L94 29 L94 83 L50 108 L6 83 L6 29 Z" fill="none" stroke={color} strokeWidth="6" strokeLinejoin="round" />
+      <path d="M50 27 L50 85 M24 44 L38 56 L24 68 M76 44 L62 56 L76 68" fill="none" stroke={color} strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-/* Token badge used in the JollofSwap pairs. */
-export function TokenMark() {
+/* The pack leader: an African wild dog. */
+export function Mascot({ className, eyes = "#3DF5FF", innerEar = "#8A6CFF", label }) {
   return (
-    <svg width="20" height="22" viewBox="0 0 100 112" fill="none" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M50 6 L93.3 31 L93.3 81 L50 106 L6.7 81 L6.7 31 Z" stroke={GOLD} strokeWidth="9" />
-      <g stroke={CREAM} strokeWidth="8">
-        <line x1="50" y1="30" x2="50" y2="82" />
-        <path d="M27 46 L38 56 L27 66" />
-        <path d="M73 46 L62 56 L73 66" />
-      </g>
+    <svg className={className} viewBox="0 0 200 200" role={label ? "img" : undefined} aria-label={label} aria-hidden={label ? undefined : "true"}>
+      <path d="M70 70 C50 60 30 40 34 18 C36 8 50 6 60 14 C76 28 84 50 84 66 Z" fill="#24160E" />
+      <path d="M130 70 C150 60 170 40 166 18 C164 8 150 6 140 14 C124 28 116 50 116 66 Z" fill="#24160E" />
+      <path d="M70 62 C56 54 44 38 46 24 C48 18 56 18 62 24 C72 34 78 48 78 60 Z" fill={innerEar} />
+      <path d="M130 62 C144 54 156 38 154 24 C152 18 144 18 138 24 C128 34 122 48 122 60 Z" fill={innerEar} />
+      <path d="M100 52 C130 52 152 68 156 96 C160 122 146 140 132 154 C122 166 112 178 100 182 C88 178 78 166 68 154 C54 140 40 122 44 96 C48 68 70 52 100 52 Z" fill="#C98A3D" />
+      <path d="M60 72 C70 70 78 78 74 88 C68 92 58 86 60 72Z" fill="#3A2516" />
+      <path d="M136 76 C146 78 148 90 140 94 C132 92 130 82 136 76Z" fill="#3A2516" />
+      <path d="M48 104 C56 118 70 128 78 146 C68 150 56 140 50 128 C46 120 45 110 48 104Z" fill="#F2E2C4" />
+      <path d="M152 104 C144 118 130 128 122 146 C132 150 144 140 150 128 C154 120 155 110 152 104Z" fill="#F2E2C4" />
+      <path d="M100 54 C106 54 108 70 107 96 L104 140 L96 140 L93 96 C92 70 94 54 100 54Z" fill="#24160E" />
+      <path d="M84 134 C90 128 110 128 116 134 C122 148 116 172 100 180 C84 172 78 148 84 134Z" fill="#24160E" />
+      <path d="M92 150 C96 146 104 146 108 150 C108 156 104 159 100 159 C96 159 92 156 92 150Z" fill="#000" />
+      <path d="M68 108 C74 102 84 102 88 110 C82 114 72 114 68 108Z" fill={eyes} />
+      <path d="M132 108 C126 102 116 102 112 110 C118 114 128 114 132 108Z" fill={eyes} />
+      <path d="M100 159 L100 166 M92 170 C96 172 104 172 108 170" fill="none" stroke="#000" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -63,14 +67,6 @@ export function ArrowRight() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-export function ArrowDown() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 5v14M6 13l6 6 6-6" />
     </svg>
   );
 }

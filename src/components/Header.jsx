@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Ext, Mark } from "./Brand";
+import { AppTile, Ext } from "./Brand";
 import { LINKS } from "../data/links";
 
 const NAV = [
   ["#mining", "Mining"],
   ["#how", "How it works"],
+  ["#warming", "The pack"],
   ["#roadmap", "Roadmap"],
   ["#get-alke", "Get ALKE"],
   ["#builders", "Builders"],
-  ["#community", "Community"],
   ["#faq", "FAQ"],
 ];
 
@@ -32,8 +32,8 @@ export default function Header() {
     <header className="top">
       <div className="wrap nav">
         <a className="lockup" href="#top" aria-label="ALKÉ Network home">
-          <Mark />
-          <b>ALKÉ NETWORK</b>
+          <AppTile />
+          <b>ALKE</b>
         </a>
         <nav className={open ? "menu open" : "menu"} id="menu" aria-label="Sections">
           {NAV.map(([href, label]) => (
@@ -43,8 +43,8 @@ export default function Header() {
           ))}
         </nav>
         <div className="nav-cta">
-          <Ext className="btn primary small" href={LINKS.nuru}>
-            Get Nuru
+          <Ext className="btn cyanfill small" href={LINKS.app}>
+            Launch app
           </Ext>
           <button
             ref={btn}

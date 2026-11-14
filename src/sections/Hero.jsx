@@ -1,58 +1,71 @@
-import PhoneCanvas from "../components/PhoneCanvas";
-import { ArrowDown, ArrowRight, Ext, Hex } from "../components/Brand";
+import { Ext, Mascot } from "../components/Brand";
 import { LINKS } from "../data/links";
 
-const PILLARS = [
-  ["Mine", "A 24-hour session, one tap a day."],
-  ["Play", "ALKÉ Hex and ALKÉ Rush. Game XP is play-only and never redeemable for ALKE."],
-  ["Invite", "Each verified invite warms 10 of your cold ALKE a day."],
-  ["Grow", "Learn, contribute and grow with the Founding Alkers."],
+const STATS = [
+  ["300M", "ALKE to mine", "gold"],
+  ["30%", "Of genesis supply"],
+  ["5.0s", "Block time, live today"],
+  ["Pre-launch", "Current stage", "cyan"],
 ];
 
 export default function Hero() {
   return (
-    <section className="hero grain" id="top" aria-labelledby="heroTitle">
-      <div className="wrap">
-        <div className="hero-grid">
+    <>
+      <section className="hero" id="top" aria-labelledby="heroTitle">
+        <div className="hero-sun" aria-hidden="true" />
+        <div className="hero-floor" aria-hidden="true" />
+        <div className="wrap hero-inner">
           <div className="hero-copy">
-            <p className="eyebrow">gm, Alkers · Founding Alkers welcome</p>
-            <h1 className="display hero-h1" id="heroTitle">
-              <span className="l1">ALKÉ Network</span>
-              <span className="l2 goldtext">The People's Network.</span>
+            <p className="eyebrow">// Play · Mine · Earn</p>
+            <h1 className="display" id="heroTitle">
+              Run with
+              <br />
+              the pack.
+              <br />
+              <span className="glow">Mine ALKE.</span>
             </h1>
-            <p className="lede">A community network that runs on $ALKE, the token behind fees, smart contracts, staking, governance and network access.</p>
-            <div className="btns">
-              <Ext className="btn primary" href={LINKS.nuru}>
-                Get in through Nuru
-                <ArrowRight />
-              </Ext>
-              <a className="btn" href="#mining">
-                300M ALKE to mine
-                <ArrowDown />
-              </a>
-            </div>
-            <p className="early">
-              <Hex size={18} stroke={10} />
-              We're early. ALKE is not on major exchanges yet.
+            <p className="lede">
+              Tap the core, build your pack and earn ALKE every day. A free mining game from Alkebulan, the oldest name for Africa, built for phones everywhere.
             </p>
+            <div className="btns">
+              <Ext className="btn primary" href={LINKS.app}>
+                Start mining
+              </Ext>
+              <Ext className="btn" href={LINKS.docs}>
+                Read the whitepaper
+              </Ext>
+            </div>
+            <div className="hero-ticks">
+              <span>● Free to play</span>
+              <span>● Mobile first</span>
+              <span>● Daily rewards</span>
+            </div>
           </div>
+
           <div className="hero-art">
-            <PhoneCanvas scene="hero" label="Two phones showing the ALKÉ Network app: the welcome screen in front and an active mining session behind it" />
+            <div className="ring dash" aria-hidden="true" />
+            <div className="ring orbit" aria-hidden="true" />
+            <div className="holo">
+              <Mascot label="The ALKE mascot, an African wild dog" />
+            </div>
+            <span className="hud gold" aria-hidden="true">+12 ALKE</span>
+            <span className="hud cyan" aria-hidden="true">COMBO ×5</span>
+            <span className="coin-dot c1" aria-hidden="true" />
+            <span className="coin-dot c2" aria-hidden="true" />
           </div>
         </div>
-        <div className="pillars">
-          <p className="eyebrow">Mine. Play. Invite. Grow. · In the ALKÉ Network app, coming soon</p>
-          <div className="pillar-row">
-            {PILLARS.map(([title, text]) => (
-              <div className="pillar" key={title}>
-                <Hex size={26} />
-                <b>{title}</b>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
+      </section>
+
+      <div className="wrap">
+        <div className="stats" role="list" aria-label="ALKÉ Network at a glance">
+          {STATS.map(([value, label, tone]) => (
+            <div className="stat" role="listitem" key={label}>
+              <b style={tone === "gold" ? { color: "var(--gold)" } : tone === "cyan" ? { color: "var(--cyan)" } : undefined}>{value}</b>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </>
   );
 }

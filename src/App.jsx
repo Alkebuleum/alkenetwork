@@ -8,9 +8,10 @@ import HowItWorks from "./sections/HowItWorks";
 import Roadmap from "./sections/Roadmap";
 import GetAlke from "./sections/GetAlke";
 import Builders from "./sections/Builders";
-import Alkers from "./sections/Alkers";
 import Community from "./sections/Community";
 import Faq from "./sections/Faq";
+import Pack from "./sections/Pack";
+import { FinalCta } from "./components/Footer";
 
 /* Honour #section links on first load (the sections mount after the browser tries). */
 function ScrollToHash() {
@@ -34,12 +35,13 @@ function Home() {
         <Hero />
         <Mining />
         <HowItWorks />
+        <Pack />
         <Roadmap />
         <GetAlke />
         <Builders />
-        <Alkers />
         <Community />
         <Faq />
+        <FinalCta />
       </main>
       <Footer />
     </>

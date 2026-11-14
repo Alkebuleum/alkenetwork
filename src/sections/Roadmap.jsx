@@ -18,12 +18,12 @@ const STAGES = [
 
 export default function Roadmap() {
   return (
-    <section className="band" id="roadmap" aria-labelledby="roadTitle">
+    <section className="band alt" id="roadmap" aria-labelledby="roadTitle">
       <div className="wrap">
         <div className="band-head">
-          <p className="eyebrow">Roadmap</p>
+          <p className="eyebrow">// Roadmap</p>
           <h2 className="display" id="roadTitle">
-            The road to <span className="goldtext">post-quantum Mainnet.</span>
+            The road to <span className="glow">post-quantum Mainnet.</span>
           </h2>
           <p className="lede">The goal is a Mainnet secured with post-quantum cryptography, built for the era of quantum computing. These are the stages, in order.</p>
         </div>

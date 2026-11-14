@@ -1,5 +1,6 @@
 /* Every outbound link on the site, in one place. */
 export const LINKS = {
+  app: "https://app.alke.network",
   nuru: "https://nuru.si",
   nuruIos: "https://apps.apple.com/il/app/nuru-web3-intelligence/id6776738107",
   nuruAndroid: "https://play.google.com/store/apps/details?id=com.alkebuleum.nuru",
