@@ -4,7 +4,7 @@ import { LINKS } from "../data/links";
 const STATUS = [
   { k: "Now · Live network", v: "Mining open", tone: "live" },
   { k: "Goal · Post-quantum Mainnet", v: "Not built yet" },
-  { k: "Open · The plan", v: "Shared in public", tone: "gold" },
+  { k: "Open · The plan", v: "Being written in public", tone: "gold" },
 ];
 
 /* A hexagon with a padlock: post-quantum security. */
