@@ -580,7 +580,7 @@ const SCREEN_DRAW = {
     uT(c, "Warmed", 48, 430, 12, { w: 500 });
     c.beginPath(); c.arc(120, 426, 4, 0, Math.PI * 2); c.strokeStyle = UIC.lilac; c.lineWidth = 1.5; c.stroke();
     uT(c, "Still cold", 130, 430, 12, { w: 500 });
-    uWrap(c, "Each active invite warms 1% of your cold ALKE a day. Only warmed ALKE converts.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
+    uWrap(c, "Each active invite warms 1% of your cold ALKE a day. Only warm ALKE can be claimed.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
     uCard(c, 16, 500, 358, 118, 22, { line: "rgba(245,184,77,.22)" });
     const mini = [[0, 0, 1], [-1.5, -0.866, 0], [0, -1.732, 1], [1.5, -0.866, 0], [-1.5, 0.866, 0], [1.5, 0.866, 1], [0, 1.732, 0]];
     mini.forEach(([mx, my, g]) => {
@@ -782,7 +782,7 @@ const SCREEN_DRAW = {
     uT(c, "1% a day per active invite", 34, 364, 17, { w: 600 });
     rr(c, 34, 380, 322, 40, 12); c.fillStyle = "rgba(10,6,20,.55)"; c.fill(); c.strokeStyle = "rgba(245,184,77,.3)"; c.lineWidth = 1; c.stroke();
     uT(c, "invites × 1% + games (max 0.3%)", 195, 405, 12, { mono: true, w: 500, align: "center" });
-    uWrap(c, "Your own mining warms nothing. Each active invite warms 1% a day. Only warmed ALKE converts.", 34, 442, 12, 322, 17, { color: UIC.sub });
+    uWrap(c, "Your own mining warms nothing. Each active invite warms 1% a day. Only warm ALKE can be claimed.", 34, 442, 12, 322, 17, { color: UIC.sub });
     uCard(c, 16, 496, 358, 96, 22, { line: "rgba(245,184,77,.2)" });
     c.save(); c.shadowColor = "rgba(245,184,77,.6)"; c.shadowBlur = 14; drawMark(c, 62, 544, 22, { lw: 0.1, dashed: true }); c.restore();
     uT(c, "FOUNDING ALKER", 106, 530, 10.5, { mono: true, tr: 0.16, color: UIC.gold });

@@ -80,8 +80,8 @@ export default function Mining() {
               <path d="M4 8h13l-3-3M20 16H7l3 3" />
             </svg>
             <p>
-              At the first global listing, warmed ALKE converts to hot ALKE on the post-quantum L1. Unwarmed cold ALKE stays cold.{" "}
-              <span>The listing is a milestone, not a date, and the conversion is a mechanism, not a promise of value.</span>
+              When claiming opens, you claim your warm ALKE in the Nuru app, after a one person, one account check. Cold ALKE that isn't warm yet stays cold until it is.{" "}
+              <span>Claimed ALKE starts locked and is released over time. No listing, release date or price is promised.</span>
             </p>
           </div>
 

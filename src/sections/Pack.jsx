@@ -1,7 +1,19 @@
 import { Hex, Mascot } from "../components/Brand";
 
+/* Mirrors the app's contribution table (app.alke.network src/lib/contribution.js)
+   and the server's daily warming (functions/genesis.js WARMING, ACTIVE_AFTER).
+   Change the weights there first, then here. */
+// [kind, rule, what it adds a day, live in the app today?]
+const WAYS = [
+  ["Invites", "1% a day per active invite", "1% each", true],
+  ["Games", "0.1% per 30 XP", "max 0.3%", true],
+  ["Lessons", "0.1% per lesson", "max 0.3%", false],
+  ["Discussions", "0.1% per approved post", "max 0.2%", false],
+];
+
 // [active invites, daily game XP maxed?, % a day, fully warm in]
 const EXAMPLES = [
+  ["0", "Yes", "0.3%", "334 days"],
   ["1", "No", "1%", "100 days"],
   ["3", "Yes", "3.3%", "31 days"],
   ["5", "No", "5%", "20 days"],
@@ -10,10 +22,9 @@ const EXAMPLES = [
 
 const RULES = [
   "An invite becomes active once the person you invited completes 3 sessions.",
-  "Your own mining sessions don't warm your coins.",
-  "Game XP warms up to 0.3% a day. The XP itself is never redeemable for ALKE.",
+  "Your own mining sessions and practice runs don't warm your coins.",
+  "Game XP only counts toward warming. The XP itself never becomes ALKE.",
   "Only warm ALKE can be claimed. Cold ALKE stays cold until it's warmed.",
-  "Lessons and discussions will add more ways to warm soon.",
 ];
 
 export default function Pack() {
@@ -26,19 +37,33 @@ export default function Pack() {
             Your pack <span className="glow">warms your ALKE.</span>
           </h2>
           <p className="lede">
-            The African wild dog is one of the continent's most successful hunters, because it never hunts alone. ALKE works the same way: your contributions warm your cold
-            ALKE, and your pack counts most. Each active invite warms 1% of your cold ALKE a day, and daily game XP adds up to 0.3% more.
+            The African wild dog is one of the continent's most successful hunters, because it never hunts alone. ALKE works the same way: each day your contributions warm a
+            share of your cold ALKE, and your pack counts most. Each active invite warms 1% a day, and daily game XP adds up to 0.3% more.
           </p>
           <Mascot className="pack-dog" />
         </div>
         <div className="panel">
           <div className="formula">
             <small>The formula</small>
-            <p>Warmed each day = active invites × 1% + game XP (0.1% per 30 XP, up to 0.3%)</p>
+            <p>Warmed each day = active invites × 1% + games + lessons + discussions</p>
           </div>
+          <ul className="ways" aria-label="What warms cold ALKE">
+            {WAYS.map(([kind, rule, adds, live]) => (
+              <li key={kind} className={live ? "way" : "way soon"}>
+                <span className="way-tx">
+                  <b>{kind}</b>
+                  <span>{rule}</span>
+                </span>
+                <span className="way-end">
+                  <b>{adds}</b>
+                  {!live && <i>Soon</i>}
+                </span>
+              </li>
+            ))}
+          </ul>
           <div className="tbl-box">
             <table className="warm-ex">
-              <caption>Examples</caption>
+              <caption>Examples, with what's live today</caption>
               <thead>
                 <tr>
                   <th scope="col">Active invites</th>

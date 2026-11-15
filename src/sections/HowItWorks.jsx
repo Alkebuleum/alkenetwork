@@ -35,9 +35,9 @@ export default function HowItWorks() {
           </li>
           <li className="step panel">
             <span className="step-n">03</span>
-            <h3>Warmed, then converted</h3>
-            <p>Mined ALKE stays Locked. Each active invite warms 1% of it a day and daily game XP adds up to 0.3%. Only warmed ALKE converts.</p>
-            <Chip gold>No listing date yet</Chip>
+            <h3>Warmed, then claimed</h3>
+            <p>Mined ALKE stays Locked. Each active invite warms 1% of it a day and daily game XP adds up to 0.3%. Only warm ALKE can be claimed, in Nuru.</p>
+            <Chip gold>No release date yet</Chip>
           </li>
         </ol>
         <div className="note">

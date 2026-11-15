@@ -10,13 +10,14 @@ const FAQS = [
     q: "What is cold ALKE, and what is hot ALKE?",
     a: [
       "Cold ALKE is what members mine in the ALKÉ Network app. It stays Locked. Hot ALKE is the live token on the network today.",
-      "At the first global listing, only warmed ALKE converts to hot ALKE on the post-quantum L1; unwarmed cold ALKE stays cold. That conversion is a mechanism, not a promise of value.",
+      "When claiming opens, you claim your warm ALKE in the Nuru app, where you have a wallet, after a personhood check: one person, one account. Cold ALKE that isn't warm yet stays cold until it is.",
+      "Claimed ALKE starts locked in your Nuru wallet and is released over time, like vesting. The release terms are published before claiming opens. Claiming is a mechanism, not a promise of value.",
     ],
   },
   {
     q: "How do I warm my cold ALKE?",
     a: [
-      "Contribute. Each active invite warms 1% of your cold ALKE a day; an invite becomes active once the person you invited completes 3 sessions. Daily game XP in ALKÉ Hex and ALKÉ Rush adds 0.1% per 30 XP, up to 0.3% a day. Lessons and discussions are coming.",
+      "Contribute. Each active invite warms 1% of your cold ALKE a day; an invite becomes active once the person you invited completes 3 sessions. Daily game XP in ALKÉ Hex and ALKÉ Rush adds 0.1% per 30 XP, up to 0.3% a day. Lessons (up to 0.3% a day) and discussions (up to 0.2% a day) are coming soon.",
       <>
         With 3 active invites and games maxed you warm 3.3% a day, so your cold ALKE is fully warm in about a month. Your own mining sessions don't warm your coins. <a href="#warming">See how warming works</a>.
       </>,
@@ -29,7 +30,7 @@ const FAQS = [
       "Native iPhone and Android apps are coming soon. Follow @alkenetwork for updates.",
     ],
   },
-  { q: "When does ALKE list?", a: ["There is no listing date. The first global listing is a milestone on the roadmap, not a date, and nothing here promises one."] },
+  { q: "When does ALKE list?", a: ["There is no listing date, and nothing here promises one. No listing, release date or price is promised. Claiming your warm ALKE in Nuru is a milestone on the roadmap, not a date."] },
   {
     q: "Is ALKE an investment?",
     a: [

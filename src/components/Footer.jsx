@@ -92,8 +92,8 @@ export default function Footer() {
             investment contract or equity instrument, and holding it is not ownership of any company or project. There was no ICO or presale, and no return is guaranteed.
           </p>
           <p>
-            Mining is participation in the network. The conversion of warmed cold ALKE to hot ALKE at the first global listing is a mechanism, not a promise of value, and no
-            listing date has been set. Warming comes from contributions: active invites and daily game XP, up to a cap. ALKÉ Hex and ALKÉ Rush XP is never redeemable for ALKE. Nothing on this site is
+            Mining is participation in the network. Claiming warm ALKE in Nuru is a mechanism, not a promise of value, and no listing, release date or price is
+            promised. Warming comes from contributions: active invites and daily game XP, up to a cap. ALKÉ Hex and ALKÉ Rush XP is never redeemable for ALKE. Nothing on this site is
             a recommendation.
           </p>
         </div>
