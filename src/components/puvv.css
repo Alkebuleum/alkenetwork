@@ -1,0 +1,24 @@
+/* Puvv on this site. His drawing and moods come from the Nuru app (puvv-moods.css, generated);
+   this adds what the site needs: sizing, eyes that follow the pointer, and the hero entrance. */
+
+.puvv { width: 100%; aspect-ratio: 1; --lx: 0; --ly: 0; --lean: 0; }
+
+/* Eyes and head follow the pointer (Puvv.jsx sets --lx, --ly, --lean in drawing units). */
+.puvv .ak-look { transform: translate(calc(var(--lx) * 1px), calc(var(--ly) * 1px)); transition: transform .18s ease-out; }
+.puvv .ak-char { transform: rotate(calc(var(--lean) * 1deg)); transform-origin: 50% 82%; transition: transform .35s ease-out; }
+.puvv.puvv-looking .ak-pu-anim { animation: none; }
+
+/* The hero: tappable, glowing, and he pops in. */
+.puvv-live { cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; user-select: none; }
+.puvv-live .ak-disc { box-shadow: 0 0 0 6px rgba(255, 201, 74, .9), 0 0 0 12px rgba(18, 13, 46, .9), 0 0 70px rgba(255, 201, 74, .55), 0 0 140px rgba(138, 108, 255, .55); }
+.puvv-live .ak-ring { border-width: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .puvv-live .ak-disc { animation: puvv-disc .7s cubic-bezier(.34, 1.45, .64, 1) backwards; }
+  .puvv-live .ak-char { animation: puvv-rise .9s cubic-bezier(.34, 1.45, .64, 1) .25s backwards; }
+  @keyframes puvv-disc { from { transform: scale(.2); opacity: 0; } }
+  @keyframes puvv-rise { from { transform: translateY(34%) scale(.55); opacity: 0; } }
+}
+@media (prefers-reduced-motion: reduce) {
+  .puvv .ak-look, .puvv .ak-char { transition: none; }
+}

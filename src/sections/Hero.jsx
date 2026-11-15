@@ -1,4 +1,5 @@
-import { Ext, Mascot } from "../components/Brand";
+import { Ext } from "../components/Brand";
+import Puvv from "../components/Puvv";
 import { LINKS } from "../data/links";
 
 const STATS = [
@@ -45,8 +46,8 @@ export default function Hero() {
           <div className="hero-art">
             <div className="ring dash" aria-hidden="true" />
             <div className="ring orbit" aria-hidden="true" />
-            <div className="holo">
-              <Mascot label="The ALKE mascot, an African wild dog" />
+            <div className="puvv-stage">
+              <Puvv live />
             </div>
             <span className="hud gold" aria-hidden="true">+12 ALKE</span>
             <span className="hud cyan" aria-hidden="true">COMBO ×5</span>

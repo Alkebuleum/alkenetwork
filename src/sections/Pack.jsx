@@ -1,4 +1,5 @@
-import { Hex, Mascot } from "../components/Brand";
+import { Hex } from "../components/Brand";
+import Puvv from "../components/Puvv";
 
 /* Mirrors the app's contribution table (app.alke.network src/lib/contribution.js)
    and the server's daily warming (functions/genesis.js WARMING, ACTIVE_AFTER).
@@ -40,7 +41,7 @@ export default function Pack() {
             The African wild dog is one of the continent's most successful hunters, because it never hunts alone. ALKE works the same way: each day your contributions warm a
             share of your cold ALKE, and your pack counts most. Each active invite warms 1% a day, and daily game XP adds up to 0.3% more.
           </p>
-          <Mascot className="pack-dog" />
+          <Puvv className="pack-dog" mood="listening" />
         </div>
         <div className="panel">
           <div className="formula">
