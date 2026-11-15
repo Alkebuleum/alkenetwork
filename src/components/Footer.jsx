@@ -12,6 +12,11 @@ const SITE_LINKS = [
   [LINKS.docs, "docs.alkebuleum.org", "developer docs"],
 ];
 
+const PAGE_LINKS = [
+  ["#post-quantum", "Post-quantum", "the goal and where it stands"],
+  ["#join", "Join the pack", "community"],
+];
+
 export function FinalCta() {
   return (
     <section className="final" aria-labelledby="finalTitle">
@@ -43,7 +48,16 @@ export default function Footer() {
             <p>Mine. Play. Invite. Grow.</p>
           </div>
           <div>
-            <h4>Links</h4>
+            <h4>On this site</h4>
+            <ul className="foot-list">
+              {PAGE_LINKS.map(([href, label, note]) => (
+                <li key={href}>
+                  <a href={href}>{label}</a>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+            <h4 className="foot-sub">Links</h4>
             <ul className="foot-list">
               {SITE_LINKS.map(([href, label, note]) => (
                 <li key={href}>
@@ -56,6 +70,10 @@ export default function Footer() {
           <div>
             <h4>Follow</h4>
             <ul className="foot-list">
+              <li>
+                <Ext href={LINKS.telegram}>Telegram</Ext>
+                <span>@alkebuleum</span>
+              </li>
               {SOCIALS.map((s) => (
                 <li key={s.name}>
                   <Ext href={s.href}>{s.name}</Ext>

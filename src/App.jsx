@@ -12,6 +12,7 @@ import Community from "./sections/Community";
 import Faq from "./sections/Faq";
 import Pack from "./sections/Pack";
 import GetApp from "./sections/GetApp";
+import PostQuantum from "./sections/PostQuantum";
 import { FinalCta } from "./components/Footer";
 
 /* Honour #section links on first load (the sections mount after the browser tries). */
@@ -38,6 +39,7 @@ function Home() {
         <Mining />
         <HowItWorks />
         <Pack />
+        <PostQuantum />
         <Roadmap />
         <GetAlke />
         <Builders />

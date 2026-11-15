@@ -1,39 +1,44 @@
 import { Ext } from "../components/Brand";
-import { LINKS, SOCIALS, X_URL } from "../data/links";
+import { LINKS, SOCIALS } from "../data/links";
+
+function TelegramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" strokeLinecap="round" aria-hidden="true">
+      <path d="M22 3 L2 11 L9 13.5 L11.5 21 L15 15.5 L22 3 Z" />
+      <path d="M9 13.5 L22 3" />
+    </svg>
+  );
+}
 
 export default function Community() {
   return (
-    <section className="band" id="community" aria-labelledby="commTitle">
+    <section className="band" id="join" aria-labelledby="commTitle">
       <div className="wrap">
         <div className="join">
-          <div>
-            <p className="eyebrow">// Join the pack · Become an Alker</p>
+          <div className="join-copy">
+            <p className="eyebrow gold">// Join the pack</p>
             <h2 className="display" id="commTitle">
-              Founding Alkers are <span className="glow">the first ones in.</span>
+              Join the pack. <span className="glow">No install needed.</span>
             </h2>
-            <p className="lede">
-              gm, Alkers. The ALKÉ community lives in Nuru's in-app Communities. Say gm, ask questions, follow the build and help shape what comes next.
+            <p className="lede">Say gm in the public ALKÉ Telegram, follow the build every Friday and apply to be one of the first Founding Alkers.</p>
+            <p className="join-nuru">
+              Already on Nuru?{" "}
+              <Ext className="textlink" href={LINKS.nuru}>
+                Find us in Communities.
+              </Ext>
             </p>
-            <div className="btns">
-              <Ext className="btn primary" href={LINKS.nuru}>
-                Get in through Nuru
-              </Ext>
-              <Ext className="btn" href={X_URL}>
-                Follow @alkenetwork
-              </Ext>
-            </div>
           </div>
-          <div className="nuru-card">
-            <h3>Nuru. Your AI. Your Network.</h3>
-            <p>Live now on the App Store and Google Play. Communities, JollofSwap and the ALKE App all open from Nuru.</p>
-            <div className="btns">
-              <Ext className="btn small" href={LINKS.nuruIos}>
-                iPhone
+          <div className="join-ctas">
+            <Ext className="btn primary" href={LINKS.telegram}>
+              <TelegramIcon />
+              Join on Telegram
+            </Ext>
+            {/* No sign-up exists yet. Set LINKS.foundingAlkers and the button appears. */}
+            {LINKS.foundingAlkers && (
+              <Ext className="btn" href={LINKS.foundingAlkers}>
+                Become a Founding Alker
               </Ext>
-              <Ext className="btn small" href={LINKS.nuruAndroid}>
-                Android
-              </Ext>
-            </div>
+            )}
           </div>
         </div>
         <ul className="socials" aria-label="Follow for launch updates">

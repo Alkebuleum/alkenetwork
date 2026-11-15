@@ -13,6 +13,10 @@ export const LINKS = {
   docs: "https://docs.alkebuleum.org",
   github: "https://github.com/alkebuleum",
   faucet: "https://faucet.alkebuleum.com",
+  telegram: "https://t.me/alkebuleum",
+  // Not public yet. Add the URL and its button appears on the site.
+  pqPlan: null, // the post-quantum plan page ("Read the post-quantum plan")
+  foundingAlkers: null, // where people apply ("Become a Founding Alker")
 };
 
 export const SOCIALS = [
