@@ -6,8 +6,10 @@ const NAV = [
   ["#mining", "Mining"],
   ["#how", "How it works"],
   ["#warming", "The pack"],
+  ["#post-quantum", "Post-quantum"],
   ["#roadmap", "Roadmap"],
   ["#get-alke", "Get ALKE"],
+  ["#join", "Community"],
   ["#faq", "FAQ"],
 ];
 
