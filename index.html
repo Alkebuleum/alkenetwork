@@ -3,34 +3,457 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>ALKÉ Network — The People's Network</title>
-    <meta name="description" content="ALKÉ Network, the People's Network. 300,000,000 ALKE allocated for community mining, the road to post-quantum Mainnet, and a live network to build on." />
-    <meta name="theme-color" content="#07051A" />
+    <title>ALKÉ Network · The Next Billion Network</title>
+    <meta name="description" content="ALKÉ Network, the Next Billion Network. Join free, participate daily and qualify for ALKE rewards. No payment required. No crypto wallet needed to get started." />
+    <meta name="theme-color" content="#0B0717" />
     <link rel="canonical" href="https://alke.network/" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alke.network/" />
-    <meta property="og:title" content="ALKÉ Network — The People's Network" />
-    <meta property="og:description" content="300,000,000 ALKE to mine, one tap a day. The road to post-quantum Mainnet, and a live network to build on." />
+    <meta property="og:title" content="ALKÉ Network · The Next Billion Network" />
+    <meta property="og:description" content="You missed Bitcoin. Don't miss the Next Billion Network. Join free, participate daily and qualify for ALKE rewards. No payment required. No crypto wallet needed to get started." />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@alkenetwork" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="preload" href="/fonts/ChakraPetch-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin />
-  </head>
-  <body>
-    <div id="root"></div>
-    <!-- Restores the real path after the GitHub Pages 404.html SPA redirect. -->
+    <!-- GitHub Pages sends unknown paths (invite links: /join/CODE) to 404.html, which comes back here as
+         /?redirect=join/CODE. Put the real path back before the page script reads it. -->
     <script>
       (function () {
-        var params = new URLSearchParams(window.location.search);
-        var redirect = params.get("redirect");
-        if (redirect) {
-          window.history.replaceState(null, "", "/" + redirect);
-        }
+        var r = new URLSearchParams(location.search).get("redirect");
+        if (r) history.replaceState(null, "", "/" + r);
       })();
     </script>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="top">
+      <div class="wrap nav">
+        <a class="lockup" href="#top" aria-label="ALKÉ Network home">
+          <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="tileA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A5CFF"/><stop offset=".55" stop-color="#5A3AEA"/><stop offset="1" stop-color="#3A1FB8"/></linearGradient></defs><rect width="100" height="100" rx="23" fill="url(#tileA)"/><path d="M50 17 L78.6 33.5 L78.6 66.5 L50 83 L21.4 66.5 L21.4 33.5 Z" fill="#fff" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><g stroke="#5634E8" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M50 31.5 V68.5"/><path d="M32.3 40.6 L42.8 50 L32.3 59.4"/><path d="M67.7 40.6 L57.2 50 L67.7 59.4"/></g></svg>
+          <b>ALKÉ NETWORK</b>
+        </a>
+        <nav class="menu" id="menu" aria-label="Sections">
+          <a href="#how">How It Works</a>
+          <a href="#rewards">Rewards</a>
+          <a href="#community">Community</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#whitepaper">Whitepaper</a>
+          <a href="#faq">FAQ</a>
+          <a class="menu-login" href="https://app.alke.network/sign-in" data-app="/sign-in">Log In</a>
+        </nav>
+        <div class="nav-cta">
+          <a class="login" href="https://app.alke.network/sign-in" data-app="/sign-in">Log In</a>
+          <a class="btn primary small" href="#join">Join Free</a>
+          <button class="burger" id="navToggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open the menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="heroTitle">
+        <div class="wrap">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="kicker">ALKÉ NETWORK</p>
+              <h1 class="display hero-h1" id="heroTitle"><span class="lead">You missed Bitcoin.</span><span>Don't miss the</span><span class="goldtext">Next Billion Network.</span></h1>
+              <p class="lede">In 2010, the first Bitcoin faucet gave away 5 BTC to anyone who stopped by. Today, ALKÉ Network gives 10,000 to 15,000 ALKE in rewards for each daily session in the app. It's free, and your rewards become claimable when the post-quantum mainnet opens.</p>
+              <form class="join" action="https://app.alke.network/sign-up" method="get" novalidate>
+            <p class="invited" hidden></p>
+                <label class="sr" for="emailTop">Email address</label>
+                <input id="emailTop" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required>
+                <button class="btn primary" type="submit">Claim My Free ALKE
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                <p class="join-msg" role="status" aria-live="polite"></p>
+              </form>
+              <p class="trust"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>No payment required. No crypto wallet needed to get started.</p>
+              <p class="hero-links"><a class="textlink" href="#how">How It Works</a><span class="small">Rewards are provisional until the post-quantum mainnet opens claims.</span></p>
+            </div>
+            <div class="hero-art">
+              <canvas data-phone="hero" data-src="" data-src-back="" role="img" aria-label="Two phones showing the ALKÉ app: the welcome screen in front and an active daily session behind it"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live global activity: hidden until there is real, verified activity to show.
+           Turn it on with VITE_SHOW_LIVE=1 at build time (see src/main.js). -->
+      <section class="band" id="live" aria-labelledby="liveTitle" hidden>
+        <div class="wrap live-grid">
+          <div>
+            <p class="eyebrow">Live global activity</p>
+            <h2 class="display" id="liveTitle">The next billion, <span class="goldtext">one member at a time.</span></h2>
+            <p class="lede">Alkers taking part around the world, shown only with their consent: a display name they chose or a plain description, never a full name or a precise location.</p>
+            <dl class="stats">
+              <div><dt>Registered members</dt><dd>—</dd><small>Shown once verified</small></div>
+              <div><dt>Countries represented</dt><dd>—</dd><small>Shown once verified</small></div>
+              <div><dt>Daily active participants</dt><dd>—</dd><small>Shown once verified</small></div>
+            </dl>
+          </div>
+          <div class="feed-card" aria-labelledby="feedTitle">
+            <div class="feed-head"><b id="feedTitle"><i class="dot" aria-hidden="true"></i>Live feed</b><span class="chip plain">Example layout</span></div>
+            <ul class="feed">
+              <li><span class="av" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><span>New member joined from <b>Kenya</b></span></li>
+              <li><span class="av" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg></span><span>An Alker in <b>Brazil</b> completed today's session</span></li>
+              <li><span class="av" aria-hidden="true"><svg width="16" height="18" viewBox="0 0 100 112" fill="none" aria-hidden="true"><path d="M50 8 L91 32 L91 80 L50 104 L9 80 L9 32 Z" stroke="#6EE7B7" stroke-width="10" stroke-linejoin="round"/></svg></span><span>A member in <b>Ghana</b> completed a community challenge</span></li>
+              <li><span class="av" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><span>New Alker joined from the <b>United States</b></span></li>
+            </ul>
+            <p class="feed-note">The feed shows verified, opt-in activity only. Until it's connected, these lines show its layout. They are examples, not real events.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="how" aria-labelledby="howTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">How it works</p>
+            <h2 class="display" id="howTitle">Three steps. <span class="goldtext">Free to start.</span></h2>
+            <p class="lede">You don't need to understand blockchain to take part in building its future.</p>
+          </div>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-n goldtext">01</span>
+              <h3>Join Free</h3>
+              <p>Create an ALKÉ Network account. No purchase or blockchain wallet required.</p>
+              <div class="btns"><a class="btn small" href="#join">Join ALKÉ Free</a></div>
+            </li>
+            <li class="step">
+              <span class="step-n goldtext">02</span>
+              <h3>Participate and Grow</h3>
+              <p>Start daily sessions, explore games, invite friends, and join the community to qualify for rewards.</p>
+            </li>
+            <li class="step">
+              <span class="step-n goldtext">03</span>
+              <h3>Prepare for Mainnet</h3>
+              <p>Eligible rewards are intended to become claimable as actual ALKE when the post-quantum network launches and distribution opens, subject to published rules.</p>
+            </li>
+          </ol>
+          <div class="compare">
+            <div class="cmp">
+              <span class="chip">Today</span>
+              <h3>Provisional participation rewards</h3>
+              <ul class="ticks">
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Recorded in the app</b> each time you take part.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Not coins yet.</b> They aren't transferable or redeemable.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Checked for eligibility,</b> so some show as pending until verified.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Kept in your reward history,</b> where you can see every entry.</span></li>
+              </ul>
+            </div>
+            <div class="cmp later">
+              <span class="chip gold">When mainnet opens claims</span>
+              <h3>Actual ALKE on the post-quantum network</h3>
+              <ul class="ticks">
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Claimable</b> once the network launches and distribution opens.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Under published rules</b> for conversion and eligibility, set out before claims open.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Sent to a compatible wallet</b> you set up or connect when you claim.</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg><span><b>Shown separately,</b> never added to provisional rewards in one total.</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="note">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+            <p><b>Claiming is tied to the post-quantum mainnet, not an exchange listing.</b> A global listing is a separate, future ambition and isn't promised. A coin existing on a network doesn't mean it has a price or a market.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="rewards" aria-labelledby="rewardsTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">Rewards</p>
+            <h2 class="display" id="rewardsTitle">Participate daily. <span class="goldtext">Qualify for ALKE rewards.</span></h2>
+            <p class="lede">Join free, take part every day and help the network grow. Every reward follows one published rulebook, so the website, the app and our emails always say the same thing.</p>
+          </div>
+          <div class="rw-grid">
+            <ul class="ways">
+              <li class="way main">
+                <span class="chip gold">Main activity</span>
+                <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Your daily ALKE session</h3>
+                <p>One tap starts a 24-hour session. When it ends, start the next one, and set a reminder if you like. It's app participation, not proof-of-work mining.</p>
+              </li>
+              <li class="way">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 20v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>Community</h3>
+                <p>Join New Alkers, read the guidelines and take part in community activities.</p>
+              </li>
+              <li class="way">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h6"/></svg>Learn</h3>
+                <p>Short introductions to ALKÉ, post-quantum security and taking part in crypto responsibly.</p>
+              </li>
+              <li class="way">
+                <h3><svg width="20" height="22" viewBox="0 0 100 112" fill="none" aria-hidden="true"><path d="M50 8 L91 32 L91 80 L50 104 L9 80 L9 32 Z" stroke="#A58BFF" stroke-width="9" stroke-linejoin="round"/></svg>Games</h3>
+                <p>ALKÉ Hex and ALKÉ Rush. Game XP isn't ALKE and can't be transferred or redeemed.</p>
+              </li>
+              <li class="way">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12M7 8l5-5 5 5"/></svg>Invite friends</h3>
+                <p>Share your own invite link. Referral rewards count only when invited friends actively take part, under published, capped rules. Inviting is optional.</p>
+              </li>
+              <li class="way">
+                <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>Governance</h3>
+                <p>Read proposals, join discussions and answer polls. We always say whether a vote is feedback or binding.</p>
+              </li>
+            </ul>
+            <div class="phone-col">
+              <canvas data-phone="invite" data-src="" role="img" aria-label="The ALKÉ app's Rewards screen: rewards recorded, pending verification, eligible allocation not set yet, and a note that rewards are provisional until mainnet"></canvas>
+            </div>
+          </div>
+          <div class="note">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+            <p><b>Every reward follows the published rules.</b> Amounts, limits and eligibility are set out in the reward rules, and every reward is checked so it's counted once.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="story" aria-labelledby="storyTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">The Next Billion Network</p>
+            <h2 class="display" id="storyTitle">Networks start small. <span class="goldtext">People make them matter.</span></h2>
+            <p class="lede">Most people missed the early days of crypto. Many never had the money to take part. ALKÉ is built so the next billion can join with time and attention instead.</p>
+          </div>
+          <ol class="chapters">
+            <li><span>01</span><h3>Bitcoin showed the way</h3><p>In 2009, Bitcoin introduced decentralized digital money. It began with a handful of people and grew into a global network.</p></li>
+            <li><span>02</span><h3>Early means taking part</h3><p>People join new networks early to learn, contribute and help shape them. That shouldn't depend on how much money you have.</p></li>
+            <li><span>03</span><h3>Free participation opens the door</h3><p>ALKÉ asks for your time and attention, not your capital. Anyone can join free, take part daily and qualify for rewards.</p></li>
+            <li><span>04</span><h3>Today's blockchains have limits</h3><p>Most rely on signatures that a future quantum computer could one day forge, and many are hard and costly to start with.</p></li>
+            <li><span>05</span><h3>A post-quantum direction</h3><p>ALKÉ is preparing a post-quantum, proof-of-work network. It's in development, set out in a draft whitepaper and subject to audits.</p></li>
+            <li><span>06</span><h3>Adoption makes it real</h3><p>A network is only as strong as the people using it. Real members, real participation and real utility build value, not hype.</p></li>
+          </ol>
+          <div class="story-close">
+            <p class="display">The next billion <span class="goldtext">includes you.</span></p>
+            <a class="btn primary" href="#join">Join ALKÉ Free</a>
+          </div>
+          <p class="story-foot">Bitcoin is an example of how networks can grow, not a forecast for ALKE. ALKÉ Network isn't affiliated with Bitcoin, and nothing here promises value, price or returns.</p>
+        </div>
+      </section>
+
+      <section class="band" id="community" aria-labelledby="commTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">Community</p>
+            <h2 class="display" id="commTitle">Welcome in, <span class="goldtext">Alkers.</span></h2>
+            <p class="lede">The community lives inside the ALKÉ app. No other app to download and no second login. You move up through three groups as you take part.</p>
+          </div>
+          <!-- Three groups, unlocked by what a member achieves. The exact requirements for Founding and Pioneer are still to confirm. -->
+          <ul class="cards">
+            <li class="card first">
+              <span class="chip gold">Start here</span>
+              <h3>New Alkers</h3>
+              <p>Everyone starts here. Ask questions, learn the basics and get help with daily sessions, games, rewards and invites.</p>
+            </li>
+            <li class="card">
+              <span class="chip">Unlocked by taking part</span>
+              <h3>Founding Alkers</h3>
+              <p>For members who keep showing up. Stay active and you'll be invited in to help shape the network in its early days.</p>
+            </li>
+            <li class="card">
+              <span class="chip">Unlocked by achievement</span>
+              <h3>Pioneer Alkers</h3>
+              <p>For the members who go furthest. Reach the top achievements and join the group leading the way to mainnet.</p>
+            </li>
+          </ul>
+          <p class="road-todo"><span class="todo" data-todo="Confirm what a member must achieve to join Founding Alkers and Pioneer Alkers">Group requirements to confirm before launch</span></p>
+          <div class="duo">
+            <div class="panel">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.5a7.5 7.5 0 0 1-10.8 6.7L4 20.5l1.4-4.6A7.5 7.5 0 1 1 20 12.5z"/><path d="M12.5 8.6l3 1.7v3.4l-3 1.7-3-1.7v-3.4z"/></svg>
+              <h3>Meet Puvv, your guide</h3>
+              <p>Puvv welcomes new members, explains rewards in plain words and points you to the right place in the app. Always optional, and never in charge of rewards or the network.</p>
+            </div>
+            <div class="panel">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>
+              <h3>Governance you can follow</h3>
+              <p>Community proposals, discussions and polls, with results posted openly. Each one says whether it's feedback or binding, and an in-app vote never changes the blockchain's rules on its own.</p>
+            </div>
+          </div>
+          <div class="games">
+            <div class="game">
+              <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke-width="2"><path d="M32 6 L44 13 L44 27 L32 34 L20 27 L20 13 Z" stroke="#F5B84D" fill="rgba(245,184,77,.12)"/><path d="M20 27 L32 34 L32 48 L20 55 L8 48 L8 34 Z" stroke="#8F78FF"/><path d="M44 27 L56 34 L56 48 L44 55 L32 48 L32 34 Z" stroke="#8F78FF"/></g></svg>
+              <div><h3>ALKÉ Hex</h3><p>Rebuild the ALKÉ mark one hidden piece at a time, with daily challenges, levels and personal bests.</p></div>
+            </div>
+            <div class="game">
+              <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke-width="2"><path d="M32 8 L50 18 L50 38 L32 48 L14 38 L14 18 Z" stroke="#7FE9EE"/><circle cx="32" cy="28" r="7" fill="#F5B84D" stroke="none"/><path d="M32 48 V58" stroke="#7FE9EE"/></g></svg>
+              <div><h3>ALKÉ Rush</h3><p>Stop the light on the XP, then bank it before a hazard takes it. XP isn't ALKE and can't be transferred or redeemed.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="roadmap" aria-labelledby="roadTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">Roadmap</p>
+            <h2 class="display" id="roadTitle">Where things stand, <span class="goldtext">honestly.</span></h2>
+            <p class="lede">Each milestone shows its real status. Dates appear only once they're confirmed.</p>
+            <p class="road-todo"><span class="todo" data-todo="Confirm each roadmap status with the team">Statuses to confirm before launch</span></p>
+          </div>
+          <ul class="legend" aria-label="Status key">
+            <li><span class="chip ok"><i></i>Live</span></li>
+            <li><span class="chip gold"><i></i>In development</span></li>
+            <li><span class="chip"><i></i>Planned</span></li>
+            <li><span class="chip plain"><i></i>Future ambition</span></li>
+          </ul>
+          <ol class="road">
+            <li><span class="chip ok"><i></i>Live</span><div><h3>Daily participation</h3><p>24-hour sessions and reward records at app.alke.network.</p></div></li>
+            <li><span class="chip gold"><i></i>In development</span><div><h3>New onboarding and rewards dashboard</h3><p>Faster sign-up, a clearer view of provisional rewards, and referral tracking.</p></div></li>
+            <li><span class="chip gold"><i></i>In development</span><div><h3>New Alkers community in the app</h3><p>Community spaces inside ALKÉ, with moderation, blocking and reporting built in.</p></div></li>
+            <li><span class="chip gold"><i></i>In development</span><div><h3>Post-quantum proof-of-work network</h3><p>Set out in the draft whitepaper, edition 4.0, and subject to audits and approvals.</p></div></li>
+            <li><span class="chip"><i></i>Planned</span><div><h3>Native mobile apps</h3><p>The same account, rewards and invites on web and mobile.</p></div></li>
+            <li><span class="chip"><i></i>Planned</span><div><h3>Audited claim system</h3><p>Claiming opens only when the new network, the economics, security reviews and distribution are ready and approved.</p></div></li>
+            <li><span class="chip plain"><i></i>Future ambition</span><div><h3>Global exchange listing</h3><p>A separate ambition. Not promised, and not needed to claim.</p></div></li>
+          </ol>
+          <div class="paper" id="whitepaper">
+            <div>
+              <span class="chip gold">Draft</span>
+              <h3>ALKÉ Network whitepaper, post-quantum edition 4.0</h3>
+              <p>A working draft. The post-quantum economics and the conversion of app rewards remain open until audits and approvals are complete.</p>
+            </div>
+            <div class="btns"><a class="btn small" href="#whitepaper" data-todo="Link to the whitepaper draft">Read the draft</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="faq" aria-labelledby="faqTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 class="display" id="faqTitle">Straight answers.</h2>
+          </div>
+          <div class="faq">
+            <details><summary>What is ALKÉ Network?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>A community you take part in, free, while it prepares a future post-quantum, proof-of-work network. ALKE is its coin. It isn't a trading platform.</p></div></details>
+            <details><summary>Is joining free?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Yes. No payment is required and you don't need a crypto wallet to get started.</p></div></details>
+            <details><summary>Are daily rewards actual coins?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Not yet. Participation rewards are provisional. They are not currently transferable or redeemable blockchain coins.</p></div></details>
+            <details><summary>Why are rewards provisional?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>The post-quantum network isn't live yet, and the rules for conversion, eligibility and distribution have to be finalised and published before any reward becomes an actual coin.</p></div></details>
+            <details><summary>When can I claim?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>When the post-quantum mainnet is running and an audited distribution system opens. There's no date yet. We'll tell you in the app and by email if you opt in.</p></div></details>
+            <details><summary>What happens if mainnet is delayed?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Your reward history stays on your account and the roadmap shows the real status. We won't invent dates, and we'll say plainly when something slips.</p></div></details>
+            <details><summary>Is ALKE listed on an exchange?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Claiming your rewards doesn't depend on any listing. A global exchange listing is a separate, future ambition, not a promise, and a coin existing on a network doesn't mean it has a price or a market.</p><p>Already hold ALKE from the existing network? See <a class="textlink" href="#holders">Existing Holder Information</a>.</p></div></details>
+            <details><summary>What determines my allocation?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Your verified participation, under conversion and eligibility rules that are published before claims open. Limits per member may apply. Until then, the app shows your eligible allocation as not set yet.</p></div></details>
+            <details><summary>What happens if I lose access to my account?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>You can recover it through your verified email, and Help can step in if that fails. We will never ask for your password, seed phrase or private keys.</p></div></details>
+            <details><summary>Can I take part without inviting friends?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>Yes. Inviting is optional. Daily sessions, games, learning and the community are open to everyone, and no one is ever asked to buy anything.</p></div></details>
+            <details><summary>Is ALKÉ affiliated with Bitcoin?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>No. We mention Bitcoin as an example of how a new digital network can start small and grow. ALKE won't necessarily follow its path, value or price.</p></div></details>
+            <details><summary>What happens if a reward is disputed?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+              <div><p>A person reviews it, and you can appeal. Your reward history shows the status of every entry, including any correction.</p></div></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="band alt" id="security" aria-labelledby="secTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">Security and privacy</p>
+            <h2 class="display" id="secTitle">Built to be trusted.</h2>
+          </div>
+          <ul class="trust-grid">
+            <li><h3>Official sites only</h3><p>ALKÉ lives at alke.network and app.alke.network. Anything else is not us.</p></li>
+            <li><h3>We never ask for secrets</h3><p>No one from ALKÉ will ask for your password, seed phrase or private keys.</p></li>
+            <li><h3>Only what's needed</h3><p>We collect only what it takes to run ALKÉ, protect the reward program and meet legal duties.</p></li>
+            <li><h3>Fair to real people</h3><p>Rewards are protected against bots and duplicate accounts, with human review and appeals.</p></li>
+          </ul>
+          <div class="doc-links">
+            <a class="btn small" href="#security" data-todo="Terms of use link">Terms of use</a>
+            <a class="btn small" href="#security" data-todo="Privacy policy link">Privacy policy</a>
+            <a class="btn small" href="#security" data-todo="Reward rules link">Reward rules</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="band cta" id="join" aria-labelledby="joinTitle">
+        <div class="wrap">
+          <p class="eyebrow">The Next Billion Network</p>
+          <h2 class="display" id="joinTitle">Your place in tomorrow <span class="goldtext">starts here.</span></h2>
+          <p class="lede">Join free. Participate daily. Qualify for ALKE rewards.</p>
+          <form class="join" action="https://app.alke.network/sign-up" method="get" novalidate>
+            <p class="invited" hidden></p>
+            <label class="sr" for="emailBottom">Email address</label>
+            <input id="emailBottom" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required>
+            <button class="btn primary" type="submit">Claim My Free ALKE
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="join-msg" role="status" aria-live="polite"></p>
+          </form>
+          <p class="trust"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>No payment required. No crypto wallet needed to get started.</p>
+        </div>
+      </section>
+
+      <section class="holders" id="holders" aria-labelledby="holdTitle">
+        <div class="wrap">
+          <div class="holders-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BDB6CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></svg>
+            <h2 id="holdTitle">Already hold ALKE? Existing Holder Information</h2>
+            <p>ALKE you already hold on the existing network is separate from the new participation rewards, and joining doesn't change it. Migration arrangements will be published here once they're approved. <a class="textlink" href="#holders" data-todo="Existing holder information page">Holder guide</a></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div class="foot-brand">
+            <a class="lockup" href="#top" aria-label="ALKÉ Network home">
+              <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="tileB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7A5CFF"/><stop offset=".55" stop-color="#5A3AEA"/><stop offset="1" stop-color="#3A1FB8"/></linearGradient></defs><rect width="100" height="100" rx="23" fill="url(#tileB)"/><path d="M50 17 L78.6 33.5 L78.6 66.5 L50 83 L21.4 66.5 L21.4 33.5 Z" fill="#fff" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><g stroke="#5634E8" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M50 31.5 V68.5"/><path d="M32.3 40.6 L42.8 50 L32.3 59.4"/><path d="M67.7 40.6 L57.2 50 L67.7 59.4"/></g></svg>
+              <b>ALKÉ NETWORK</b>
+            </a>
+            <p class="slogan">The Next Billion Network.</p>
+            <p>Your place in tomorrow starts here.</p>
+          </div>
+          <div>
+            <h4>Explore</h4>
+            <ul class="foot-list">
+              <li><a href="#how">How It Works</a></li>
+              <li><a href="#rewards">Rewards</a></li>
+              <li><a href="#community">Community</a></li>
+              <li><a href="#roadmap">Roadmap</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#join">Join Free</a></li>
+              <li><a href="https://app.alke.network/sign-in" data-app="/sign-in">Log In</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Resources</h4>
+            <ul class="foot-list">
+              <li><a href="#whitepaper">Whitepaper (draft)</a></li>
+              <li><a href="#security">Security and privacy</a></li>
+              <li><a href="#security" data-todo="Reward rules link">Reward rules</a></li>
+              <li><a href="#security" data-todo="Terms of use link">Terms of use</a></li>
+              <li><a href="#security" data-todo="Privacy policy link">Privacy policy</a></li>
+              <li><a href="#holders">Existing Holder Information</a></li>
+              <li><a href="#holders" data-todo="Existing network documentation (move the current technical pages here)">Existing network documentation</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Follow</h4>
+            <ul class="foot-list">
+              <li><a href="https://x.com/alkenetwork" target="_blank" rel="noopener">X</a><span>@alkenetwork</span></li>
+              <li><a href="https://www.youtube.com/@alkenetwork" target="_blank" rel="noopener">YouTube</a><span>@alkenetwork</span></li>
+              <li><a href="https://www.instagram.com/alkenetwork" target="_blank" rel="noopener">Instagram</a><span>@alkenetwork</span></li>
+              <li><a href="https://www.threads.net/@alkenetwork" target="_blank" rel="noopener">Threads</a><span>@alkenetwork</span></li>
+              <li><a href="https://www.tiktok.com/@alke4287" target="_blank" rel="noopener">TikTok</a><span>@alke4287</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="legal">
+          <p><strong>Not financial advice.</strong> Participation rewards are provisional. They are not currently transferable or redeemable blockchain coins.</p>
+          <p>Eligible rewards are intended to become claimable as ALKE when the post-quantum ALKÉ mainnet launches and distribution opens, under conversion and eligibility rules published first. Nothing on this site promises value, price, liquidity, returns or an exchange listing. ALKÉ Network is not affiliated with Bitcoin.</p>
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 ALKÉ Network</span>
+          <span>alke.network</span>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

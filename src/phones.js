@@ -1,9 +1,5 @@
-/* Canvas renderer for the ALKÉ Network app phones.
-   Ported from the "ALKÉ Network.html" design. Every teaser shows a phone with
-   the real app screen; until real screenshots are supplied, a drawn stand-in
-   of that screen fills the phone. Stand-ins carry no network figures and no
-   ALKE amounts. */
-const DISPLAY = '"Unbounded", "Space Grotesk", system-ui, sans-serif';
+/* Canvas renderer for the drawn app phones, from the website design export. */
+const DISPLAY = '"Chakra Petch", "Space Grotesk", system-ui, sans-serif';
 const BODY = '"Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif';
 const MONO = '"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace';
 const HAS_LS = typeof CanvasRenderingContext2D !== "undefined" && "letterSpacing" in CanvasRenderingContext2D.prototype;
@@ -121,9 +117,10 @@ function arrowR(c, x, y, s, color, lw) {
   c.stroke(); c.restore();
 }
 const TH = {
-  base: "#0E071C", text: "#F7F2E8", muted: "#B9B3C6", faint: "rgba(185,179,198,.62)",
-  gold: "#F5B84D", goldHi: ["#FFE29C", "#F5B84D", "#EA9F34"], violet: "#5E3AFF", lilac: "#A58BFF",
-  card: "rgba(255,255,255,.045)", cardLine: "rgba(255,255,255,.10)", line: "rgba(247,242,232,.12)", ink: "#160B2E",
+  base: "#07051A", text: "#F1EEFF", muted: "#C9C3E9", faint: "rgba(201,195,233,.62)",
+  gold: "#FFCA4A", goldHi: ["#FFE08D", "#FFCA4A", "#E4A025"], violet: "#6A4BEF", lilac: "#A58BFF", cyan: "#3DF5FF",
+  card: "rgba(20,15,51,.82)", cardLine: "rgba(110,90,220,.45)", line: "rgba(241,238,255,.12)", ink: "#120D2B",
+  panel: "#0E0A25", panel2: "#140F33",
 };
 
 /* ============ Phone and app screens ============ */
@@ -133,8 +130,17 @@ const TH = {
    figures and no ALKE amounts. */
 const PHONE_AR = 0.4755;
 const SCR_W = 390;
+const SCREEN_OPTS = [
+  ["welcome", "Welcome"],
+  ["home", "Home (shows both games)"],
+  ["mining", "Daily session"],
+  ["games", "Games tab (ALKÉ Hex and ALKÉ Rush)"],
+  ["hex", "ALKÉ Hex board"],
+  ["rush", "ALKÉ Rush run"],
+  ["invite", "ALKE Rewards"],
+];
 function devScale(ctx) {
-  try { const m = ctx.getTransform(); return Math.max(0.08, Math.hypot(m.a, m.b)); } catch { return 1; }
+  try { const m = ctx.getTransform(); return Math.max(0.08, Math.hypot(m.a, m.b)); } catch (e) { return 1; }
 }
 
 /* ---------- UI kit for the drawn screens (logical 390 px wide) ---------- */
@@ -329,10 +335,11 @@ function uTabs(c, H, active) {
   c.fill();
   c.restore();
   rr(c, 14, y, 362, h, 26); c.strokeStyle = "rgba(255,255,255,.09)"; c.lineWidth = 1; c.stroke();
-  const items = [["home", "Home", 52], ["games", "Games", 122], ["mine", "Mine", 195], ["network", "Network", 268], ["profile", "Profile", 338]];
+  const items = [["home", "Home", 52], ["rewards", "Rewards", 122], ["games", "Games", 195], ["community", "Community", 268], ["govern", "Governance", 338]];
+  const ICON = { rewards: "spark", community: "network" };
   items.forEach(([ic, lab, x]) => {
     const on = active === ic;
-    if (ic === "mine") {
+    if (ic === "games") {
       c.save();
       c.shadowColor = "rgba(106,71,255,.75)"; c.shadowBlur = on ? 22 : 12;
       hexPath(c, x, y + 20, 25);
@@ -343,7 +350,7 @@ function uTabs(c, H, active) {
       uT(c, lab, x, y + 58, 10.5, { w: 600, color: on ? UIC.text : UIC.sub, align: "center" });
       return;
     }
-    uIcon(c, ic, x, y + 25, 20, on ? UIC.text : "rgba(185,179,198,.75)", 1.7);
+    uIcon(c, ICON[ic] || ic, x, y + 25, 20, on ? UIC.text : "rgba(185,179,198,.75)", 1.7);
     uT(c, lab, x, y + 54, 10.5, { w: on ? 600 : 500, color: on ? UIC.text : "rgba(185,179,198,.8)", align: "center" });
   });
 }
@@ -540,16 +547,16 @@ const SCREEN_DRAW = {
     uChip(c, 372, 336, "New game · ALKÉ Rush", { icon: "games", iconColor: UIC.cyanHi, size: 12, h: 30, align: "right", fill: "rgba(18,12,34,.85)" });
     rr(c, 30, 398, 20, 5, 3); c.fillStyle = UIC.lilac; c.fill();
     c.beginPath(); c.arc(60, 400.5, 2.6, 0, Math.PI * 2); c.fillStyle = "rgba(185,179,198,.45)"; c.fill();
-    uT(c, "Join the Network.", 30, 448, 28, { w: 700 });
-    uT(c, "Shape the Future.", 30, 484, 28, { w: 700, color: UIC.lilac });
-    uWrap(c, "The community home of the Alkebuleum blockchain. Show up each day, learn, contribute and play.", 30, 522, 13.5, 330, 20, { color: UIC.sub });
-    const chips = ["Nothing to buy", "No wallet to start", "About a minute"];
+    uT(c, "Your place in", 30, 448, 28, { w: 700 });
+    uT(c, "tomorrow starts here.", 30, 484, 28, { w: 700, color: UIC.lilac });
+    uWrap(c, "Join the Next Billion Network. Participate daily and qualify for ALKE rewards.", 30, 522, 13.5, 330, 20, { color: UIC.sub });
+    const chips = ["No payment", "No wallet needed", "About a minute"];
     let cs = 11.5, cp = 10;
     const cw = () => chips.reduce((m, t) => m + cp * 2 + 18 + uTW(c, t, cs, { w: 500 }), 0) + 6 * (chips.length - 1);
     while (cw() > 330 && cs > 8.5) { cs -= 0.25; cp = Math.max(6, cp - 0.25); }
     let x = 30;
     chips.forEach((t) => { x += uChip(c, x, 596, t, { icon: "check", iconColor: UIC.green, size: cs, h: 28, pad: cp }) + 6; });
-    uBtn(c, 30, 650, 330, 54, "Get started", { arrow: true, size: 16.5 });
+    uBtn(c, 30, 650, 330, 54, "Join ALKÉ Free", { arrow: true, size: 16.5 });
     uT(c, "I already have an account", 195, 742, 14, { w: 500, color: UIC.sub, align: "center" });
     uHomeBar(c, H);
   },
@@ -559,28 +566,28 @@ const SCREEN_DRAW = {
     hexPath(c, 40, 88, 21); c.fillStyle = "rgba(94,58,255,.25)"; c.fill(); c.strokeStyle = UIC.lilac; c.lineWidth = 1.5; c.stroke();
     drawMark(c, 40, 88, 9.5, { hex: UIC.gold, ink: "#FFFFFF", lw: 0.13 });
     uT(c, "Good evening", 72, 82, 12.5, { color: UIC.sub });
-    uT(c, "Alker", 72, 103, 18, { w: 600 });
+    uT(c, "Welcome back", 72, 103, 18, { w: 600 });
     uIcon(c, "bell", 352, 88, 21, UIC.text, 1.7);
     c.beginPath(); c.arc(360, 79, 4, 0, Math.PI * 2); c.fillStyle = UIC.gold; c.fill();
     uCard(c, 16, 124, 358, 198, 24, { fill: linGrad(c, 16, 124, 374, 322, ["rgba(110,80,255,.28)", "rgba(40,22,96,.35)"]), line: "rgba(165,139,255,.3)" });
     uT(c, "TODAY'S SESSION", 34, 156, 10.5, { mono: true, tr: 0.16, color: UIC.lilac });
-    uT(c, "Ready when", 34, 190, 23, { w: 700 });
-    uT(c, "you are", 34, 218, 23, { w: 700 });
+    uT(c, "Ready for today's", 34, 190, 21, { w: 700 });
+    uT(c, "ALKE session?", 34, 217, 21, { w: 700 });
     uChip(c, 34, 232, "12-day streak", { icon: "flame", iconColor: UIC.gold, color: UIC.gold, size: 12, h: 28, fill: "rgba(245,184,77,.1)", line: "rgba(245,184,77,.3)" });
-    uBtn(c, 34, 272, 150, 38, "Start session", { size: 14 });
+    uBtn(c, 34, 272, 178, 38, "Start Daily Session", { size: 14 });
     uOrb(c, 296, 222, 62, 0, { orb: 0.7 });
     uCard(c, 16, 336, 358, 150, 22);
-    uT(c, "YOUR ALLOCATION", 34, 366, 10.5, { mono: true, tr: 0.16, color: UIC.sub });
-    uChip(c, 356, 348, "Locked", { icon: "lock", size: 11.5, h: 26, pad: 10, align: "right" });
+    uT(c, "YOUR ALKE REWARDS", 34, 366, 10.5, { mono: true, tr: 0.16, color: UIC.sub });
+    uChip(c, 356, 348, "Provisional", { icon: "lock", size: 11.5, h: 26, pad: 10, align: "right" });
     rr(c, 34, 392, 322, 10, 5); c.fillStyle = "rgba(255,255,255,.08)"; c.fill();
     rr(c, 34, 392, 228, 10, 5); c.fillStyle = linGrad(c, 34, 0, 262, 0, ["#7C5CFF", "#A58BFF"]); c.fill();
     c.save(); rr(c, 266, 392, 90, 10, 5); c.clip(); c.strokeStyle = "rgba(165,139,255,.55)"; c.lineWidth = 2;
     for (let i = 0; i < 20; i++) { c.beginPath(); c.moveTo(262 + i * 7, 404); c.lineTo(272 + i * 7, 390); c.stroke(); } c.restore();
     c.beginPath(); c.arc(38, 426, 4, 0, Math.PI * 2); c.fillStyle = "#8F78FF"; c.fill();
-    uT(c, "Warmed", 48, 430, 12, { w: 500 });
-    c.beginPath(); c.arc(120, 426, 4, 0, Math.PI * 2); c.strokeStyle = UIC.lilac; c.lineWidth = 1.5; c.stroke();
-    uT(c, "Still cold", 130, 430, 12, { w: 500 });
-    uWrap(c, "Each active invite warms 1% of your cold ALKE a day. Only warm ALKE can be claimed.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
+    uT(c, "Recorded", 48, 430, 12, { w: 500 });
+    c.beginPath(); c.arc(124, 426, 4, 0, Math.PI * 2); c.strokeStyle = UIC.lilac; c.lineWidth = 1.5; c.stroke();
+    uT(c, "Pending verification", 134, 430, 12, { w: 500 });
+    uWrap(c, "Rewards are provisional. They're not transferable or redeemable coins yet.", 34, 458, 11.5, 320, 16, { color: UIC.faint });
     uCard(c, 16, 500, 358, 118, 22, { line: "rgba(245,184,77,.22)" });
     const mini = [[0, 0, 1], [-1.5, -0.866, 0], [0, -1.732, 1], [1.5, -0.866, 0], [-1.5, 0.866, 0], [1.5, 0.866, 1], [0, 1.732, 0]];
     mini.forEach(([mx, my, g]) => {
@@ -591,7 +598,7 @@ const SCREEN_DRAW = {
     uT(c, "ALKÉ HEX · DAILY BOARD LIVE", 114, 530, 9.5, { mono: true, tr: 0.12, color: UIC.gold });
     uT(c, "Rebuild the mark", 114, 554, 17, { w: 600 });
     uT(c, "Find the gold pieces, dodge the traps.", 114, 576, 12, { color: UIC.sub });
-    uChip(c, 114, 586, "Game XP · warms up to 0.3%", { size: 10.5, h: 22, pad: 9, color: UIC.lilac, line: "rgba(165,139,255,.35)", fill: "rgba(94,58,255,.12)" });
+    uChip(c, 114, 586, "Game XP · not ALKE", { size: 10.5, h: 22, pad: 9, color: UIC.lilac, line: "rgba(165,139,255,.35)", fill: "rgba(94,58,255,.12)" });
     uCard(c, 16, 632, 358, 104, 22, { line: "rgba(92,225,230,.3)", fill: linGrad(c, 16, 632, 374, 736, ["rgba(60,199,214,.12)", "rgba(60,199,214,.03)"]) });
     uLattice7(c, 66, 684, 10.5);
     uT(c, "ALKÉ RUSH · NEW GAME", 114, 662, 9.5, { mono: true, tr: 0.12, color: UIC.cyanHi });
@@ -606,7 +613,7 @@ const SCREEN_DRAW = {
     const idle = an && an.phase === "idle";
     uBg(c, H, 195, 320);
     uStatus(c);
-    uT(c, "COMMUNITY MINING", 26, 90, 11, { mono: true, tr: 0.16, color: UIC.sub });
+    uT(c, "DAILY SESSION", 26, 90, 11, { mono: true, tr: 0.16, color: UIC.sub });
     c.beginPath(); c.arc(352, 84, 17, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.06)"; c.fill(); c.strokeStyle = UIC.line; c.lineWidth = 1; c.stroke();
     c.beginPath(); c.arc(352, 84, 9, 0, Math.PI * 2); c.strokeStyle = UIC.text; c.lineWidth = 1.4; c.stroke();
     uIcon(c, "info", 352, 85, 13, UIC.text, 1.6);
@@ -641,7 +648,7 @@ const SCREEN_DRAW = {
       c.beginPath(); c.arc(x, 712, 6, 0, Math.PI * 2); c.fillStyle = done ? col : "#140C26"; c.fill(); c.strokeStyle = col; c.lineWidth = 1.6; c.stroke();
       uT(c, t, x + 12, 716, 11.5, { w: 500, color: done ? UIC.text : UIC.sub });
     });
-    uTabs(c, H, "mine");
+    uTabs(c, H, "home");
     uHomeBar(c, H);
   },
   hex(c, H, o) {
@@ -681,7 +688,7 @@ const SCREEN_DRAW = {
     uT(c, "Flag a trap", 140, 688, 15, { w: 600 });
     c.beginPath(); c.arc(340, 682, 24, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.05)"; c.fill(); c.stroke();
     uIcon(c, "refresh", 340, 683, 17, UIC.text, 1.8);
-    uWrap(c, "Game XP has no monetary value and is never redeemable for ALKE. Daily XP warms cold ALKE, capped.", 195, 736, 11, 330, 16, { color: UIC.faint, align: "center" });
+    uWrap(c, "Game XP isn't ALKE: no monetary value, not transferable, not redeemable.", 195, 736, 11, 330, 16, { color: UIC.faint, align: "center" });
     uHomeBar(c, H);
   },
   games(c, H) {
@@ -713,14 +720,14 @@ const SCREEN_DRAW = {
     uChip(c, 132, 518, "5 scored runs a day", { size: 10.5, h: 22, pad: 9, color: UIC.text });
     uCard(c, 16, 568, 358, 132, 22);
     uT(c, "THREE COUNTERS, NEVER MIXED", 34, 594, 10, { mono: true, tr: 0.14, color: UIC.sub });
-    [["Game XP", "Warms, capped", UIC.gold], ["Contribution", "Participation", UIC.lilac], ["ALKE", "Cold · locked", UIC.text]].forEach(([t, d, col], i) => {
+    [["Game XP", "Not ALKE", UIC.gold], ["Participation", "Recorded", UIC.lilac], ["ALKE Rewards", "Provisional", UIC.text]].forEach(([t, d, col], i) => {
       const x = 34 + i * 112;
       uT(c, t, x, 624, 14, { w: 600, color: col });
       uT(c, d, x, 644, 11.5, { color: UIC.sub });
     });
     c.strokeStyle = "rgba(255,255,255,.08)"; c.lineWidth = 1; c.beginPath(); c.moveTo(34, 660); c.lineTo(356, 660); c.stroke();
     uIcon(c, "flame", 42, 680, 13, UIC.gold);
-    uT(c, "Invites warm most. Games add up to 0.3% a day.", 58, 684, 11.5, { color: UIC.sub });
+    uT(c, "Game XP isn't ALKE and can't be redeemed.", 58, 684, 11.5, { color: UIC.sub });
     uTabs(c, H, "games");
     uHomeBar(c, H);
   },
@@ -762,50 +769,59 @@ const SCREEN_DRAW = {
     rr(c, 202, 614, 174, 56, 28); c.fillStyle = "rgba(92,225,230,.08)"; c.fill(); c.strokeStyle = UIC.cyan; c.lineWidth = 1.6; c.stroke();
     uT(c, "RISK AGAIN", 289, 648, 15, { w: 700, color: UIC.cyanHi, align: "center" });
     uT(c, "Next spin is faster · 5 of 19 are hazards · shield ready", 195, 696, 11.5, { color: UIC.sub, align: "center" });
-    uWrap(c, "Game XP has no monetary value and is never redeemable for ALKE.", 195, 728, 11, 330, 16, { color: UIC.faint, align: "center" });
+    uWrap(c, "Game XP isn't ALKE: no monetary value, not redeemable.", 195, 728, 11, 330, 16, { color: UIC.faint, align: "center" });
     uHomeBar(c, H);
   },
   invite(c, H) {
     uBg(c, H, 260, 220);
     uStatus(c);
-    uT(c, "NETWORK", 24, 88, 11, { mono: true, tr: 0.18, color: UIC.lilac });
-    uT(c, "Grow together", 24, 120, 26, { w: 700 });
-    uCard(c, 16, 140, 358, 152, 22, { fill: linGrad(c, 16, 140, 374, 292, ["rgba(110,80,255,.26)", "rgba(40,22,96,.3)"]), line: "rgba(165,139,255,.3)" });
-    uT(c, "YOUR INVITE CODE", 34, 170, 10.5, { mono: true, tr: 0.16, color: UIC.lilac });
-    uT(c, "ALKER-7Q2K", 34, 210, 28, { mono: true, w: 600, tr: 0.04 });
-    uBtn(c, 254, 184, 102, 38, "Share", { size: 14 });
-    c.strokeStyle = "rgba(255,255,255,.1)"; c.lineWidth = 1; c.beginPath(); c.moveTo(34, 236); c.lineTo(356, 236); c.stroke();
-    uIcon(c, "flame", 42, 262, 14, UIC.gold);
-    uT(c, "Active invites warm your cold ALKE.", 58, 267, 12.5, { w: 500, color: UIC.sub });
-    uCard(c, 16, 306, 358, 176, 22, { line: "rgba(245,184,77,.28)", fill: linGrad(c, 16, 306, 374, 482, ["rgba(245,184,77,.10)", "rgba(245,184,77,.03)"]) });
-    uT(c, "HOW WARMING WORKS", 34, 336, 10.5, { mono: true, tr: 0.16, color: UIC.gold });
-    uT(c, "1% a day per active invite", 34, 364, 17, { w: 600 });
-    rr(c, 34, 380, 322, 40, 12); c.fillStyle = "rgba(10,6,20,.55)"; c.fill(); c.strokeStyle = "rgba(245,184,77,.3)"; c.lineWidth = 1; c.stroke();
-    uT(c, "invites × 1% + games (max 0.3%)", 195, 405, 12, { mono: true, w: 500, align: "center" });
-    uWrap(c, "Your own mining warms nothing. Each active invite warms 1% a day. Only warm ALKE can be claimed.", 34, 442, 12, 322, 17, { color: UIC.sub });
-    uCard(c, 16, 496, 358, 96, 22, { line: "rgba(245,184,77,.2)" });
-    c.save(); c.shadowColor = "rgba(245,184,77,.6)"; c.shadowBlur = 14; drawMark(c, 62, 544, 22, { lw: 0.1, dashed: true }); c.restore();
-    uT(c, "FOUNDING ALKER", 106, 530, 10.5, { mono: true, tr: 0.16, color: UIC.gold });
-    uT(c, "Among the first in", 106, 554, 17, { w: 600 });
-    uT(c, "A badge for the first ones in. Recognition only.", 106, 575, 11.5, { color: UIC.sub });
-    uT(c, "Your circles", 24, 626, 17, { w: 600 });
-    uT(c, "Start a circle", 366, 626, 12.5, { w: 600, color: UIC.lilac, align: "right" });
-    const circles = [["Night Owls", "Weekly lesson night", ["NO", "KA", "TE"], "#8F78FF"]];
-    let y = 642;
+    uT(c, "REWARDS", 24, 88, 11, { mono: true, tr: 0.18, color: UIC.lilac });
+    uT(c, "Your ALKE Rewards", 24, 120, 26, { w: 700 });
+    uCard(c, 16, 140, 358, 168, 22, { line: "rgba(245,184,77,.28)", fill: linGrad(c, 16, 140, 374, 308, ["rgba(245,184,77,.10)", "rgba(245,184,77,.03)"]) });
+    uT(c, "PROVISIONAL", 34, 170, 10.5, { mono: true, tr: 0.16, color: UIC.gold });
+    uT(c, "Recorded as you take part", 34, 198, 17, { w: 600 });
+    uWrap(c, "Not transferable or redeemable coins yet. Claims open with the post-quantum mainnet.", 34, 222, 12.5, 322, 17, { color: UIC.sub });
+    c.strokeStyle = "rgba(255,255,255,.12)"; c.lineWidth = 2; c.beginPath(); c.moveTo(44, 280); c.lineTo(252, 280); c.stroke();
+    [["Recorded", UIC.lilac, true], ["Verified", UIC.gold, false], ["Claim at mainnet", UIC.green, false]].forEach(([t, col, done], i) => {
+      const x = 44 + i * 104;
+      c.beginPath(); c.arc(x, 280, 6, 0, Math.PI * 2); c.fillStyle = done ? col : "#140C26"; c.fill(); c.strokeStyle = col; c.lineWidth = 1.6; c.stroke();
+      uT(c, t, x + 12, 284, 11.5, { w: 500, color: done ? UIC.text : UIC.sub });
+    });
+    uCard(c, 16, 322, 358, 150, 22);
+    const rows = [["Participation rewards", "Recorded", UIC.green], ["Pending verification", "1 session", UIC.gold], ["Eligible allocation", "Not set yet", UIC.sub], ["Next daily session", "in 6 h", UIC.text]];
+    rows.forEach(([l, val, col], i) => {
+      const ry = 354 + i * 32;
+      uT(c, l, 34, ry, 13, { w: 500 });
+      uT(c, val, 356, ry, 12.5, { w: 600, color: col, align: "right" });
+      if (i < rows.length - 1) { c.strokeStyle = "rgba(255,255,255,.07)"; c.lineWidth = 1; c.beginPath(); c.moveTo(34, ry + 13); c.lineTo(356, ry + 13); c.stroke(); }
+    });
+    uCard(c, 16, 486, 358, 92, 22);
+    uT(c, "REWARD ACTIVITY", 34, 512, 10.5, { mono: true, tr: 0.16, color: UIC.sub });
+    uT(c, "See all", 356, 512, 12, { w: 600, color: UIC.lilac, align: "right" });
+    [["Daily session · today", "Pending", UIC.gold], ["Daily session · yesterday", "Recorded", UIC.green]].forEach(([l, v, col], i) => {
+      const ry = 540 + i * 24;
+      c.beginPath(); c.arc(38, ry - 4, 3.5, 0, Math.PI * 2); c.fillStyle = col; c.fill();
+      uT(c, l, 50, ry, 12.5, { w: 500 });
+      uT(c, v, 356, ry, 12, { w: 600, color: col, align: "right" });
+    });
+    uT(c, "Community", 24, 614, 17, { w: 600 });
+    uT(c, "See all", 366, 614, 12.5, { w: 600, color: UIC.lilac, align: "right" });
+    const circles = [["New Alkers", "Questions, games and daily tips", ["NA", "KA", "TE"], "#8F78FF"]];
+    let y = 630;
     circles.forEach(([n, d, av, col]) => {
       uCard(c, 16, y, 358, 82, 20);
       av.forEach((a, i) => {
         const ax = 46 + i * 22;
         c.beginPath(); c.arc(ax, y + 41, 17, 0, Math.PI * 2); c.fillStyle = i === 0 ? col : i === 1 ? "#4A3A8C" : "#2C2052"; c.fill();
         c.strokeStyle = "#140C26"; c.lineWidth = 3; c.stroke();
-        uT(c, a, ax, y + 45.5, 11, { w: 600, align: "center", color: i === 0 && col === UIC.gold ? "#1C1030" : "#FFFFFF" });
+        uT(c, a, ax, y + 45.5, 11, { w: 600, align: "center", color: "#FFFFFF" });
       });
       uT(c, n, 112, y + 37, 15.5, { w: 600 });
       uT(c, d, 112, y + 58, 12, { color: UIC.sub });
       uIcon(c, "chev", 352, y + 41, 16, UIC.sub, 1.8);
       y += 94;
     });
-    uTabs(c, H, "network");
+    uTabs(c, H, "rewards");
     uHomeBar(c, H);
   },
 };

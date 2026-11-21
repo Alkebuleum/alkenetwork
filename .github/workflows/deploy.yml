@@ -25,6 +25,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          # Set the repository variable SHOW_LIVE to 1 (GitHub → Settings → Secrets and variables →
+          # Actions → Variables) to show the Live global activity section.
+          VITE_SHOW_LIVE: ${{ vars.SHOW_LIVE }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
