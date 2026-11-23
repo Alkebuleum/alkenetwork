@@ -1,0 +1,20 @@
+ALKÉ NETWORK · COLOURS
+
+Night        #0B0717   main background
+Panel        #160E2C   cards, second background
+Ivory        #F7F2E8   main text, light backgrounds
+Mist         #BDB6CC   secondary text
+ALKÉ Violet  #5E3AFF   primary brand colour
+Lilac        #A58BFF   accents on dark backgrounds
+Fuel Gold    #F5B84D   calls to action, key numbers
+Gold Ink     #1C1030   text on gold
+
+GRADIENTS (where HeyGen allows them)
+Logo tile     #7A5CFF -> #5A3AEA -> #3A1FB8   (logo only)
+Gold button   #FFDB8E -> #F7C15C -> #EBA33B   (top to bottom)
+
+PAIRINGS
+- Ivory text on Night for most scenes.
+- Gold Ink text on Fuel Gold for buttons and calls to action.
+- Lilac for highlighted words on dark backgrounds.
+- ALKÉ Violet for shapes and accents, not for long text on Night.

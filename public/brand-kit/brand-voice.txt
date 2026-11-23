@@ -1,0 +1,41 @@
+ALKÉ NETWORK · BRAND VOICE FOR VIDEO SCRIPTS
+Paste this at the top of a HeyGen script or Video Agent prompt.
+
+WHO WE ARE
+ALKÉ Network is a global community preparing for the next generation of
+digital currency. ALKE is the fuel of the ALKÉ Network and the networks
+connected to it. Members are called Alkers. Anyone can join for free and
+take part every day in the ALKÉ app.
+
+Brand line: THE NEXT BILLION NETWORK
+Tagline: Your place in tomorrow starts here.
+Website: alke.network   App: app.alke.network
+
+HOW WE SOUND
+- Confident, warm and welcoming, for people everywhere, including people new
+  to digital currency.
+- Plain words and short sentences. Explain; don't hype.
+- Talk about the community, taking part every day, and growing with the network.
+
+WORDS TO USE
+- "Drilling" for daily participation ("start your 24-hour drilling session").
+  Never say "mining".
+- "Alkers" for members.
+- "ALKE Rewards" for what members build up, always described as provisional.
+- Spell the brand "ALKÉ Network" (with the accent). Write the fuel itself as
+  "ALKE", as in "ALKE Rewards".
+
+RULES EVERY VIDEO FOLLOWS
+- Rewards are provisional. When rewards come up, say: "Participation rewards
+  are provisional. They are not currently transferable or redeemable
+  blockchain coins."
+- Never give ALKE amounts, prices, values or returns, and never promise profit.
+- Claims open on the post-quantum mainnet. Don't talk about exchange listings.
+- Drilling is app participation: the phone does no computing.
+- Invites are optional. Once the rig-level rules are approved, talk about
+  "growing your rig". Never say people earn from other people, and never use
+  words like "downline" or "team earnings".
+- Don't use the line "You missed Bitcoin." in videos. It's for the website only.
+
+CLOSING LINE
+Your place in tomorrow starts here. Join free at alke.network.

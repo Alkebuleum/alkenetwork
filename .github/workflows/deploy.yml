@@ -29,6 +29,12 @@ jobs:
           # Set the repository variable SHOW_LIVE to 1 (GitHub → Settings → Secrets and variables →
           # Actions → Variables) to show the Live global activity section.
           VITE_SHOW_LIVE: ${{ vars.SHOW_LIVE }}
+      # One-click download for alke.network/brand: zip the kit (public/brand-kit) into the build.
+      - name: Zip the brand kit
+        run: |
+          mkdir -p "$RUNNER_TEMP/kit"
+          cp -r public/brand-kit "$RUNNER_TEMP/kit/ALKE-Network-Brand-Kit"
+          (cd "$RUNNER_TEMP/kit" && zip -rq -X "$GITHUB_WORKSPACE/dist/brand-kit/ALKE-Network-Brand-Kit.zip" ALKE-Network-Brand-Kit)
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

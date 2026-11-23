@@ -1,0 +1,83 @@
+ALKÉ NETWORK · BRAND KIT FOR HEYGEN
+====================================
+
+HeyGen calls a brand kit a "Brand System". It needs a paid HeyGen plan
+(Creator, Pro, Business or Enterprise).
+
+
+1. CREATE THE BRAND SYSTEM
+   In HeyGen, click Brand in the left panel, then Brand Systems, then Add new.
+   Pick any template, choose Customize, and replace everything in it with the
+   files in this kit.
+   Skip "Import from your website" until the new alke.network design is live:
+   the import copies whatever is on the site today.
+
+
+2. LOGOS TAB
+   Primary logo:
+     01-logos/alke-logo-horizontal-dark-bg.png
+
+   Alternate logos:
+     alke-logo-horizontal-light-bg.png   for light backgrounds
+     alke-logo-stacked-dark-bg.png       square and vertical videos
+     alke-logo-stacked-light-bg.png      square and vertical videos, light backgrounds
+     alke-icon-tile.png                  corner logo
+     alke-icon-white.png                 one-colour watermark on dark video
+     alke-icon-violet.png                one-colour mark on light video
+
+   The svg folder holds vector masters for designers. HeyGen takes PNG.
+
+
+3. COLOURS (Brand Spec)
+   Add these hex codes:
+     Night        #0B0717   main background
+     Panel        #160E2C   cards, second background
+     Ivory        #F7F2E8   main text, light backgrounds
+     Mist         #BDB6CC   secondary text
+     ALKÉ Violet  #5E3AFF   primary brand colour
+     Lilac        #A58BFF   accents on dark backgrounds
+     Fuel Gold    #F5B84D   calls to action, key numbers
+     Gold Ink     #1C1030   text on gold
+   More detail in 03-colours/colours.txt.
+
+
+4. FONTS (Brand Spec)
+   Upload these from 02-fonts, then set:
+     Display     Space Grotesk Bold       SpaceGrotesk-Bold.ttf
+     Heading     Space Grotesk Bold       SpaceGrotesk-Bold.ttf
+     Heading 2   Space Grotesk SemiBold   SpaceGrotesk-SemiBold.ttf
+     Body        Inter Medium             Inter-Medium.ttf
+     Caption     Inter SemiBold           Inter-SemiBold.ttf
+   The other weights are there if you want them. JetBrains Mono is for small
+   labels and numbers in text you add yourself.
+   All three fonts are free to use under the SIL Open Font License; the
+   licence files are in the same folder.
+
+
+5. ASSETS TAB
+   Upload:
+     04-backgrounds   four backgrounds, each in 16:9 and 9:16
+     05-end-cards     closing card in 16:9 and 9:16
+     06-logo-intro    3.5-second logo intro in 16:9 and 9:16 (MP4, no sound)
+
+
+6. BRAND GLOSSARY
+   Brand > Brand Glossary. Add the terms in glossary.txt, and fill in how
+   ALKÉ is said before you use it.
+   HeyGen doesn't apply the glossary on its own: select it on every new video
+   and every translation.
+
+
+7. AVATARS TAB
+   Add the avatar that will present ALKÉ videos. This kit doesn't include one.
+
+
+8. EVERY TIME YOU MAKE A VIDEO
+   - Choose the ALKÉ Network Brand System.
+   - Select the glossary.
+   - Paste brand-voice.txt at the top of your script or Video Agent prompt,
+     so the script follows the brand rules.
+   - End on the end card, or open with the logo intro.
+
+
+ALKE-brand-sheet.png is a one-page summary of the logo, colours, fonts and voice.

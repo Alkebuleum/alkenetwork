@@ -1,0 +1,20 @@
+ALKÉ NETWORK · BRAND GLOSSARY FOR HEYGEN
+Add these under Brand > Brand Glossary, then select the glossary on every
+new video and translation.
+
+DON'T TRANSLATE (keep exactly as written in every language)
+  ALKÉ
+  ALKÉ Network
+  ALKE
+  ALKE Rewards
+  Alker
+  Alkers
+  alke.network
+  app.alke.network
+  THE NEXT BILLION NETWORK   (optional: keeps the brand line in English everywhere)
+
+PRONUNCIATION (fill these in before you use them)
+Write each word the way it sounds, then preview the voice in HeyGen to check.
+  ALKÉ     ->  ____________
+  ALKE     ->  ____________
+  Alkers   ->  ____________
