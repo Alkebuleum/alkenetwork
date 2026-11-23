@@ -1,0 +1,14 @@
+KEDO · COLOURS
+
+Plate      #0B0F14   the face plate
+Lit dot    #F4F0E8   eyes, mouth, the word KEDO
+Unlit dot  #1E242E   unlit dots on the plate
+
+Status light (top-right corner of the plate)
+Steady     #C46A3B   copper: all steady, or working (pulsing)
+Alert      #F2B544   amber: something needs attention (pulsing)
+Halted     #E5483F   red: paused by Haltline, with the pause bars
+Offline    #4A515C   grey: Kedo is offline, the face goes dark
+
+Kedo's palette is its own. Kedo appears alongside ALKÉ Network, but don't recolour
+Kedo in ALKÉ Violet or Fuel Gold.

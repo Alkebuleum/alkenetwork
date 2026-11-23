@@ -55,7 +55,7 @@
 .bk-swatches button { all: unset; box-sizing: border-box; display: flex; flex-direction: column; width: 100%; cursor: pointer; border-radius: 18px; border: 1px solid var(--line); background: var(--panel); overflow: hidden; transition: border-color .15s ease, transform .15s ease; }
 .bk-swatches button:hover { border-color: var(--line-2); transform: translateY(-2px); }
 .bk-swatches button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.bk-swatches .chip { display: block; height: 104px; background: var(--c); border-bottom: 1px solid var(--line); }
+.bk-swatches .sw { display: block; height: 104px; background: var(--c); border-bottom: 1px solid var(--line); }
 .bk-swatches b { padding: 14px 16px 0; font-size: 16px; }
 .bk-swatches code { padding: 2px 16px 0; font-family: var(--mono); font-size: 14px; color: var(--text); }
 .bk-swatches small { padding: 4px 16px 16px; font-size: 13.5px; color: var(--muted); }
@@ -114,3 +114,74 @@
 /* copy toast */
 .bk-toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 70; background: var(--text); color: var(--bg); font-weight: 600; font-size: 15px; padding: 10px 18px; border-radius: 999px; transition: opacity .2s ease, transform .2s ease; }
 .bk-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* kedo */
+@keyframes kdBlink { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.15); } }
+@keyframes kdA { 0%, 49% { fill: #F4F0E8; } 50%, 100% { fill: #1E242E; } }
+@keyframes kdB { 0%, 49% { fill: #1E242E; } 50%, 100% { fill: #F4F0E8; } }
+@keyframes kdTw { 0%, 100% { opacity: 1; } 50% { opacity: .15; } }
+@keyframes kdWave { 0%, 100% { opacity: .25; } 50% { opacity: 1; } }
+@keyframes kdPip { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.kedo svg circle { transform-box: fill-box; transform-origin: center; }
+.kd-blink { animation: kdBlink 4.4s ease-in-out infinite; }
+.kd-a { animation: kdA .6s linear infinite; }
+.kd-b { animation: kdB .6s linear infinite; }
+.kd-tw { animation: kdTw 1.4s ease-in-out infinite; }
+.kd-wave { animation: kdWave 1.2s ease-in-out infinite; }
+.kd-pip { animation: kdPip 1.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .kd-blink, .kd-a, .kd-b, .kd-tw, .kd-wave, .kd-pip { animation: none; } }
+
+.kedo { background: radial-gradient(60% 50% at 20% 0%, rgba(196, 106, 59, .12), transparent 70%); }
+.kd-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; }
+.kd-player { border: 1px solid #232A35; background: #131820; border-radius: 22px; padding: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; }
+.kd-stage { width: min(320px, 100%); aspect-ratio: 1; }
+.kd-stage svg, .kd-faces svg, .kd-states svg, .kd-gridview svg { display: block; width: 100%; height: auto; }
+.kd-say { display: grid; gap: 4px; min-height: 64px; }
+.kd-say b { font-size: 18px; }
+.kd-say span { color: var(--muted); font-size: 16px; }
+.kd-lockups { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.kd-lockups .bk-card:last-child { grid-column: span 2; }
+.kd-lockups .bk-stage { aspect-ratio: auto; min-height: 150px; }
+.kd-lockups .bk-stage img { max-width: 92%; }
+.bk-stage.kd-dark { background: #0E1218; }
+.bk-stage.kd-light { background: #F4F0E8; }
+.kd-face-row { gap: 28px; }
+.kd-face-row img { width: 96px; }
+.kd-face-row img.kd-tiny { width: 24px; }
+@media (max-width: 960px) { .kd-hero { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .kd-lockups { grid-template-columns: minmax(0, 1fr); } .kd-lockups .bk-card:last-child { grid-column: span 1; } }
+
+.kd-sub { margin-top: 44px; }
+.kd-faces { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.kd-faces li { border: 1px solid var(--line); background: var(--panel); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.kd-faces b { font-size: 15px; margin-top: 4px; }
+.kd-faces span { font-size: 13px; color: var(--muted); line-height: 1.4; flex: 1; }
+.kd-faces .bk-dl a { padding: 4px 8px; font-size: 11px; }
+.kd-pick { all: unset; cursor: pointer; border-radius: 22%; display: block; }
+.kd-pick:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.kd-pick:hover svg { filter: brightness(1.25); }
+@media (max-width: 1100px) { .kd-faces { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .kd-faces { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.kd-states { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.kd-states li { border: 1px solid var(--line); background: var(--panel); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.kd-states li > svg { width: 96px; }
+.kd-states li > div { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.kd-states code { font-family: var(--mono); font-size: 12px; color: var(--lilac); }
+.kd-states span { font-size: 13.5px; color: var(--muted); line-height: 1.4; flex: 1; margin-bottom: 6px; }
+@media (max-width: 1100px) { .kd-states { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .kd-states { grid-template-columns: minmax(0, 1fr); } .kd-states li { flex-direction: row; align-items: flex-start; } .kd-states li > svg { width: 72px; flex: none; } }
+
+.kd-build { margin-top: 44px; }
+.kd-build h3 { color: var(--text); }
+.kd-construct { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+.kd-gridview { width: 140px; flex: none; }
+.kd-spec { list-style: none; padding: 0 !important; font-family: var(--mono); font-size: 13px; }
+.kd-colours { list-style: none; margin: 0 0 14px; padding: 0 !important; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 14px !important; }
+.kd-colours button { all: unset; cursor: pointer; display: grid; grid-template-columns: 26px 1fr; column-gap: 10px; align-items: center; border-radius: 10px; padding: 4px; }
+.kd-colours button:hover { background: rgba(255, 255, 255, .04); }
+.kd-colours button:focus-visible { outline: 2px solid var(--gold); }
+.kd-colours span { grid-row: span 2; width: 26px; height: 26px; border-radius: 50%; background: var(--c); border: 1px solid rgba(255, 255, 255, .16); }
+.kd-colours b { font-size: 14.5px; color: var(--text); }
+.kd-colours code { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.brandkit .bk-files code { font-family: var(--mono); font-size: 13px; color: var(--text); }
