@@ -3,7 +3,9 @@
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap; src: url(/brand-kit/02-fonts/Inter-SemiBold.ttf) format("truetype"); }
 
 .brandkit a:not(.btn):not(.lockup) { color: var(--lilac); }
-.brandkit .menu a, .brandkit .foot-bottom a { color: inherit; }
+.brandkit .menu a:not(.btn) { color: var(--muted); }
+.brandkit .menu a:not(.btn):hover { color: var(--text); }
+.brandkit .foot-bottom a:not(.btn) { color: inherit; }
 
 /* intro */
 .bk-hero { padding-block: clamp(40px, 7vw, 96px) clamp(48px, 7vw, 96px); background: radial-gradient(80% 70% at 70% 0%, rgba(94, 58, 255, .28), transparent 70%); }

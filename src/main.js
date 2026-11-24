@@ -259,3 +259,24 @@ if (todos.length) console.info("ALKÉ site: confirm before launch:\n- " + todos.
 window.addEventListener("pageshow", (e) => {
   if (e.persisted) document.querySelectorAll(".join-msg").forEach((m) => { m.className = "join-msg"; m.textContent = ""; });
 });
+
+/* ---------- The ALKÉ series ----------
+   Each episode plays inline when tapped (the files live with the app). */
+const VIDEOS = APP + "/videos/";
+document.querySelectorAll("button[data-ep]").forEach((b) => {
+  b.addEventListener("click", () => {
+    const n = b.dataset.ep;
+    const v = document.createElement("video");
+    v.className = "ep-video";
+    v.src = `${VIDEOS}alke-ep${n}.mp4`;
+    v.poster = b.querySelector(".ep-thumb img").getAttribute("src");
+    v.controls = true;
+    v.playsInline = true;
+    v.setAttribute("aria-label", b.getAttribute("aria-label").replace(/^Play /, ""));
+    const box = document.createElement("div");
+    box.className = "ep playing";
+    box.append(v, b.querySelector(".ep-meta"));
+    b.replaceWith(box);
+    v.play().catch(() => {});
+  });
+});

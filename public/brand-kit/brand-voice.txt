@@ -20,6 +20,8 @@ HOW WE SOUND
 WORDS TO USE
 - "Drilling" for daily participation ("start your 24-hour drilling session").
   Never say "mining".
+- The drill's own words: "rig" (it grows as invited friends drill), "vein"
+  (struck by tapping the rig: a boost to the day's share) and "depth".
 - "Alkers" for members.
 - "ALKE Rewards" for what members build up, always described as provisional.
 - Spell the brand "ALKÉ Network" (with the accent). Write the fuel itself as
@@ -29,7 +31,9 @@ RULES EVERY VIDEO FOLLOWS
 - Rewards are provisional. When rewards come up, say: "Participation rewards
   are provisional. They are not currently transferable or redeemable
   blockchain coins."
-- Never give ALKE amounts, prices, values or returns, and never promise profit.
+- Never say what any one member will get: no personal ALKE amounts, prices,
+  values or returns, and never promise profit. Published network rules, such
+  as the size of the daily Genesis pool, are fine.
 - Claims open on the post-quantum mainnet. Don't talk about exchange listings.
 - Drilling is app participation: the phone does no computing.
 - Invites are optional. Once the rig-level rules are approved, talk about

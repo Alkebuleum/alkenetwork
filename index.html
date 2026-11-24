@@ -41,6 +41,7 @@
           <b>ALKÉ NETWORK</b>
         </a>
         <nav class="menu" id="menu" aria-label="Sections">
+          <a href="#series">Series</a>
           <a href="#how">How It Works</a>
           <a href="#rewards">Rewards</a>
           <a href="#community">Community</a>
@@ -71,15 +72,15 @@
             <p class="invited" hidden></p>
                 <label class="sr" for="emailTop">Email address</label>
                 <input id="emailTop" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required>
-                <button class="btn primary" type="submit">Claim My Free ALKE
+                <button class="btn primary" type="submit">Start Drilling Free
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
                 <p class="join-msg" role="status" aria-live="polite"></p>
               </form>
               <p class="trust"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6EE7B7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7"/></svg>No payment required. No crypto wallet needed to get started.</p>
-              <p class="hero-links"><a class="textlink" href="#how">How It Works</a><span class="small">Rewards are provisional until the post-quantum mainnet opens claims.</span></p>
+              <p class="hero-links"><a class="textlink" href="#series">Watch the 5-minute series</a><span class="small">Rewards are provisional until the post-quantum mainnet opens claims.</span></p>
             </div>
             <div class="hero-art">
-              <canvas data-phone="hero" data-src="" data-src-back="" role="img" aria-label="Two phones showing the ALKÉ app: the welcome screen in front and an active daily drill behind it"></canvas>
+              <canvas data-phone="hero" data-src="/shots/app-drill.jpg" data-src-back="/shots/app-home.jpg" role="img" aria-label="Two phones showing the ALKÉ app: in front, the Drill tab with a rig boring down through rock and ALKE Rewards climbing; behind it, Home with your ALKE to date and today's drill"></canvas>
             </div>
           </div>
         </div>
@@ -109,6 +110,36 @@
             </ul>
             <p class="feed-note">The feed shows verified, opt-in activity only. Until it's connected, these lines show its layout. They are examples, not real events.</p>
           </div>
+        </div>
+      </section>
+
+      <section class="band" id="series" aria-labelledby="seriesTitle">
+        <div class="wrap">
+          <div class="band-head">
+            <p class="eyebrow">The ALKÉ series</p>
+            <h2 class="display" id="seriesTitle">Five minutes. <span class="goldtext">Three episodes.</span></h2>
+            <p class="lede">The quickest way to see what ALKÉ is, how a drill works and how deep you can go. Captions are on.</p>
+          </div>
+          <ol class="series">
+            <li>
+              <button type="button" class="ep" data-ep="1" aria-label="Play episode 1: The ALKÉ Story, 1:56">
+                <span class="ep-thumb"><img src="/series/alke-ep1.jpg" alt="" width="640" height="360" loading="lazy"><span class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="ep-len">1:56</span></span>
+                <span class="ep-meta"><small>EPISODE 1</small><b>The ALKÉ Story</b><span>The Next Billion Network, powered by Kedo</span></span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="ep" data-ep="2" aria-label="Play episode 2: Your First Day on ALKÉ, 1:19">
+                <span class="ep-thumb"><img src="/series/alke-ep2.jpg" alt="" width="640" height="360" loading="lazy"><span class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="ep-len">1:19</span></span>
+                <span class="ep-meta"><small>EPISODE 2</small><b>Your First Day on ALKÉ</b><span>Sign up, drill once, and you're in</span></span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="ep" data-ep="3" aria-label="Play episode 3: How Deep Can You Drill?, 1:29">
+                <span class="ep-thumb"><img src="/series/alke-ep3.jpg" alt="" width="640" height="360" loading="lazy"><span class="ep-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span><span class="ep-len">1:29</span></span>
+                <span class="ep-meta"><small>EPISODE 3</small><b>How Deep Can You Drill?</b><span>Drilling, depth, veins and your rig</span></span>
+              </button>
+            </li>
+          </ol>
         </div>
       </section>
 
@@ -178,7 +209,7 @@
               <li class="way main">
                 <span class="chip gold">Main activity</span>
                 <h3><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Your daily ALKE drill</h3>
-                <p>One tap starts a 24-hour drill. When it ends, start the next one, and set a reminder if you like. It's app participation: your phone does no computing.</p>
+                <p>One tap starts a 24-hour drill. While it runs, tap the rig to build pressure: full pressure strikes a vein and boosts your share of the day's pool, up to 10 veins a day. It's app participation: your phone does no computing.</p>
               </li>
               <li class="way">
                 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 20v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>Community</h3>
@@ -194,7 +225,7 @@
               </li>
               <li class="way">
                 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 3v12M7 8l5-5 5 5"/></svg>Invite friends</h3>
-                <p>Share your own invite link. Referral rewards count only when invited friends actively take part, under published, capped rules. Inviting is optional.</p>
+                <p>Share your invite link. Every 3 friends who drill actively grow your rig: +25% to your share of the daily pool, up to ×2. Invite 10 to become a Founder. Inviting is optional.</p>
               </li>
               <li class="way">
                 <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>Governance</h3>
@@ -202,7 +233,7 @@
               </li>
             </ul>
             <div class="phone-col">
-              <canvas data-phone="invite" data-src="" role="img" aria-label="The ALKÉ app's Rewards screen: rewards recorded, pending verification, eligible allocation not set yet, and a note that rewards are provisional until mainnet"></canvas>
+              <canvas data-phone="invite" data-src="/shots/app-network.jpg" role="img" aria-label="The ALKÉ app's Network screen: Invite 10 friends, become a Founder, with share buttons for WhatsApp, Telegram, X and Facebook, and how invites grow your rig"></canvas>
             </div>
           </div>
           <div class="note">
@@ -263,9 +294,9 @@
           <p class="road-todo"><span class="todo" data-todo="Confirm what a member must achieve to join Founding Alkers and Pioneer Alkers">Group requirements to confirm before launch</span></p>
           <div class="duo">
             <div class="panel">
-              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#A58BFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12.5a7.5 7.5 0 0 1-10.8 6.7L4 20.5l1.4-4.6A7.5 7.5 0 1 1 20 12.5z"/><path d="M12.5 8.6l3 1.7v3.4l-3 1.7-3-1.7v-3.4z"/></svg>
-              <h3>Meet Puvv, your guide</h3>
-              <p>Puvv welcomes new members, explains rewards in plain words and points you to the right place in the app. Always optional, and never in charge of rewards or the network.</p>
+              <img src="/brand-kit/07-kedo/svg/kedo-expression-hello.svg" width="56" height="56" alt="" class="kedo-face" />
+              <h3>Meet Kedo, the network's AI operator</h3>
+              <p>Kedo welcomes new members, explains rewards in plain words and points you to the right place in the app. Kedo works under published rules and human oversight, and never decides anyone's rewards on its own.</p>
             </div>
             <div class="panel">
               <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#F5B84D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/></svg>
@@ -302,7 +333,7 @@
           </ul>
           <ol class="road">
             <li><span class="chip ok"><i></i>Live</span><div><h3>Daily participation</h3><p>24-hour drills and reward records at app.alke.network.</p></div></li>
-            <li><span class="chip gold"><i></i>In development</span><div><h3>New onboarding and rewards dashboard</h3><p>Faster sign-up, a clearer view of provisional rewards, and referral tracking.</p></div></li>
+            <li><span class="chip ok"><i></i>Live</span><div><h3>New onboarding and rewards dashboard</h3><p>Faster sign-up, a home screen with your provisional rewards, and invite tracking.</p></div></li>
             <li><span class="chip gold"><i></i>In development</span><div><h3>New Alkers community in the app</h3><p>Community spaces inside ALKÉ, with moderation, blocking and reporting built in.</p></div></li>
             <li><span class="chip gold"><i></i>In development</span><div><h3>Post-quantum proof-of-work network</h3><p>Set out in the draft whitepaper, edition 4.0, and subject to audits and approvals.</p></div></li>
             <li><span class="chip"><i></i>Planned</span><div><h3>Native mobile apps</h3><p>The same account, rewards and invites on web and mobile.</p></div></li>
@@ -384,7 +415,7 @@
             <p class="invited" hidden></p>
             <label class="sr" for="emailBottom">Email address</label>
             <input id="emailBottom" type="email" inputmode="email" autocomplete="email" placeholder="Email address" required>
-            <button class="btn primary" type="submit">Claim My Free ALKE
+            <button class="btn primary" type="submit">Start Drilling Free
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <p class="join-msg" role="status" aria-live="polite"></p>
           </form>
@@ -417,6 +448,7 @@
           <div>
             <h4>Explore</h4>
             <ul class="foot-list">
+              <li><a href="#series">Series</a></li>
               <li><a href="#how">How It Works</a></li>
               <li><a href="#rewards">Rewards</a></li>
               <li><a href="#community">Community</a></li>
@@ -435,7 +467,7 @@
               <li><a href="#security" data-todo="Terms of use link">Terms of use</a></li>
               <li><a href="#security" data-todo="Privacy policy link">Privacy policy</a></li>
               <li><a href="#holders">Existing Holder Information</a></li>
-              <li><a href="#holders" data-todo="Existing network documentation (move the current technical pages here)">Existing network documentation</a></li>
+              <li><a href="https://alkebuleum.org/whitepaper.html" target="_blank" rel="noopener">Existing network documentation</a></li>
               <li><a href="/brand/">Brand kit</a></li>
             </ul>
           </div>
