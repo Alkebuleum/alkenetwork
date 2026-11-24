@@ -44,6 +44,62 @@ if (invite) {
 if (import.meta.env.VITE_SHOW_LIVE === "1") document.getElementById("live")?.removeAttribute("hidden");
 
 /* App links (Log In) follow VITE_APP_URL so a local preview opens the local app. */
+/* ---------- Returning members ----------
+   While a member is signed in on the app, it sets alke_member (first name
+   only, no email or token) on .alke.network. Then the join forms turn into
+   "Welcome back" with one tap into the app, and Log In says Open app.
+   "Not you?" brings the form back. Without the cookie, the last email typed
+   on this device is filled in, so nobody types it twice. */
+const LAST_EMAIL = "alke.lastEmail";
+const memberName = (() => {
+  const m = document.cookie.match(/(?:^|;\s*)alke_member=([^;]*)/);
+  if (!m) return "";
+  try { return decodeURIComponent(m[1]).trim() || "Alker"; } catch { return "Alker"; }
+})();
+const lastEmail = { get() { try { return localStorage.getItem(LAST_EMAIL) || ""; } catch { return ""; } }, set(v) { try { localStorage.setItem(LAST_EMAIL, v); } catch { /* private mode */ } } };
+
+if (memberName) {
+  document.querySelectorAll("a[data-app='/sign-in']").forEach((a) => { a.dataset.app = "/"; a.textContent = "Open app"; });
+  document.querySelectorAll(".invited").forEach((p) => { p.hidden = true; });
+  // The header's Join Free becomes Open ALKÉ, straight into the app.
+  document.querySelectorAll(".nav-cta a.btn.primary[href='#join']").forEach((a) => { a.removeAttribute("href"); a.dataset.app = "/"; a.textContent = "Open ALKÉ"; });
+  document.querySelectorAll("form.join").forEach((form) => {
+    const card = document.createElement("div");
+    card.className = "welcome-back";
+    const hi = document.createElement("p");
+    hi.className = "wb-hi";
+    hi.append("Welcome back, ");
+    const b = document.createElement("b");
+    b.textContent = memberName;
+    hi.append(b, ".");
+    const sub = document.createElement("p");
+    sub.className = "wb-sub";
+    sub.textContent = "You're signed in to the ALKÉ app on this device. Your drill is one tap away.";
+    const acts = document.createElement("div");
+    acts.className = "wb-acts";
+    const open = document.createElement("a");
+    open.className = "btn primary";
+    open.href = APP + "/";
+    open.innerHTML = 'Open ALKÉ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+    const not = document.createElement("button");
+    not.type = "button";
+    not.className = "wb-not";
+    not.textContent = "Not you? Use another email";
+    not.addEventListener("click", () => {
+      card.remove();
+      form.hidden = false;
+      form.querySelector("input[type=email]")?.focus();
+    });
+    acts.append(open, not);
+    card.append(hi, sub, acts);
+    form.hidden = true;
+    form.before(card);
+  });
+} else {
+  const last = lastEmail.get();
+  if (last) document.querySelectorAll("form.join input[type=email]").forEach((i) => { if (!i.value) i.value = last; });
+}
+
 document.querySelectorAll("a[data-app]").forEach((a) => { a.href = APP + a.dataset.app; });
 
 /* ---------- Join forms ----------
@@ -68,6 +124,7 @@ document.querySelectorAll("form.join").forEach((form) => {
       return;
     }
     input.removeAttribute("aria-invalid");
+    lastEmail.set(v);
     const hand = new URLSearchParams({ email: v });
     if (invite) hand.set("invite", invite);
     say("Opening the ALKÉ app…");

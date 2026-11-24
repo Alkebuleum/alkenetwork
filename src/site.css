@@ -304,3 +304,15 @@ main, footer { overflow-x: clip; }
 .invited { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin: 0 0 4px; padding: 10px 16px; border-radius: 16px; border: 1px solid rgba(245, 184, 77, .4); background: rgba(245, 184, 77, .08); color: var(--text); font-size: 15px; }
 .invited::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 .cta .invited { justify-content: center; }
+
+/* Returning members: "Welcome back" in place of the email form (src/main.js) */
+.welcome-back { margin-top: 26px; max-width: 560px; padding: 20px 22px; border-radius: 24px; border: 1px solid rgba(245, 184, 77, .3); background: radial-gradient(120% 90% at 100% 0%, rgba(245, 184, 77, .12), rgba(245, 184, 77, 0) 60%), rgba(255, 255, 255, .03); }
+.welcome-back .wb-hi { margin: 0; font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 600; letter-spacing: -.02em; }
+.welcome-back .wb-hi b { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.welcome-back .wb-sub { margin: 6px 0 0; color: var(--muted); font-size: 16px; }
+.welcome-back .wb-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 16px; }
+.welcome-back .btn { min-height: 56px; }
+.welcome-back .wb-not { border: 0; background: none; padding: 6px 0; color: var(--muted); font: inherit; font-size: 15px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.welcome-back .wb-not:hover { color: var(--text); }
+@media (max-width: 520px) { .welcome-back .btn { width: 100%; } }
+.join[hidden] { display: none; }

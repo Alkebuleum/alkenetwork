@@ -133,7 +133,7 @@ const SCR_W = 390;
 const SCREEN_OPTS = [
   ["welcome", "Welcome"],
   ["home", "Home (shows both games)"],
-  ["mining", "Daily session"],
+  ["mining", "Daily drill"],
   ["games", "Games tab (ALKÉ Hex and ALKÉ Rush)"],
   ["hex", "ALKÉ Hex board"],
   ["rush", "ALKÉ Rush run"],
@@ -543,7 +543,7 @@ const SCREEN_DRAW = {
     uT(c, "ALKÉ", 60, 88, 14, { display: true, w: 600, tr: 0.22 });
     uT(c, "Sign in", 360, 88, 15, { w: 600, color: UIC.lilac, align: "right" });
     uOrb(c, 200, 256, 118, 0.62, { orb: 0.66 });
-    uChip(c, 30, 136, "Daily sessions open", { dot: UIC.green, size: 12, h: 30, fill: "rgba(18,12,34,.85)" });
+    uChip(c, 30, 136, "Daily drilling open", { dot: UIC.green, size: 12, h: 30, fill: "rgba(18,12,34,.85)" });
     uChip(c, 372, 336, "New game · ALKÉ Rush", { icon: "games", iconColor: UIC.cyanHi, size: 12, h: 30, align: "right", fill: "rgba(18,12,34,.85)" });
     rr(c, 30, 398, 20, 5, 3); c.fillStyle = UIC.lilac; c.fill();
     c.beginPath(); c.arc(60, 400.5, 2.6, 0, Math.PI * 2); c.fillStyle = "rgba(185,179,198,.45)"; c.fill();
@@ -572,9 +572,9 @@ const SCREEN_DRAW = {
     uCard(c, 16, 124, 358, 198, 24, { fill: linGrad(c, 16, 124, 374, 322, ["rgba(110,80,255,.28)", "rgba(40,22,96,.35)"]), line: "rgba(165,139,255,.3)" });
     uT(c, "TODAY'S SESSION", 34, 156, 10.5, { mono: true, tr: 0.16, color: UIC.lilac });
     uT(c, "Ready for today's", 34, 190, 21, { w: 700 });
-    uT(c, "ALKE session?", 34, 217, 21, { w: 700 });
+    uT(c, "ALKE drill?", 34, 217, 21, { w: 700 });
     uChip(c, 34, 232, "12-day streak", { icon: "flame", iconColor: UIC.gold, color: UIC.gold, size: 12, h: 28, fill: "rgba(245,184,77,.1)", line: "rgba(245,184,77,.3)" });
-    uBtn(c, 34, 272, 178, 38, "Start Daily Session", { size: 14 });
+    uBtn(c, 34, 272, 178, 38, "Start Daily Drill", { size: 14 });
     uOrb(c, 296, 222, 62, 0, { orb: 0.7 });
     uCard(c, 16, 336, 358, 150, 22);
     uT(c, "YOUR ALKE REWARDS", 34, 366, 10.5, { mono: true, tr: 0.16, color: UIC.sub });
@@ -613,12 +613,12 @@ const SCREEN_DRAW = {
     const idle = an && an.phase === "idle";
     uBg(c, H, 195, 320);
     uStatus(c);
-    uT(c, "DAILY SESSION", 26, 90, 11, { mono: true, tr: 0.16, color: UIC.sub });
+    uT(c, "DAILY DRILL", 26, 90, 11, { mono: true, tr: 0.16, color: UIC.sub });
     c.beginPath(); c.arc(352, 84, 17, 0, Math.PI * 2); c.fillStyle = "rgba(255,255,255,.06)"; c.fill(); c.strokeStyle = UIC.line; c.lineWidth = 1; c.stroke();
     c.beginPath(); c.arc(352, 84, 9, 0, Math.PI * 2); c.strokeStyle = UIC.text; c.lineWidth = 1.4; c.stroke();
     uIcon(c, "info", 352, 85, 13, UIC.text, 1.6);
-    uT(c, idle ? "Ready when you are" : "Session active", 26, 126, 26, { w: 600 });
-    if (idle) uChip(c, 26, 142, "One tap starts today's session", { dot: UIC.lilac, size: 12, h: 30, fill: "rgba(165,139,255,.1)", line: "rgba(165,139,255,.3)" });
+    uT(c, idle ? "Ready when you are" : "Drilling now", 26, 126, 26, { w: 600 });
+    if (idle) uChip(c, 26, 142, "One tap starts today's drill", { dot: UIC.lilac, size: 12, h: 30, fill: "rgba(165,139,255,.1)", line: "rgba(165,139,255,.3)" });
     else uChip(c, 26, 142, "Recorded at 21:04 · runs for 24 hours", { dot: UIC.green, size: 12, h: 30, fill: "rgba(74,222,155,.08)", line: "rgba(74,222,155,.3)", color: "#CFF7E4" });
     const ring = an ? an.ring : 0.035;
     uOrb(c, 195, 318, 122, ring, { orb: 0.72 });
@@ -788,7 +788,7 @@ const SCREEN_DRAW = {
       uT(c, t, x + 12, 284, 11.5, { w: 500, color: done ? UIC.text : UIC.sub });
     });
     uCard(c, 16, 322, 358, 150, 22);
-    const rows = [["Participation rewards", "Recorded", UIC.green], ["Pending verification", "1 session", UIC.gold], ["Eligible allocation", "Not set yet", UIC.sub], ["Next daily session", "in 6 h", UIC.text]];
+    const rows = [["Participation rewards", "Recorded", UIC.green], ["Pending verification", "1 drill", UIC.gold], ["Eligible allocation", "Not set yet", UIC.sub], ["Next daily session", "in 6 h", UIC.text]];
     rows.forEach(([l, val, col], i) => {
       const ry = 354 + i * 32;
       uT(c, l, 34, ry, 13, { w: 500 });
@@ -798,7 +798,7 @@ const SCREEN_DRAW = {
     uCard(c, 16, 486, 358, 92, 22);
     uT(c, "REWARD ACTIVITY", 34, 512, 10.5, { mono: true, tr: 0.16, color: UIC.sub });
     uT(c, "See all", 356, 512, 12, { w: 600, color: UIC.lilac, align: "right" });
-    [["Daily session · today", "Pending", UIC.gold], ["Daily session · yesterday", "Recorded", UIC.green]].forEach(([l, v, col], i) => {
+    [["Daily drill · today", "Pending", UIC.gold], ["Daily drill · yesterday", "Recorded", UIC.green]].forEach(([l, v, col], i) => {
       const ry = 540 + i * 24;
       c.beginPath(); c.arc(38, ry - 4, 3.5, 0, Math.PI * 2); c.fillStyle = col; c.fill();
       uT(c, l, 50, ry, 12.5, { w: 500 });
