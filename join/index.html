@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      Invite links: alke.network/join/?ref=CODE. A real page (GitHub Pages
+      can't serve /join/CODE without a 404), so WhatsApp, Telegram, X and
+      Facebook read these tags and show a preview card. People are sent on
+      to the welcome page with the code (?invite=), where src/main.js keeps it
+      for sign-up. The card art: tools/og-join-card.html → public/og/join.png.
+      Wording rules: may, never will; no price or profit; no guarantees.
+    -->
+    <title>Drill ALKE for free · ALKÉ Network</title>
+    <meta name="description" content="You're invited to the ALKÉ Network. The Genesis allocation is open: drill your daily share of ALKE for free. No purchase, no wallet, no hardware. Post-quantum mainnet in development. No guarantees; not an investment." />
+    <meta name="theme-color" content="#08070D" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ALKÉ Network" />
+    <meta property="og:url" content="https://alke.network/join/" />
+    <meta property="og:title" content="⛏️ Drill ALKE for free · ALKÉ Network" />
+    <meta property="og:description" content="You're invited. The Genesis allocation is open: drill your daily share of ALKE for free. No purchase, no wallet. Post-quantum mainnet in development. No guarantees." />
+    <meta property="og:image" content="https://alke.network/og/join.png" />
+    <meta property="og:image:secure_url" content="https://alke.network/og/join.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ALKÉ Network: Drill ALKE for free. A drilling rig bores down through rock to gold ALKE deposits." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@alke_network" />
+    <meta name="twitter:title" content="⛏️ Drill ALKE for free · ALKÉ Network" />
+    <meta name="twitter:description" content="The Genesis allocation is open. Drill your daily share of ALKE for free. Post-quantum mainnet in development. No guarantees." />
+    <meta name="twitter:image" content="https://alke.network/og/join.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Hand the invite code to the welcome page, which keeps it for sign-up.
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var code = q.get("ref") || q.get("invite") || "";
+        location.replace("/" + (code ? "?invite=" + encodeURIComponent(code) : "") + location.hash);
+      })();
+    </script>
+    <style>
+      html, body { margin: 0; height: 100%; background: #08070D; color: #F7F5F2; font: 16px Inter, system-ui, sans-serif; }
+      body { display: grid; place-items: center; }
+      a { color: #C6B6FF; }
+    </style>
+  </head>
+  <body>
+    <noscript><p>You're invited to the ALKÉ Network. <a href="/">Continue to alke.network</a></p></noscript>
+  </body>
+</html>
